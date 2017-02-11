@@ -23,7 +23,6 @@ OS name: "mac os x", version: "10.12.2", arch: "x86_64", family: "mac"
 
 ```
 
-
 ---
 
 * Execute: mvn clean test
