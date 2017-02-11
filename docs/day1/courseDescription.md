@@ -1,6 +1,16 @@
 # Description (15')
 
-The target of this course is
+The target of this beginner's course is to learn a few of the basic techniques
+that allow you to survive when you start to develop a microservices architecture.
+
+The first day is focused in the development process, we will introduce the main characteristics of this kind
+of architecture and some basic techniques ATDD, TDD, docker and CI.
+
+In the second day we will deep dive in the microservices concepts, we will study how to split a monolith in multiple microservices and
+how to deploy and scale them in a modern PaaS platform like Rancher.
+
+The subject of the last day is continuous delivery, we will develop a deployment pipeline to put your
+microservices safely in production.
 
 ---
 
@@ -33,7 +43,7 @@ The target of this course is
   * Evolutionary Architecture (15')
   * Microservices (2h)
 * **Lunch 12:30 - 13:30**
-* Container platform (2:30h) 10:30 - 12:30
+* Container platform (2:30h) 13:30 - 16:00
   * Intro and presentation (30')
   * Scheduler (30')
   * Networking (30')
