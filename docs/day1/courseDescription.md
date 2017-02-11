@@ -50,6 +50,8 @@ microservices safely in production.
   * System discovery (30')
   * Load balancer (30')
 
+---
+
 ## Third day (Operation) (6h)
 
 * Continuous delivery (2:30h) 10:30 - 13:00
