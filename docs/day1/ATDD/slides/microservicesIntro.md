@@ -11,7 +11,7 @@ In this exercise we obtain the code for the course and check your laptop configu
 
 ---
 
-* Execute: mvn -version
+## Execute: mvn -version
 
 ```
 Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
@@ -25,7 +25,7 @@ OS name: "mac os x", version: "10.12.2", arch: "x86_64", family: "mac"
 
 ---
 
-* Execute: mvn clean test
+## Execute: mvn clean test
 
 ```
 [INFO] Surefire report directory: /Users/raimundoalegriallorente/Documents/workspace/hms/docs/day1/ATDD/code/target/surefire-reports

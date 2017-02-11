@@ -10,11 +10,18 @@
 
 # What is a user story?
 
- * It's a meeting point
- * Card
- * Conversation
- * Collaboration
- 
+## Definition
+
+A user story describes functionality that will be valuable to either a user or purchaser of a system or software.
+
+---
+
+## Characteristics
+
+* Card: A written description of the story used for planning and as a reminder.
+* Conversations: About the story that serve to flesh out the details of the story.
+* Tests that convey and document details and that can be used to determine when a story is complete
+
 ---
 
 # Characteristics of a good user story 
@@ -50,7 +57,6 @@
   * Gherkin
 
 ---
-
 
 # A simple example
   
@@ -113,9 +119,9 @@ Feature: Customer registration
 
 ## Books
 
+* User Stories Applied.For Agile Software Development. Mike Cohn
 * Specification by Example: How Successful Teams Deliver the Right Software. Gojko Adzic
 * The Cucumber Book: Behaviour-Driven Development for Testers and Developers. Matt Wynne, Aslak Hellesoy
-* Libro de mike cohn
 
 ## Links
 
