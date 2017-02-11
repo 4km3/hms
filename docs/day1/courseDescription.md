@@ -23,12 +23,19 @@ The target of this course is ...
        
 * Lunch 12:30 - 13:30     
 
+* Container platform (2:30h) 10:30 - 12:30
+  * Intro and presentation (30')
+  * Scheduler (30')
+  * Networking (30')
+  * system discovery (30')
+  * Load Balancer (30')
+
+# Third day (Operation) (6h) 
+
 * Continuous delivery (2:30h) 13:30 - 16:00
 
-# Third day (Operation) (6h)
- 
-*
+* Lunch 13:00 - 14:00
 
-* Lunch 12:30 - 13:30
+* Exercises, doubts and questions (1:30h) 14:00 - 16:30
 
    
