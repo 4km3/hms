@@ -1,10 +1,12 @@
-# Containers
+## Containers
 
-## Containers vs VMs
+###  Containers vs VMs
 
 A container is an isolated and limited context, that contain an app and all its dependencies to be executed. It’s possible due to different namespace in the OS kernel. Every container generates a new namespace.
 
 Every single container has a host OS shared kernel and his own resources of cpu, memory, network y storage.
+
+---
 
 Ideally, a container would execute only one app. It contains all needed (basic os and dependencies) to execute the app. Once the app has finished its execution, container would be stopped. Container apps could be “client" o “server”. 
 
@@ -12,6 +14,8 @@ Ideally, a container would execute only one app. It contains all needed (basic o
   * Container has near native performance. Almost NO overhead.
   * Containers have all software requirement and dependencies needed to run the app.
   * Containers are portable, versionable and immutable.
+
+---
 
 ## Docker
 
