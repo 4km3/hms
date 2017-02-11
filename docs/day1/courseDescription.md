@@ -1,6 +1,6 @@
 # Description (15')
 
-The target of this course is ...
+The target of this course is
 
 ---
 
@@ -8,7 +8,7 @@ The target of this course is ...
 
 * Raúl Sanchez (https://es.linkedin.com/in/raúl-sánchez-a496848)
 * Pancho Horrillo (https://es.linkedin.com/in/pancho-horrillo)
-* Rodrigo de la Fuente
+* Rodrigo de la Fuente (https://es.linkedin.com/in/rfuentehorrillo)
 * Raimundo Alegría (https://es.linkedin.com/in/raialegria)
 
 ---
