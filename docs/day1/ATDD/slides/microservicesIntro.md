@@ -23,6 +23,7 @@ OS name: "mac os x", version: "10.12.2", arch: "x86_64", family: "mac"
 
 ```
 
+
 ---
 
 * Execute: mvn clean test
@@ -46,3 +47,33 @@ OS name: "mac os x", version: "10.12.2", arch: "x86_64", family: "mac"
 
 ```
 
+---
+
+# Microservices
+
+## Definition
+
+Is an approach to developing a single application as a suite of small services,
+each running in its own process and communicating with lightweight mechanisms,
+often an HTTP resource API.
+
+---
+
+## Characteristics
+
+* Componentization via Services
+* Organized around Business Capabilities
+* Products not Projects
+* Smart endpoints and dumb pipes
+* Decentralized Governance
+* Decentralized Data Management
+* Infrastructure Automation
+* Design for failure
+* Evolutionary Design
+
+---
+
+# References
+
+* https://martinfowler.com/microservices/
+* https://martinfowler.com/articles/microservices.html

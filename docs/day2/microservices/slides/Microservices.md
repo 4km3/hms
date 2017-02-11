@@ -39,7 +39,6 @@
 * https://martinfowler.com/articles/microservices.html
 * Link a las arquitecturas disposables de fowler
 
-
 ## Talks
 
 * https://www.infoq.com/presentations/microservices-replaceability-consistency
