@@ -35,7 +35,7 @@ A user story describes functionality that will be valuable to either a user or p
 * Negotiable: Stories are not explicit contracts and should leave space for discussion.
 * Valuable: A story must deliver value to the stakeholders.
 * Estimable: You must always be able to estimate the size of a story.
-* Small: Stories should not be so big as to become impossible to plan/task/prioritize with a certain level of certainty.
+* Small: Stories should not be so big as to become impossible to plan/task/prioritize.
 * Testable: The story or its related description must provide the necessary information to make test development possible.
 
 ---
