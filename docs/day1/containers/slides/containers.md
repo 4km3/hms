@@ -120,7 +120,7 @@ A user wants a web server to publish static files.
 
 We could build a docker that copy the static files and executes an nginx server configured with them. 
 
-    * Option 1: Build only one docker.
+  * Option 1: Build only one docker.
 
 We generate a Dockerfile
 ```
@@ -145,7 +145,7 @@ Docker build will generate a unique, portable and reproducible version, web serv
 docker build -t MyServer:0.0.1 -f Dockerfile .
 ```
 
-    * Option 2: Build two docker.
+  * Option 2: Build two docker, one for the web server and other server + files
 
 We generate a Dockerfile only to nginx server
 ```
