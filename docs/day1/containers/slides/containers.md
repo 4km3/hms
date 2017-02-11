@@ -1,4 +1,4 @@
-# Containers (60' min)
+# Containers
 
 ## Containers vs VMs
 
@@ -204,6 +204,7 @@ Tell the user that set an alias in his computer and he could launch his server.
 alias MyServer='docker run -td MyServer:0.0.1'
 
 MyServer 
+```
 
 ### Practices
 
