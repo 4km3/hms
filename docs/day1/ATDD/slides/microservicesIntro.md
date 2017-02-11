@@ -72,7 +72,7 @@ often an HTTP resource API.
 
 ---
 
-# References
+## References
 
 * https://martinfowler.com/microservices/
 * https://martinfowler.com/articles/microservices.html
