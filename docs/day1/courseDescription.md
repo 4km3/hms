@@ -20,7 +20,9 @@ The target of this course is ...
 * **Break (15') 11:15 - 11:30**
 * TDD (60')   11:30 - 12:30
 * **Lunch (60') 12:30 - 13:30**
-* Docker (60') 13:30 - 14:30
+* Containers (60') 13:30 - 14:30
+  * Containers vs VM's (20')
+  * Docker (40')
 * **Break (15')  14:30 - 14:45**
 * Continuous integration (75') 14:45-16:00
 
