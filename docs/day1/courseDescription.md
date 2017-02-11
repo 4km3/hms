@@ -3,11 +3,17 @@
 The target of this beginner's course is to learn a few of the basic techniques
 that allow you to survive when you start to develop a microservices architecture.
 
+---
+
 The first day is focused in the development process, we will introduce the main characteristics of this kind
 of architecture and some basic techniques ATDD, TDD, docker and CI.
 
+---
+
 In the second day we will deep dive in the microservices concepts, we will study how to split a monolith in multiple microservices and
 how to deploy and scale them in a modern PaaS platform like Rancher.
+
+---
 
 The subject of the last day is continuous delivery, we will develop a deployment pipeline to put your
 microservices safely in production.
