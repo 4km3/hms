@@ -32,7 +32,7 @@ The target of this course is ...
 
 # Third day (Operation) (6h) 
 
-* Continuous delivery (2:30h) 13:30 - 16:00
+* Continuous delivery (2:30h) 10:30 - 13:00
 
 * Lunch 13:00 - 14:00
 
