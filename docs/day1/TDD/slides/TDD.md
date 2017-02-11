@@ -1,13 +1,14 @@
+
+---
+# Why matters? 
+
+* Allows emergent design, refactor is imposible without unit tests 
+
 ---
 
 # What is a unit test?
 
 * 
-
----
-# Why matters? 
-
-* Allows emergent design 
 
 ---
 
@@ -18,10 +19,12 @@
 * Assert per test
 
 ---
+
 # Anatomy of a test 
   * Expectations
   * Experimentation
   * Fixture
+
 ---
 
 # 
@@ -30,6 +33,14 @@
 * Red/Green/Refactor
 * Assert first
 * Assert per test
+
+---
+
+# Types of unit tests
+
+* White box/Glass box
+* Black box
+ 
 
 
 ---    
@@ -49,5 +60,11 @@
 
 ## Books
 
+* Menzaros
+* Kent beck
+* refactor. Martin fowler
+
 
 ##Links
+
+* El link a JUnit
