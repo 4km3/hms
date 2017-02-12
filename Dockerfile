@@ -3,7 +3,7 @@ MAINTAINER Raul Sanchez <rawmind@gmail.com>
 
 # Set environment
 ENV SERVICE_NAME=hms \
-    SERVICE_HOME=/opt/nginx \
+    SERVICE_HOME=/opt/nginx/www/hms \
     REVEAL_VERSION=3.4.1 \
     REVEAL_URL=https://github.com/hakimel/reveal.js.git \
     SERVICE_USER=nginx \
@@ -12,11 +12,11 @@ ENV SERVICE_NAME=hms \
     SERVICE_GID=10004
 
 # Adding docs into /opt/nginx/www/hms
-ADD docs /${SERVICE_HOME}/www/hms
+ADD docs ${SERVICE_HOME}
 
 # Download and install reveal.js into /opt/nginx/www/hms/reveal.js
 RUN apk add --no-cache git && \
-    cd ${SERVICE_HOME}/www/hsm && \
+    cd ${SERVICE_HOME} && \
     git clone -b ${REVEAL_VERSION} ${REVEAL_URL} && \
     rm -rf reveal.js/test reveal.js/.git && \
     apk del --no-cache git && \
