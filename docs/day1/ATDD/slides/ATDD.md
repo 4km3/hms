@@ -45,8 +45,8 @@ A user story describes functionality that will be valuable to either a user or p
 ### Find the user stories in the code
 
 * Open the code in your IDE.
-* Go to acceptance-test/src/test/resources/features/customers.
-* Open createCustomer.feature.
+  * Browse to yourProjectDirectory/docs/day1/acceptance-test/src/test/resources/features/customers.
+  * Open createCustomer.feature.
 
 ---
 
@@ -78,8 +78,6 @@ Background:
 
 ## Cucumber
 
-
-
 ---
 
 ## Gherkin
@@ -88,6 +86,35 @@ Gherkin is plain-text English (or one of 60+ other languages) with a little extr
 
 Gherkin is designed to be easy to learn by non-programmers, yet structured enough to allow concise
 description of examples to illustrate business rules in most real-world domains.
+
+## Exercise 2
+
+### Execute acceptance test
+
+* Open a terminal console.
+* Execute:
+  * cd yourProjectDirectory/docs/day1/ATDD/code
+  * mvn clean package
+  * java -jar target/ari-0.1.0.jar
+
+---
+
+slide show the expected result
+
+---
+
+* Open other terminal console
+* Execute:
+  * cd yourProjectDirectory/docs/day1/ATDD/code/acceptance-test
+  * mvn clean test
+
+---
+
+```
+
+slide show the expected result
+
+```
 
 ---
 
@@ -118,16 +145,82 @@ A scenario is a concrete example that illustrates a business rule. It consists o
 * Given: Are used to describe the initial context of the system.
 * When: Are used to describe an event, or an action.
 * Then: steps are used to describe an expected outcome, or result.
-  
+
 ---
 
-## Exercise 2
+## Exercise 3
 
-### Execute acceptance test
+### Add new step to existing scenario
 
-*
-*
-*
+* Open the code in your IDE.
+  * Browse to yourProjectDirectory/docs/day1/acceptance-test/src/test/resources/features/customers.
+  * Open createCustomer.feature.
+  * Add this step to the createCustomer.feature
+
+---
+
+```
+
+The step to add to the code
+
+```
+
+---
+
+* Open other terminal console
+* Execute:
+  * cd yourProjectDirectory/docs/day1/ATDD/code/acceptance-test
+  * mvn clean test
+
+---
+
+```
+
+slide showing the expected result
+
+```
+
+---
+
+* Open the code in your IDE.
+  * Browse to yourProjectDirectory/docs/day1/acceptance-test/src/test/stepdefinitions/customers
+  * Create new class called 'Nombre de la clase'
+  * Open the class yourProjectDirectory/docs/day1/acceptance-test/src/test/stepdefinitions/customers/'Nombre de la clase'
+  * Copy the test scriptlet generated in the last execution into the class
+  * Execute again mvn clean test
+
+---
+
+```
+
+slide showing the expected result
+
+```
+
+---
+
+* In the 'Nombre de la clase'.class
+  * Add the following code
+
+---
+
+```
+
+slide showing code to add
+
+```
+
+---
+
+* Execute again mvn clean test
+
+---
+
+```
+
+slide showing the expected result
+
+```
 
 ---
 
@@ -139,16 +232,6 @@ A scenario is a concrete example that illustrates a business rule. It consists o
 * Try to keep the feature declarative.
 * Asynchronous interfaces are hard to test.
 * Don't access directly to the database front test.
-
----
-
-# Exercise 
-    
-## Add new step to existing scenario
-
-*
-*
-*
 
 ---
 
