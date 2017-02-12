@@ -9,7 +9,7 @@ ENV SERVICE_NAME=hms \
     SERVICE_USER=nginx \
     SERVICE_UID=10004 \
     SERVICE_GROUP=nginx \
-    SERVICE_GID=10004 \
+    SERVICE_GID=10004
 
 # Adding docs into /opt/nginx/www/hms
 ADD docs /${SERVICE_HOME}/www/hms
