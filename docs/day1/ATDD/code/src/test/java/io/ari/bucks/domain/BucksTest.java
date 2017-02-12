@@ -1,15 +1,12 @@
 package io.ari.bucks.domain;
 
 import io.ari.bucks.domain.repositories.BucksRepository;
-import io.ari.bussinessRules.BusinessRulesValidator;
 import io.ari.money.domain.Money;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-
-import java.util.Map;
 
 import static io.ari.money.MoneyBuilder.val;
 import static org.junit.Assert.*;
@@ -81,12 +78,6 @@ public class BucksTest {
 	
 	@Mock
 	private BucksRepository bucksRepository;
-
-	@Mock
-	private BusinessRulesValidator<Bucks> bucksWithdrawalValidator;
-
-	@Mock
-	private BusinessRulesValidator<Bucks> bucksReceptionValidator;
 
 	private static final String CUSTOMER_ID = "a9sd76a7sd6a9s6";
 

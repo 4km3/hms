@@ -25,10 +25,7 @@ public class BucksRepository extends EntitiesRepository<Bucks> {
     }
 
     public void deleteCustomer(String customerId) {
-        /*	Bucks bucks = findByCustomerId(customerId);
-		bankingService.deleteAgreement(bucks.getBankingServiceAgreementId());
-		getWriteRepository().delete(bucksByCustomerFilter(customerId));
-		return bucks;*/
+        super.delete(customerBucks.get(customerId));
     }
 
     private Map<String, String> customerBucks = new HashMap<>();

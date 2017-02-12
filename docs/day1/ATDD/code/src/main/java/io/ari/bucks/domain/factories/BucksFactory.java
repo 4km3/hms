@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class BucksFactory {
 
-    public Bucks createBucks(String customerId, String idCard, String mobilePhone, String customerName, String customerLastName) {
+    public Bucks createBucks(String customerId) {
         seq++;
         Bucks newBucks = new Bucks(customerId, seq.toString());
         return bucksRepository.save(newBucks);

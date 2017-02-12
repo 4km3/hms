@@ -49,13 +49,3 @@ public class BucksAssembler {
     private MoneyAssembler moneyAssembler;
 
 }
-/*
-    assertTrue("Recharge limits must have property thisPeriod", recharge.containsKey("thisPeriod"));
-        assertEquals("Recharge this period limit must be the expected.", moneyFactory.createMoney((String) expectedLimitsData.get("rechargeThisPeriod")), recharge.get("thisPeriod"));
-        assertTrue("Recharge limits must have property last", recharge.containsKey("last"));
-        assertEquals("Recharge last limit must be the expected.", moneyFactory.createMoney((String) expectedLimitsData.get("rechargeLast")), recharge.get("last"));
-        assertTrue("Recharge limits must have property remaining", recharge.containsKey("remaining"));
-        assertEquals("Recharge remaining limit must be the expected.", moneyFactory.createMoney((String) expectedLimitsData.get("rechargeRemaining")), recharge.get("remaining"));
-        assertTrue("Recharge limits must have property max", recharge.containsKey("max"));
-        assertEquals("Recharge max limit must be the expected.", moneyFactory.createMoney((String) expectedLimitsData.get("rechargeMax")), recharge.get("max"));
-*/
