@@ -42,7 +42,7 @@ A user story describes functionality that will be valuable to either a user or p
 
 ---
 
-## Exercise 1
+## Practice 1
     
 ### Find the user stories in the code
 
@@ -74,15 +74,18 @@ Background:
     And the customer "50861048K" has the following limits into its bucks:
       | rechargeThisPeriod | rechargeLast | rechargeRemaining | rechargeMax |
       | 0.0 EUR            | 0.0 EUR      | 2500.0 EUR        | 2500.0 EUR  |
+
 ```
 
 ---
 
 ## Cucumber
 
+
+
 ---
 
-## Gherkin
+### Gherkin
 
 Gherkin is plain-text English (or one of 60+ other languages) with a little extra structure.
 
@@ -91,7 +94,7 @@ description of examples to illustrate business rules in most real-world domains.
 
 ---
 
-## Exercise 2
+### Practice 2
 
 ### Execute acceptance test
 
@@ -104,7 +107,13 @@ description of examples to illustrate business rules in most real-world domains.
 ---
 
 ```
-slide show the expected result
+...
+
+2017-02-12 23:02:36.884  INFO 24082 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-02-12 23:02:36.895  INFO 24082 --- [           main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2017-02-12 23:02:37.039  INFO 24082 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-02-12 23:02:37.045  INFO 24082 --- [           main] io.ari.Application                       : Started Application in 4.499 seconds (JVM running for 4.926)
+
 ```
 
 ---
@@ -117,8 +126,25 @@ slide show the expected result
 ---
 
 ```
+...
 
-slide show the expected result
+29 Scenarios (29 passed)
+101 Steps (101 passed)
+0m2.776s
+
+Tests run: 130, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.367 sec
+
+Results :
+
+Tests run: 130, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 7.347 s
+[INFO] Finished at: 2017-02-12T23:04:47+01:00
+[INFO] Final Memory: 21M/309M
+[INFO] ------------------------------------------------------------------------
 
 ```
 
@@ -154,20 +180,27 @@ A scenario is a concrete example that illustrates a business rule. It consists o
 
 ---
 
-## Exercise 3
+## Practice 3
 
-### Add new step to existing scenario
+### Add new scenario to existing feature
 
 * Open the code in your IDE.
   * Browse to yourProjectDirectory/docs/day1/acceptance-test/src/test/resources/features/customers.
   * Open createCustomer.feature.
-  * Add this step to the createCustomer.feature
+  * Copy the scenario into createCustomer.feature
 
 ---
 
 ```
 
-The step to add to the code
+Scenario: Conflict when a customer exists with the given idCard
+    When a person is registered in the system with the following data:
+      | id         | name | lastName | idCard    | email         | termsAndConditions |
+      | lahdsfalsd | Bart | Simpson  | 79986535X | lmb@gmail.com | true               |
+    Then the response must be "CONFLICT"
+    And the response has the following data
+      | code           | description                                                       |
+      | existingIdCard | Attempting to create a customer with an existing idCard:79986535X |
 
 ```
 
@@ -182,49 +215,53 @@ The step to add to the code
 
 ```
 
-slide showing the expected result
+Failed scenarios:
+features/customers/createCustomer.feature:37 # Scenario: Conflict when a customer exists with the given idCard
 
-```
+30 Scenarios (1 failed, 29 passed)
+105 Steps (1 failed, 1 skipped, 103 passed)
+0m1.722s
 
----
+java.lang.AssertionError: The response status must be the expected expected:<409> but was:<201>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:645)
+	at stepdefinitions.response.ThenTheResponseMustBe.the_response_must_be(ThenTheResponseMustBe.java:20)
+	at ✽.Then the response must be "CONFLICT"(features/customers/createCustomer.feature:41)
 
-* Open the code in your IDE.
-  * Browse to yourProjectDirectory/docs/day1/acceptance-test/src/test/stepdefinitions/customers
-  * Create new class called 'Nombre de la clase'
-  * Open the class yourProjectDirectory/docs/day1/acceptance-test/src/test/stepdefinitions/customers/'Nombre de la clase'
-  * Copy the test scriptlet generated in the last execution into the class
-  * Execute again mvn clean test
+Tests run: 135, Failures: 2, Errors: 0, Skipped: 1, Time elapsed: 3.515 sec <<< FAILURE!
+Then the response must be "CONFLICT"(Scenario: Conflict when a customer exists with the given idCard)  Time elapsed: 0.003 sec  <<< FAILURE!
+java.lang.AssertionError: The response status must be the expected expected:<409> but was:<201>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:645)
+	at stepdefinitions.response.ThenTheResponseMustBe.the_response_must_be(ThenTheResponseMustBe.java:20)
+	at ✽.Then the response must be "CONFLICT"(features/customers/createCustomer.feature:41)
 
----
+Scenario: Conflict when a customer exists with the given idCard  Time elapsed: 0.004 sec  <<< FAILURE!
+java.lang.AssertionError: The response status must be the expected expected:<409> but was:<201>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:645)
+	at stepdefinitions.response.ThenTheResponseMustBe.the_response_must_be(ThenTheResponseMustBe.java:20)
+	at ✽.Then the response must be "CONFLICT"(features/customers/createCustomer.feature:41)
 
-```
+Feb 12, 2017 11:13:27 PM org.springframework.context.support.GenericApplicationContext doClose
+INFO: Closing org.springframework.context.support.GenericApplicationContext@2d710f1a: startup date [Sun Feb 12 23:13:24 CET 2017]; root of context hierarchy
 
-slide showing the expected result
+Results :
 
-```
+Failed tests:   Then the response must be "CONFLICT"(Scenario: Conflict when a customer exists with the given idCard): The response status must be the expected expected:<409> but was:<201>
+  Scenario: Conflict when a customer exists with the given idCard: The response status must be the expected expected:<409> but was:<201>
 
----
+Tests run: 135, Failures: 2, Errors: 0, Skipped: 1
 
-* In the 'Nombre de la clase'.class
-  * Add the following code
-
----
-
-```
-
-slide showing code to add
-
-```
-
----
-
-* Execute again mvn clean test
-
----
-
-```
-
-slide showing the expected result
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 6.428 s
+[INFO] Finished at: 2017-02-12T23:13:27+01:00
+[INFO] Final Memory: 21M/309M
 
 ```
 

@@ -34,15 +34,6 @@ Feature: Customer registration
       | code               | description                                                         |
       | existingIdentifier | Attempting to create a customer with an existing identifier:abcdefg |
 
-  Scenario: Conflict when a customer exists with the given idCard
-    When a person is registered in the system with the following data:
-      | id         | name | lastName | idCard    | email         | termsAndConditions |
-      | lahdsfalsd | Bart | Simpson  | 79986535X | lmb@gmail.com | true               |
-    Then the response must be "CONFLICT"
-    And the response has the following data
-      | code           | description                                                       |
-      | existingIdCard | Attempting to create a customer with an existing idCard:79986535X |
-
   Scenario: Conflict when creating a customer with an invalid idCard
     When a person is registered in the system with the following data:
       | id         | name | lastName | idCard    | email         | termsAndConditions |

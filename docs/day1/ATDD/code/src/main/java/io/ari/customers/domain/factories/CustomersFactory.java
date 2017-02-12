@@ -38,7 +38,6 @@ public class CustomersFactory {
 
 	private void verifyNonExistingCustomer(String customerId, String idCard,String mobilePhone) throws CustomerExists {
 		verifyNonExistingCustomerId(customerId);
-		verifyNonExistingIdCard(idCard);
 		verifyNonExistingMobilePhone(mobilePhone);
 	}
 
@@ -48,11 +47,7 @@ public class CustomersFactory {
 		}
 	}
 
-	private void verifyNonExistingIdCard(String idCard) throws CustomerIdCardExists {
-		if (customersRepository.findByIdCard(idCard).isPresent()) {
-			throw new CustomerIdCardExists(idCard);
-		}
-	}
+
 	private void verifyNonExistingMobilePhone(String mobilePhone) throws CustomerMobilePhoneExists {
 		if (customersRepository.findByMobilePhone(mobilePhone).isPresent()) {
 			throw new CustomerMobilePhoneExists(mobilePhone);
