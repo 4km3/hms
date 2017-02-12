@@ -5,7 +5,7 @@
 In this exercise we obtain the code for the course and check your laptop configuration.
 
 * Clone the course report in your laptop.
-  *  git clone https://github.com/4km3/hms.git
+  * git clone https://github.com/4km3/hms.git
 * Open a terminal console.
 * cd yourProjectDirectory/docs/day1/ATDD/code
 

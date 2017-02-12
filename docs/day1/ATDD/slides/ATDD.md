@@ -1,4 +1,8 @@
-# ATDD
+### ATDD
+
+Analogous to test-driven development, Acceptance Test Driven Development (ATDD) involves team members
+with different perspectives (customer, development, testing) collaborating to write acceptance tests
+in advance of implementing the corresponding functionality
 
 ---
 
@@ -15,7 +19,7 @@
 
 ---
 
-## What is a user story?
+### What is a user story?
 
 ### Definition
 
@@ -42,7 +46,7 @@ A user story describes functionality that will be valuable to either a user or p
 
 ---
 
-## Practice 1
+### Practice 1
     
 ### Find the user stories in the code
 
@@ -79,9 +83,11 @@ Background:
 
 ---
 
-## Cucumber
+### Cucumber
 
-
+Cucumber is a behavior-driven development (BDD) test automation tool. The first implementation
+was made by the ruby community. Now there are versions in many languages like java, javascript, etc.
+Is the most extended tool in BDD
 
 ---
 
@@ -180,7 +186,7 @@ A scenario is a concrete example that illustrates a business rule. It consists o
 
 ---
 
-## Practice 3
+### Practice 3
 
 ### Add new scenario to existing feature
 
@@ -267,7 +273,7 @@ Tests run: 135, Failures: 2, Errors: 0, Skipped: 1
 
 ---
 
-# Lesson learned
+### Lesson learned
 
 * All the team must write the features together.
 * Test must be independent. Avoid test wars.
@@ -278,7 +284,7 @@ Tests run: 135, Failures: 2, Errors: 0, Skipped: 1
 
 ---
 
-## References
+### References
 
 ### Books
 
