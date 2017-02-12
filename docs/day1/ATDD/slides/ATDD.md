@@ -1,6 +1,8 @@
 # ATDD
 
-## Why does it matter?
+---
+
+### Why does it matter?
 
 * It's a new way to communicate between business and developers.
 * Allows evolutionary architecture.
@@ -45,7 +47,7 @@ A user story describes functionality that will be valuable to either a user or p
 ### Find the user stories in the code
 
 * Open the code in your IDE.
-  * Browse to yourProjectDirectory/docs/day1/acceptance-test/src/test/resources/features/customers.
+  * Browse to yourProjectDirectory/docs/day1/ATDD/code/acceptance-test/src/test/resources/features/customers.
   * Open createCustomer.feature.
 
 ---
@@ -87,6 +89,8 @@ Gherkin is plain-text English (or one of 60+ other languages) with a little extr
 Gherkin is designed to be easy to learn by non-programmers, yet structured enough to allow concise
 description of examples to illustrate business rules in most real-world domains.
 
+---
+
 ## Exercise 2
 
 ### Execute acceptance test
@@ -99,7 +103,9 @@ description of examples to illustrate business rules in most real-world domains.
 
 ---
 
+```
 slide show the expected result
+```
 
 ---
 
@@ -242,6 +248,8 @@ slide showing the expected result
 * User Stories Applied.For Agile Software Development. Mike Cohn
 * Specification by Example: How Successful Teams Deliver the Right Software. Gojko Adzic
 * The Cucumber Book: Behaviour-Driven Development for Testers and Developers. Matt Wynne, Aslak Hellesoy
+
+---
 
 ### Links
 

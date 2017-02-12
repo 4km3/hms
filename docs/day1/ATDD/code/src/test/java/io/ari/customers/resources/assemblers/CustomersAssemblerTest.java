@@ -1,7 +1,6 @@
 package io.ari.customers.resources.assemblers;
 
 import com.google.common.collect.ImmutableMap;
-
 import io.ari.assemblers.HypermediaAssembler;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -143,47 +142,6 @@ public class CustomersAssemblerTest {
 	}
 
 	@Test
-	public void shouldHaveAWalletLink() {
-		Map<String, Object> customerData = createCustomerEntity();
-		Map<String, Object> hypermedia = newHashMap();
-		hypermedia.put("href", "api/me");
-
-		Map<String, Object> expectedLinks = newHashMap();
-		expectedLinks.put("href", "api/cards");
-
-		when(hypermediaAssembler.createHypermedia("api/me", "ari-read")).thenReturn(hypermedia);
-		when(hypermediaAssembler.createLink("api/cards", "GET", "ari-read")).thenReturn(expectedLinks);
-
-		Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customerData);
-		Map<String, Object> links = (Map<String, Object>) customerDto.get("_links");
-
-		assertNotNull("The wallet link must be not null", links);
-
-		Map<String, Object> link = (Map<String, Object>) links.get("wallet");
-
-		assertEquals("The wallet link", expectedLinks, link);
-	}
-
-	@Test
-	public void shouldHaveACreateCardLink() {
-		Map<String, Object> customerData = createCustomerEntity();
-		Map<String, Object> hypermedia = newHashMap();
-		hypermedia.put("href", "api/me");
-
-		Map<String, Object> expectedLinks = newHashMap();
-		expectedLinks.put("href", "api/cards");
-
-		when(hypermediaAssembler.createHypermedia("api/me", "ari-read")).thenReturn(hypermedia);
-		when(hypermediaAssembler.createLink("api/cards", "POST", "ari-write")).thenReturn(expectedLinks);
-
-		Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customerData);
-
-		Map<String, Object> links = (Map<String, Object>) customerDto.get("_links");
-		assertTrue("The createCard link must exist.", links.containsKey("createCard"));
-		assertEquals("The createCard link", expectedLinks, links.get("createCard"));
-	}
-
-	@Test
 	public void shouldHaveARechargeLink() {
 		Map<String, Object> customerData = createCustomerEntity();
 		Map<String, Object> hypermedia = newHashMap();
@@ -201,26 +159,6 @@ public class CustomersAssemblerTest {
 		assertNotNull("The recharge link must be not null", links);
 		Map<String, Object> link = (Map<String, Object>) links.get("recharge");
 		assertEquals("The recharge link must be the expected.", expectedLink, link);
-	}
-
-	@Test
-	public void shouldHaveRechargeCardsLink() {
-		Map<String, Object> customerData = createCustomerEntity();
-		Map<String, Object> hypermedia = newHashMap();
-		hypermedia.put("href", "api/me");
-
-		Map<String, Object> expectedLink = newHashMap();
-		expectedLink.put("href", "api/rechargeCards");
-
-		when(hypermediaAssembler.createHypermedia("api/me", "ari-read")).thenReturn(hypermedia);
-		when(hypermediaAssembler.createLink("api/cards", "GET", "ari-recharges")).thenReturn(expectedLink);
-
-		Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customerData);
-		Map<String, Object> links = (Map<String, Object>) customerDto.get("_links");
-
-		assertNotNull("The rechargeCards link must be not null", links);
-		Map<String, Object> link = (Map<String, Object>) links.get("rechargeCards");
-		assertEquals("The rechargeCards link must be the expected.", expectedLink, link);
 	}
 
 	@Test

@@ -1,10 +1,7 @@
 package io.ari.bucks.domain;
 
-import com.google.common.collect.ImmutableSet;
-
 import io.ari.bucks.domain.repositories.BucksRepository;
 import io.ari.bussinessRules.BusinessRulesValidator;
-import io.ari.bussinessRules.Violation;
 import io.ari.money.domain.Money;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,14 +9,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.util.Collection;
 import java.util.Map;
-import java.util.Set;
 
 import static io.ari.money.MoneyBuilder.val;
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BucksTest {

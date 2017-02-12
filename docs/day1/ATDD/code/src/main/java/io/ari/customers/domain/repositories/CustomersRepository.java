@@ -1,7 +1,6 @@
 package io.ari.customers.domain.repositories;
 
 import io.ari.bucks.domain.repositories.BucksRepository;
-import io.ari.cards.domain.repositories.CardsRepository;
 import io.ari.customers.domain.Customer;
 import io.ari.repositories.assemblers.StorageAssembler;
 import io.ari.repositories.entities.EntitiesRepository;
@@ -49,7 +48,6 @@ public class CustomersRepository extends EntitiesRepository<Customer> {
 		try {
 			Customer customer = findById(id);
 			bucksRepository.deleteCustomer(id);
-			cardsRepository.deleteCustomer(id);
 			idCards.remove(customer.getIdCard());
 			mobilePhones.remove(customer.getMobilePhone());
 			super.delete(id);
@@ -60,9 +58,6 @@ public class CustomersRepository extends EntitiesRepository<Customer> {
 
 	@Autowired
 	private BucksRepository bucksRepository;
-
-	@Autowired
-	private CardsRepository cardsRepository;
 
 	private Map<String,String> idCards = new HashMap<>();
 

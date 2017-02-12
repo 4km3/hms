@@ -50,6 +50,8 @@ OS name: "mac os x", version: "10.12.2", arch: "x86_64", family: "mac"
 
 # Microservices
 
+---
+
 ## Definition
 
 Is an approach to developing a single application as a suite of small services,

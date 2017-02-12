@@ -7,7 +7,6 @@ import io.ari.RestClient;
 import io.ari.RestJsonReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import stepdefinitions.cards.CardsRegistry;
 
 import javax.ws.rs.core.Response;
 import java.util.*;
@@ -31,27 +30,6 @@ public class GivenACustomersWithTheFollowingData {
 
 		customersRegistry.registerCustomer((String) fullCustomer.get("id"),
 				(String) fullCustomer.get("idCard"));
-
-		registerCreatedCard(fullCustomer);
-	}
-
-	private void registerCreatedCard(Map<String, Object> fullCustomer) {
-		String customerId = (String) fullCustomer.get("id");
-
-		Map<String, Object> headers = new HashMap<>();
-		headers.put("x-customer-id", customerId);
-
-		Response cardsResponse = restClient.get("cards", headers);
-		assertEquals("Cards for " + customerId + " must exist.", 200, cardsResponse.getStatus());
-
-		Map<String, Object> agreementsResponseMap = restJsonReader.read(cardsResponse);
-		Collection<Map<String,Object>> customerCards = (Collection<Map<String, Object>>) agreementsResponseMap.get("items");
-
-		customerCards
-				.forEach(card -> cardsRegistry.add(customerId,
-						(String) card.get("type"),
-						(String) card.get("id"))
-				);
 	}
 
 	private void postCustomer(Map<String, Object> customerData) {
@@ -88,6 +66,4 @@ public class GivenACustomersWithTheFollowingData {
 	@Autowired
 	private RestJsonReader restJsonReader;
 
-	@Autowired
-	private CardsRegistry cardsRegistry;
 }
