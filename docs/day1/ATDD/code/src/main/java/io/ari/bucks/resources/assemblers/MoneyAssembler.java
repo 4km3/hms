@@ -1,7 +1,7 @@
 package io.ari.bucks.resources.assemblers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.ari.money.domain.Money;
+import io.ari.bucks.domain.Money;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

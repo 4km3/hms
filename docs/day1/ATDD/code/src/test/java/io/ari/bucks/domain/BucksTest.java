@@ -1,7 +1,6 @@
 package io.ari.bucks.domain;
 
 import io.ari.bucks.domain.repositories.BucksRepository;
-import io.ari.money.domain.Money;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

@@ -1,4 +1,4 @@
-package io.ari.money.domain;
+package io.ari.bucks.domain;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
