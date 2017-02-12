@@ -1,5 +1,6 @@
 package io.ari.customers.resources;
 
+import io.ari.customers.domain.Customer;
 import io.ari.customers.domain.repositories.CustomersRepository;
 import io.ari.customers.resources.assemblers.CustomersAssembler;
 import io.ari.repositories.exceptions.EntityNotFound;
@@ -20,40 +21,41 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class CustomerResourceTest {
 
-	@Test
-	public void shouldReturnMe() throws EntityNotFound{
-		final Map<String,Object> clientData = new HashMap<>();
-		Map<String,Object> clientDto = new HashMap<>();
-		
-		when(customersRepository.findOne(CUSTOMER_ID)).thenReturn(clientData);
-		when(customersAssembler.convertEntityToDto(clientData)).thenReturn(clientDto);
+    @Test
+    public void shouldReturnMe() throws EntityNotFound {
+        Map<String, Object> customerDto = new HashMap<>();
 
-		ResponseEntity response = customerResource.me(CUSTOMER_ID);
+        when(customersRepository.findOne(CUSTOMER_ID)).thenReturn(customer);
+        when(customersAssembler.convertEntityToDto(customer)).thenReturn(customerDto);
 
+        ResponseEntity response = customerResource.me(CUSTOMER_ID);
 
-		Map<String, Object> client = (Map<String, Object>)response.getBody();
+        Map<String, Object> returnedCustomerDto = (Map<String, Object>) response.getBody();
 
-		assertEquals("The response code should be OK", 200, response.getStatusCodeValue());
-		assertNotSame("The client data is not the expected",clientData,client);
-	}
-	
-	@Test
-	public void shouldReturnConflictIfUserDontExistsWhenMe() throws EntityNotFound{
-		when(customersRepository.findOne(CUSTOMER_ID)).thenThrow(EntityNotFound.class);
+        assertEquals("The response code should be OK", 200, response.getStatusCodeValue());
+        assertNotSame("The customer data is not the expected", customerDto, returnedCustomerDto);
+    }
 
-		ResponseEntity response =customerResource.me(CUSTOMER_ID);
-		assertEquals("The response code should be NOT FOUND", 404, response.getStatusCodeValue());
-	}
+    @Test
+    public void shouldReturnConflictIfUserDontExistsWhenMe() throws EntityNotFound {
+        when(customersRepository.findById(CUSTOMER_ID)).thenThrow(EntityNotFound.class);
 
-	private static final String CUSTOMER_ID = "customerId";
+        ResponseEntity response = customerResource.me(CUSTOMER_ID);
+        assertEquals("The response code should be NOT FOUND", 404, response.getStatusCodeValue());
+    }
 
-	@InjectMocks
-	private CustomerResource customerResource;
+    private static final String CUSTOMER_ID = "customerId";
 
-	@Mock
-	private CustomersAssembler customersAssembler;
+    @InjectMocks
+    private CustomerResource customerResource;
 
-	@Mock
-	private CustomersRepository customersRepository;
+    @Mock
+    private CustomersAssembler customersAssembler;
+
+    @Mock
+    private CustomersRepository customersRepository;
+
+    @Mock
+    private Customer customer;
 
 }

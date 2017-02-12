@@ -18,7 +18,7 @@ public class CustomersFactory {
 		verifyNonExistingCustomer(id, idCard,mobilePhone);
 
 		Customer newCustomer = createNewCustomer(id, idCard, mobilePhone, name, lastName);
-		createNewBucks(id, idCard, mobilePhone, name, lastName);
+		createNewBucks(id);
 
 		return newCustomer;
 	}
@@ -32,8 +32,8 @@ public class CustomersFactory {
 		return customersRepository.save(customer);
 	}
 
-	private Bucks createNewBucks(String customerId, String idCard, String mobilePhone, String customerName, String customerLastName) {
-		return bucksFactory.createBucks(customerId, idCard, mobilePhone, customerName, customerLastName);
+	private Bucks createNewBucks(String customerId) {
+		return bucksFactory.createBucks(customerId);
 	}
 
 	private void verifyNonExistingCustomer(String customerId, String idCard,String mobilePhone) throws CustomerExists {

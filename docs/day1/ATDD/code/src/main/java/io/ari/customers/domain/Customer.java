@@ -1,107 +1,102 @@
 package io.ari.customers.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.google.common.collect.ImmutableMap;
 import io.ari.repositories.entities.Entity;
 
 import java.util.Map;
 
-import static com.fasterxml.jackson.databind.annotation.JsonSerialize.Inclusion.NON_NULL;
 
-
-@JsonSerialize(include = NON_NULL)
 public class Customer implements Entity {
 
-	@JsonCreator
-	public Customer(@JsonProperty("id") String id,
-					@JsonProperty("idCard") String idCard) {
-		this.id = id;
-		this.idCard = idCard;
-	}
+    public Customer(String id, String idCard) {
+        this.id = id;
+        this.idCard = idCard;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    @Override
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public String getMobilePhone() {
-		return mobilePhone;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setMobilePhone(String mobilePhone) {
-		this.mobilePhone = mobilePhone;
-	}
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
 
-	public String getIdCard() {
-		return idCard;
-	}
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
+    }
 
-	public Map<String, Object> getAddress() {
-		return address;
-	}
+    public String getIdCard() {
+        return idCard;
+    }
 
-	public void setAddress(Map<String, Object> address) {
-		this.address = address;
-	}
+    public Map<String, Object> getAddress() {
+        return address;
+    }
 
-	public String getAvatar() {
-		return avatar;
-	}
+    public void setAddress(Map<String, Object> address) {
+        this.address = address;
+    }
 
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
-	}
+    public String getAvatar() {
+        return avatar;
+    }
 
-	public Map<String, Object> getSettings() {
-		return settings;
-	}
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
 
-	public void setSettings(Map<String, Object> settings) {
-		this.settings = settings;
-	}
+    public Map<String, Object> getSettings() {
+        return settings;
+    }
 
-	private String id;
+    public void setSettings(Map<String, Object> settings) {
+        this.settings = settings;
+    }
 
-	private String name;
+    private String id;
 
-	private String lastName;
+    private String name;
 
-	private String email;
+    private String lastName;
 
-	private String mobilePhone;
+    private String email;
 
-	private String idCard;
+    private String mobilePhone;
 
-	private Map<String, Object> address = ImmutableMap.of();
+    private String idCard;
 
-	private String avatar;
+    private Map<String, Object> address = ImmutableMap.of();
 
-	@JsonProperty("settings")
-	private Map<String, Object> settings;
+    private String avatar;
 
+    private Map<String, Object> settings;
 }

@@ -54,8 +54,8 @@ public class CustomersResource {
     private Map<String, Object> addCustomer(String customerId, Map<String, Object> customerData) throws CustomerExists, InvalidIdCard {
         Customer newCustomer = customersAssembler.convertDtoToEntity(customerId, customerData);
 
-        customersRepository.update(customerId, newCustomer);
-        return customersAssembler.convertEntityToDto();
+        customersRepository.save(newCustomer);
+        return customersAssembler.convertEntityToDto(newCustomer);
     }
 
     @Autowired

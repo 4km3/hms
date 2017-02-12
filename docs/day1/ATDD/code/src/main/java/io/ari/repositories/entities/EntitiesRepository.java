@@ -1,55 +1,53 @@
 package io.ari.repositories.entities;
 
-
-import io.ari.repositories.assemblers.StorageAssembler;
 import io.ari.repositories.exceptions.EntityNotFound;
 
+import java.util.HashMap;
 import java.util.Map;
 
-public class EntitiesRepository<T> extends Repository {
+public class EntitiesRepository<T extends Entity> {
 
-	public EntitiesRepository(StorageAssembler<T> storageAssembler) {
-		this.storageAssembler = storageAssembler;
-	}
+    public T save(T entity) {
+        entities.put(entity.getId(), entity);
+        return entity;
+    }
 
-	public T save(T entity) {
-		Map<String, Object> entityData = storageAssembler.convertEntityToDto(entity);
-		Map<String, Object> savedEntityData = super.saveEntity(((Entity)entity).getId(),entityData);
-		return storageAssembler.convertDtoToEntity(savedEntityData);
-	}
+    public T update(String id, T entity) {
+        return entities.put(id, entity);
+    }
 
-	public T update(String id, T entity) {
-		Map<String, Object> updatedBundleData = super.update(id,
-				storageAssembler.convertEntityToDto(entity));
-		return convertDtoToEntity(updatedBundleData);
-	}
+    public T findById(String entityId) throws EntityNotFound {
+        if (!entities.containsKey(entityId)) {
+            throw new EntityNotFound();
+        }
 
-	public T findById(String id) throws EntityNotFound {
-		return convertDtoToEntity(super.findOne(id));
-	}
+        return entities.get(entityId);
+    }
 
-	public boolean exists(String id) {
-		try {
-			super.findOne(id);
-			return true;
-		} catch (EntityNotFound entityNotFound) {
-			return false;
-		}
-	}
+    public boolean exists(String id) {
+        try {
+            findById(id);
+            return true;
+        } catch (EntityNotFound entityNotFound) {
+            return false;
+        }
+    }
 
-	public void deleteById(String entityId) {
-		super.delete(entityId);
-	}
+    public void deleteAll() {
+        entities.clear();
+    }
 
-	public void deleteAll() {
-		super.deleteAll();
-	}
+    public void delete(String entityId) {
+        entities.remove(entityId);
+    }
 
-	protected T convertDtoToEntity(Map<String, Object> updatedEntityData) {
-		return storageAssembler.convertDtoToEntity(updatedEntityData);
-	}
+    public Object findOne(String entityId) throws EntityNotFound {
+        if (!entities.containsKey(entityId)) {
+            throw new EntityNotFound();
+        }
 
-	private StorageAssembler<T> storageAssembler;
+        return entities.get(entityId);
+    }
 
-
+    private Map<String, T> entities = new HashMap<>();
 }

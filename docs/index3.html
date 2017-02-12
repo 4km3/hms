@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="reveal/css/reveal.css">
+        <link rel="stylesheet" href="reveal/css/theme/moon.css">
+    </head>
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+                <section data-markdown="day3/CD/slides/CD.md"></section>
+            </div>
+	</div>
+        
+	<script src="reveal/lib/js/head.min.js"></script>
+        <script src="reveal/js/reveal.js"></script>
+	<script>
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			dependencies: [
+				{ src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'reveal/plugin/zoom-js/zoom.js', async: true },
+				{ src: 'reveal/lugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+</body>
+</html>

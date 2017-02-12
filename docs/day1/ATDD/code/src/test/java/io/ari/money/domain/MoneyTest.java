@@ -1,5 +1,6 @@
 package io.ari.money.domain;
 
+import io.ari.bucks.domain.Money;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
 
