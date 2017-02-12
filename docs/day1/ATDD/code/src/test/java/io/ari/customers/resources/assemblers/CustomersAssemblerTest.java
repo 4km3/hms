@@ -2,13 +2,13 @@ package io.ari.customers.resources.assemblers;
 
 import com.google.common.collect.ImmutableMap;
 import io.ari.assemblers.HypermediaAssembler;
+import io.ari.customers.domain.Customer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
@@ -20,262 +20,237 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class CustomersAssemblerTest {
 
-	@Test
-	public void shouldHaveACustomerId() {
-		Map<String, Object> customerData = createCustomerEntity();
+    @Test
+    public void shouldHaveACardId() {
+        Customer customer = createCustomerEntity();
 
-		Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customerData);
-		assertEquals("The identity card is not the expected", CUSTOMER_ID, customerDto.get("idCard"));
-	}
+        Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customer);
+        assertEquals("The identity card is not the expected", CARD_ID, customerDto.get("idCard"));
+    }
 
-	@Test
-	public void shouldHaveAName() {
-		Map<String, Object> customerData = createCustomerEntity();
+    @Test
+    public void shouldHaveACustomerId() {
+        Customer customer = createCustomerEntity();
 
-		Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customerData);
-		assertEquals("The name is not the expected", NAME, customerDto.get("name"));
-	}
+        Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customer);
+        assertEquals("The customer id not the expected", CUSTOMER_ID, customerDto.get("id"));
+    }
 
-	@Test
-	public void shouldHaveAListOfContactDetails() {
-		Map<String, Object> customerData = createCustomerEntity();
-		Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customerData);
+    @Test
+    public void shouldHaveAName() {
+        Customer customer = createCustomerEntity();
 
-		Collection<Map<String, Object>> contactDetails = (Collection<Map<String, Object>>) customerDto.get("contactDetails");
-		assertNotNull("There must be a contact details", contactDetails);
-	}
+        Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customer);
+        assertEquals("The name is not the expected", NAME, customerDto.get("name"));
+    }
 
-	@Test
-	public void shouldHaveAnEmailItem() {
-		Map<String, Object> customerData = createCustomerEntity();
-		Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customerData);
+    @Test
+    public void shouldHaveAListOfContactDetails() {
+        Customer customer = createCustomerEntity();
+        Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customer);
 
-		Collection<Map<String, Object>> items = (Collection<Map<String, Object>>) customerDto.get("contactDetails");
+        Collection<Map<String, Object>> contactDetails = (Collection<Map<String, Object>>) customerDto.get("contactDetails");
+        assertNotNull("There must be a contact details", contactDetails);
+    }
 
-		Map<String, Object> firstContactDetail = items.iterator().next();
+    @Test
+    public void shouldHaveAnEmailItem() {
+        Customer customer = createCustomerEntity();
+        Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customer);
 
-		assertNotNull("The contact details must not be null", firstContactDetail);
-		assertEquals("The contact details must be the expected", createEmailContact(), firstContactDetail);
-	}
+        Collection<Map<String, Object>> items = (Collection<Map<String, Object>>) customerDto.get("contactDetails");
 
-	@Test
-	public void shouldHaveAPhoneItem() {
-		Map<String, Object> customerData = createCustomerEntity();
-		Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customerData);
+        Map<String, Object> firstContactDetail = items.iterator().next();
 
-		Collection<Map<String, Object>> items = (Collection<Map<String, Object>>) customerDto.get("contactDetails");
+        assertNotNull("The contact details must not be null", firstContactDetail);
+        assertEquals("The contact details must be the expected", createEmailContact(), firstContactDetail);
+    }
 
-		Iterator<Map<String, Object>> iterator = items.iterator();
-		iterator.next();
-		Map<String, Object> secondContactDetail = iterator.next();
+    @Test
+    public void shouldHaveAPhoneItem() {
+        Customer customer = createCustomerEntity();
+        Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customer);
 
-		assertNotNull("The contact details must not be null", secondContactDetail);
-		assertEquals("The contact details must be the expected", createPhoneContact(), secondContactDetail);
-	}
+        Collection<Map<String, Object>> items = (Collection<Map<String, Object>>) customerDto.get("contactDetails");
 
-	@Test
-	public void shouldHaveAListOfLinks() {
-		Map<String, Object> customerData = createCustomerEntity();
-		Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customerData);
+        Iterator<Map<String, Object>> iterator = items.iterator();
+        iterator.next();
+        Map<String, Object> secondContactDetail = iterator.next();
 
-		Map<String, Object> links = (Map<String, Object>) customerDto.get("_links");
-		assertNotNull("The contact details must not be null", links);
-	}
+        assertNotNull("The contact details must not be null", secondContactDetail);
+        assertEquals("The contact details must be the expected", createPhoneContact(), secondContactDetail);
+    }
 
-	@Test
-	public void shouldHaveAMeOfLink() {
-		Map<String, Object> customerData = createCustomerEntity();
-		Map<String, Object> hypermedia = newHashMap();
+    @Test
+    public void shouldHaveAListOfLinks() {
+        Customer customer = createCustomerEntity();
+        Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customer);
 
-		when(hypermediaAssembler.createHypermedia("api/me", "ari-read")).thenReturn(hypermedia);
-		Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customerData);
+        Map<String, Object> links = (Map<String, Object>) customerDto.get("_links");
+        assertNotNull("The contact details must not be null", links);
+    }
 
-		Map<String, Object> links = (Map<String, Object>) customerDto.get("_links");
+    @Test
+    public void shouldHaveAMeOfLink() {
+        Customer customer = createCustomerEntity();
+        Map<String, Object> hypermedia = newHashMap();
 
-		assertNotNull("The me link must be not null", links);
+        when(hypermediaAssembler.createHypermedia("api/me", "ari-read")).thenReturn(hypermedia);
+        Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customer);
 
-		assertEquals("The link has the href", hypermedia, links);
-	}
+        Map<String, Object> links = (Map<String, Object>) customerDto.get("_links");
 
-	@Test
-	public void shouldHaveABucksOfLink() {
-		Map<String, Object> customerData = createCustomerEntity();
-		Map<String, Object> hypermedia = newHashMap();
-		hypermedia.put("href", "api/me");
+        assertNotNull("The me link must be not null", links);
 
-		Map<String, Object> bucks = newHashMap();
-		bucks.put("href", "api/bucks");
+        assertEquals("The link has the href", hypermedia, links);
+    }
 
-		when(hypermediaAssembler.createHypermedia("api/me", "ari-read")).thenReturn(hypermedia);
-		when(hypermediaAssembler.createLink("api/bucks", "GET", "ari-read")).thenReturn(bucks);
+    @Test
+    public void shouldHaveABucksOfLink() {
+        Customer customer = createCustomerEntity();
+        Map<String, Object> hypermedia = newHashMap();
+        hypermedia.put("href", "api/me");
 
-		Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customerData);
-		Map<String, Object> links = (Map<String, Object>) customerDto.get("_links");
+        Map<String, Object> bucks = newHashMap();
+        bucks.put("href", "api/bucks");
 
-		assertNotNull("The bucks link must be not null", links);
+        when(hypermediaAssembler.createHypermedia("api/me", "ari-read")).thenReturn(hypermedia);
+        when(hypermediaAssembler.createLink("api/bucks", "GET", "ari-read")).thenReturn(bucks);
 
-		Map<String, Object> link = (Map<String, Object>) links.get("bucks");
+        Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customer);
+        Map<String, Object> links = (Map<String, Object>) customerDto.get("_links");
 
-		assertEquals("The bucks link", bucks, link);
-	}
+        assertNotNull("The bucks link must be not null", links);
 
-	@Test
-	public void shouldHaveAMovementsLink() {
-		Map<String, Object> customerData = createCustomerEntity();
-		Map<String, Object> hypermedia = newHashMap();
-		hypermedia.put("href", "api/me");
+        Map<String, Object> link = (Map<String, Object>) links.get("bucks");
 
-		Map<String, Object> expectedLinks = newHashMap();
-		expectedLinks.put("href", "api/movements");
+        assertEquals("The bucks link", bucks, link);
+    }
 
-		when(hypermediaAssembler.createHypermedia("api/me", "ari-read")).thenReturn(hypermedia);
-		when(hypermediaAssembler.createLink("api/movements", "GET", "ari-read")).thenReturn(expectedLinks);
+    @Test
+    public void shouldHaveARechargeLink() {
+        Customer customer = createCustomerEntity();
+        Map<String, Object> hypermedia = newHashMap();
+        hypermedia.put("href", "api/me");
 
-		Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customerData);
-		Map<String, Object> links = (Map<String, Object>) customerDto.get("_links");
+        Map<String, Object> expectedLink = newHashMap();
+        expectedLink.put("href", "api/recharges");
 
-		assertNotNull("The bucks link must be not null", links);
+        when(hypermediaAssembler.createHypermedia("api/me", "ari-read")).thenReturn(hypermedia);
+        when(hypermediaAssembler.createLink("api/recharges", "POST", "ari-recharges")).thenReturn(expectedLink);
 
-		Map<String, Object> link = (Map<String, Object>) links.get("movements");
+        Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customer);
+        Map<String, Object> links = (Map<String, Object>) customerDto.get("_links");
 
-		assertEquals("The movements link", expectedLinks, link);
-	}
+        assertNotNull("The recharge link must be not null", links);
+        Map<String, Object> link = (Map<String, Object>) links.get("recharge");
+        assertEquals("The recharge link must be the expected.", expectedLink, link);
+    }
 
-	@Test
-	public void shouldHaveARechargeLink() {
-		Map<String, Object> customerData = createCustomerEntity();
-		Map<String, Object> hypermedia = newHashMap();
-		hypermedia.put("href", "api/me");
+    @Test
+    public void shouldHaveEditMeLink() {
+        Customer customer = createCustomerEntity();
+        Map<String, Object> hypermedia = newHashMap();
+        hypermedia.put("href", "api/me");
 
-		Map<String, Object> expectedLink = newHashMap();
-		expectedLink.put("href", "api/recharges");
+        Map<String, Object> expectedLink = newHashMap();
+        expectedLink.put("href", "api/me");
 
-		when(hypermediaAssembler.createHypermedia("api/me", "ari-read")).thenReturn(hypermedia);
-		when(hypermediaAssembler.createLink("api/recharges", "POST", "ari-recharges")).thenReturn(expectedLink);
+        when(hypermediaAssembler.createHypermedia("api/me", "ari-read")).thenReturn(hypermedia);
+        when(hypermediaAssembler.createLink("api/me", "PUT", "ari-write")).thenReturn(expectedLink);
 
-		Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customerData);
-		Map<String, Object> links = (Map<String, Object>) customerDto.get("_links");
+        Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customer);
+        Map<String, Object> links = (Map<String, Object>) customerDto.get("_links");
 
-		assertNotNull("The recharge link must be not null", links);
-		Map<String, Object> link = (Map<String, Object>) links.get("recharge");
-		assertEquals("The recharge link must be the expected.", expectedLink, link);
-	}
+        assertNotNull("The links must be not null", links);
+        Map<String, Object> link = (Map<String, Object>) links.get("editMe");
+        assertEquals("The editMe link must be the expected.", expectedLink, link);
+    }
 
-	@Test
-	public void shouldHaveEditMeLink() {
-		Map<String, Object> customerData = createCustomerEntity();
-		Map<String, Object> hypermedia = newHashMap();
-		hypermedia.put("href", "api/me");
+    @Test
+    public void shouldHaveEditSettingsLink() {
+        Customer customer = createCustomerEntity();
+        Map<String, Object> hypermedia = newHashMap();
+        hypermedia.put("href", "api/me");
 
-		Map<String, Object> expectedLink = newHashMap();
-		expectedLink.put("href", "api/me");
+        Map<String, Object> expectedLink = newHashMap();
+        expectedLink.put("href", "api/settings");
 
-		when(hypermediaAssembler.createHypermedia("api/me", "ari-read")).thenReturn(hypermedia);
-		when(hypermediaAssembler.createLink("api/me", "PUT", "ari-write")).thenReturn(expectedLink);
+        when(hypermediaAssembler.createHypermedia("api/me", "ari-read")).thenReturn(hypermedia);
+        when(hypermediaAssembler.createLink("api/settings", "PUT", "ari-write")).thenReturn(expectedLink);
 
-		Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customerData);
-		Map<String, Object> links = (Map<String, Object>) customerDto.get("_links");
+        Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customer);
+        Map<String, Object> links = (Map<String, Object>) customerDto.get("_links");
 
-		assertNotNull("The links must be not null", links);
-		Map<String, Object> link = (Map<String, Object>) links.get("editMe");
-		assertEquals("The editMe link must be the expected.", expectedLink, link);
-	}
+        assertNotNull("The links must be not null", links);
+        Map<String, Object> link = (Map<String, Object>) links.get("editSettings");
+        assertEquals("The editSettings link must be the expected.", expectedLink, link);
+    }
 
-	@Test
-	public void shouldHaveEditSettingsLink() {
-		Map<String, Object> customerData = createCustomerEntity();
-		Map<String, Object> hypermedia = newHashMap();
-		hypermedia.put("href", "api/me");
+    @Test
+    public void shouldHaveSettings() {
+        Customer customer = createCustomerEntity();
 
-		Map<String, Object> expectedLink = newHashMap();
-		expectedLink.put("href", "api/settings");
+        Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customer);
 
-		when(hypermediaAssembler.createHypermedia("api/me", "ari-read")).thenReturn(hypermedia);
-		when(hypermediaAssembler.createLink("api/settings", "PUT", "ari-write")).thenReturn(expectedLink);
+        assertTrue("Returned customer dto cannot have a settings item.", customerDto.containsKey("settings"));
+    }
 
-		Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customerData);
-		Map<String, Object> links = (Map<String, Object>) customerDto.get("_links");
+    private Customer createCustomerEntity() {
+        Customer customer = new Customer(CUSTOMER_ID, CARD_ID);
 
-		assertNotNull("The links must be not null", links);
-		Map<String, Object> link = (Map<String, Object>) links.get("editSettings");
-		assertEquals("The editSettings link must be the expected.", expectedLink, link);
-	}
+        customer.setName(NAME);
+        customer.setLastName("Hitchcock");
 
-	@Test
-	public void shouldHaveSettings() {
-		Map<String, Object> customerData = createCustomerEntity();
+        customer.setAddress(createAddress());
+        customer.setEmail("alfred.hitchcock@indiscreet.com");
+        customer.setMobilePhone("+3492123123");
+        customer.setSettings(ImmutableMap.of("dummySettings", true));
 
-		Map<String, Object> customerDto = customersAssembler.convertEntityToDto(customerData);
+        return customer;
+    }
 
-		assertTrue("Returned customer dto cannot have a settings item.", customerDto.containsKey("settings"));
-	}
+    private Map<String, Object> createAddress() {
+        Map<String, Object> adress = newHashMap();
 
-	private Map<String, Object> createCustomerEntity() {
-		Map<String, Object> customer = newHashMap();
+        adress.put("addressType", "street");
+        adress.put("streetAddress", "Maldonado");
+        adress.put("streetNumber", 1);
+        adress.put("houseNumber", 3);
+        adress.put("houseLetter", "A");
+        adress.put("postcode", "28006");
+        adress.put("town", "Madrid");
 
-		customer.put("name", NAME);
-		customer.put("lastName", "Hitchcock");
-		customer.put("idCard", CUSTOMER_ID);
+        return adress;
+    }
 
-		customer.put("address", createAddress());
-		customer.put("contactDetails", createContacts());
-		customer.put("settings", ImmutableMap.of("dummySettings", true));
+    private Map<String, Object> createEmailContact() {
+        Map<String, Object> emailContact = newHashMap();
 
-		return customer;
-	}
+        emailContact.put("contact", "alfred.hitchcock@indiscreet.com");
+        emailContact.put("contactType", "personal_email");
 
-	private Map<String, Object> createAddress() {
-		Map<String, Object> adress = newHashMap();
+        return emailContact;
+    }
 
-		adress.put("addressType", "calle");
-		adress.put("streetAddress", "Maldonado");
-		adress.put("streetNumber", 1);
-		adress.put("houseNumber", 3);
-		adress.put("houseLetter", "A");
-		adress.put("postcode", "28006");
-		adress.put("town", "Madrid");
+    private Map<String, Object> createPhoneContact() {
+        Map<String, Object> phoneContact = newHashMap();
 
-		return adress;
-	}
+        phoneContact.put("contact", "+3492123123");
+        phoneContact.put("contactType", "personal_phone");
 
-	private Collection<Map<String, Object>> createContacts() {
-		return new ArrayList<Map<String, Object>>() {
+        return phoneContact;
+    }
 
-			private static final long serialVersionUID = 1L;
+    @InjectMocks
+    private CustomersAssembler customersAssembler;
 
-			{
-				add(createEmailContact());
-				add(createPhoneContact());
-			}
-		};
-	}
+    @Mock
+    private HypermediaAssembler hypermediaAssembler;
 
-	private Map<String, Object> createEmailContact() {
-		Map<String, Object> emailContact = newHashMap();
+    private static final String CUSTOMER_ID = "0000001";
 
-		emailContact.put("contact", "alfred.hitchcock@indiscreet.com");
-		emailContact.put("contactType", "personal_email");
+    private static final String NAME = "Alfred";
 
-		return emailContact;
-	}
-
-	private Map<String, Object> createPhoneContact() {
-		Map<String, Object> phoneContact = newHashMap();
-
-		phoneContact.put("contact", "+3492123123");
-		phoneContact.put("contactType", "personal_phone");
-
-		return phoneContact;
-	}
-
-	@InjectMocks
-	private CustomersAssembler customersAssembler;
-
-	@Mock
-	private HypermediaAssembler hypermediaAssembler;
-
-	private static final String CUSTOMER_ID = "0000001";
-
-	private static final String NAME = "Alfred";
-
+    private static final String CARD_ID = "123123231X";
 }

@@ -22,7 +22,7 @@ public class CustomerResource {
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity me(@RequestHeader("x-customer-id") @NotEmpty String customerId) {
 		try {
-			Map<String, Object> customer = customersRepository.findOne(customerId);
+			Customer customer = customersRepository.findById(customerId);
 			return ResponseEntity.ok(customersAssembler.convertEntityToDto(customer));
 		} catch (EntityNotFound e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

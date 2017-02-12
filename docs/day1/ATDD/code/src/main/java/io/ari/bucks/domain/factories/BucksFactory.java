@@ -11,7 +11,6 @@ public class BucksFactory {
 
     public Bucks createBucks(String customerId, String idCard, String mobilePhone, String customerName, String customerLastName) {
         seq++;
-        String agreementId = seq.toString();
         Bucks newBucks = new Bucks(customerId, seq.toString());
         return bucksRepository.save(newBucks);
     }

@@ -11,10 +11,9 @@ import java.util.UUID;
 
 public class Bucks implements Entity {
 
-	public Bucks(String customerId, String bankingServiceAgreementId) {
-		this.id = bankingServiceAgreementId;
+	public Bucks(String customerId, String agreementId) {
+		this.id = agreementId;
 		this.customerId = customerId;
-		this.bankingServiceAgreementId = bankingServiceAgreementId;
 	}
 
 	public void receiveMoney(Money amount) {
@@ -24,32 +23,8 @@ public class Bucks implements Entity {
 		totalBalance = totalBalance.add(amount);
 	}
 
-	public void withdrawMoney(Money amount) {
-		totalBalance = totalBalance.subtract(amount);
-	}
-
-	public String blockBalance(Money money) {
-		String blockedBalanceId = UUID.randomUUID().toString();
-
-		blockedBalances.put(blockedBalanceId, money);
-
-		return blockedBalanceId;
-	}
-
 	public void refund(Money money) {
 		totalBalance = totalBalance.add(money);
-	}
-
-	public Map<String, Money> getBlockedBalances() {
-		return blockedBalances;
-	}
-
-	public void addBlockedBalances(String blockedBalanceId, Money money) {
-		blockedBalances.put(blockedBalanceId, money);
-	}
-
-	public Money getAvailableBalance() {
-		return totalBalance.subtract(getBlockedBalance());
 	}
 
 	public Money getRemainingRechargeLimit() {
@@ -88,11 +63,6 @@ public class Bucks implements Entity {
 		this.daysTillMaxLimit = daysTillMaxLimit;
 	}
 
-	public Money getBlockedBalance() {
-		return blockedBalances.values().stream().
-				reduce(new Money(BigDecimal.ZERO, "EUR"), (first, second) -> first.add(second));
-	}
-
 	public Money getTotalBalance() {
 		return totalBalance;
 	}
@@ -109,10 +79,6 @@ public class Bucks implements Entity {
 		this.id = id;
 	}
 
-	public String getBankingServiceAgreementId() {
-		return bankingServiceAgreementId;
-	}
-
 	public String getCustomerId() {
 		return customerId;
 	}
@@ -122,7 +88,7 @@ public class Bucks implements Entity {
 		return "Bucks [totalBalance=" + totalBalance
 				+ ", maxRechargeLimit=" + maxRechargeLimit + ", lastRechargeLimit="
 				+ lastRecharge + ", thisPeriodRechargeLimit=" + thisPeriodRechargeLimit + ", daysTillMaxLimit=" + daysTillMaxLimit + ", id="
-				+ id + ", blockedBalances=" + blockedBalances + ", bankingServiceAgreementId=" + bankingServiceAgreementId + "]";
+				+ id + "]";
 	}
 
 	private Money totalBalance = new Money(BigDecimal.ZERO, "EUR");
@@ -136,10 +102,6 @@ public class Bucks implements Entity {
 	private Integer daysTillMaxLimit = 0;
 
 	private String id;
-
-	private Map<String, Money> blockedBalances = new HashMap<>();
-
-	private String bankingServiceAgreementId;
 
 	private String customerId;
 }

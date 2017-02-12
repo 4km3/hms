@@ -1,6 +1,7 @@
 package io.ari.customers.resources;
 
 import com.google.common.collect.ImmutableMap;
+import io.ari.customers.domain.Customer;
 import io.ari.customers.domain.exceptions.CustomerExists;
 import io.ari.customers.domain.repositories.CustomersRepository;
 import io.ari.customers.resources.assemblers.CustomersAssembler;
@@ -30,13 +31,13 @@ public class CustomersResourceTest {
 				createCustomerData());
 
 		assertEquals("The response code should be CREATED", 201, response.getStatusCodeValue());
-		verify(customersRepository).saveEntity(CUSTOMER_ID, createCustomerData());
+		verify(customersRepository).save(customer);
 	}
 	
 	@Test
 	public void shouldReturnTheEntityResponse() throws CustomerExists {
 		Map<String, Object> customerData = createCustomerData();
-		when(customersRepository.saveEntity(CUSTOMER_ID,customerData)).thenReturn(ImmutableMap.of("id",CUSTOMER_ID));
+		when(customersRepository.save(customer)).thenReturn(customer);
 
 		ResponseEntity response = customersResource.createCustomer(CUSTOMER_ID,customerData);
 
@@ -44,7 +45,7 @@ public class CustomersResourceTest {
 
 		assertNotNull("The response entity must not null",entity);
 		assertEquals("The id must be expected", CUSTOMER_ID, entity.get("entityId"));
-		verify(customersRepository).saveEntity(CUSTOMER_ID,customerData);
+		verify(customersRepository).save(customer);
 	}
 	
 	@Test
@@ -79,8 +80,13 @@ public class CustomersResourceTest {
 	@Mock
 	private CustomersRepository customersRepository;
 
+	@Mock
+	private Customer customer;
+
 	@InjectMocks
 	private CustomersResource customersResource;
 
 	private static String CUSTOMER_ID = "12345678";
+
+
 }

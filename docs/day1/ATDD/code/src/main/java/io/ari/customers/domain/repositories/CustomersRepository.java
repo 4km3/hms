@@ -2,11 +2,9 @@ package io.ari.customers.domain.repositories;
 
 import io.ari.bucks.domain.repositories.BucksRepository;
 import io.ari.customers.domain.Customer;
-import io.ari.repositories.assemblers.StorageAssembler;
 import io.ari.repositories.entities.EntitiesRepository;
 import io.ari.repositories.exceptions.EntityNotFound;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -15,11 +13,6 @@ import java.util.Optional;
 
 @Repository
 public class CustomersRepository extends EntitiesRepository<Customer> {
-
-	@Autowired
-	public CustomersRepository(@Qualifier("customersStorageAssembler") StorageAssembler<Customer> storageAssembler) {
-		super(storageAssembler);
-	}
 
 	public Optional<Customer> findByMobilePhone(String mobilePhone) {
 		try {
