@@ -1,18 +1,18 @@
 
 ---
-# Why matters? 
+### Why matters?
 
 * Allows emergent design, refactor is imposible without unit tests 
 
 ---
 
-# What is a unit test?
+### What is a unit test?
 
 * 
 
 ---
 
-#Test strategy
+### Test strategy
 
 * Test first
 * Test in Isolation
@@ -20,14 +20,15 @@
 
 ---
 
-# Anatomy of a test 
+### Anatomy of a test
+
   * Expectations
   * Experimentation
   * Fixture
 
 ---
 
-# 
+### Patterns
 
 * Fresh fixture
 * Red/Green/Refactor
@@ -36,7 +37,7 @@
 
 ---
 
-# Types of unit tests
+### Types of unit tests
 
 * White box/Glass box
 * Black box
@@ -45,7 +46,7 @@
 
 ---    
 
-# Test doubles
+### Test doubles
 * Mocks
 * Fakes
 * Stubs
@@ -54,17 +55,18 @@
 ---
 
 #Exercise
+
 * Add new test to existing method
 
-# References
+### References
 
-## Books
+### Books
 
 * Menzaros
 * Kent beck
 * refactor. Martin fowler
 
 
-##Links
+###Links
 
 * El link a JUnit

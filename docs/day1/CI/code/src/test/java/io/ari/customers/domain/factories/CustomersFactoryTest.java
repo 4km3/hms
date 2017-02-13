@@ -82,7 +82,7 @@ public class CustomersFactoryTest {
     }
 
     @Test(expected = CustomerMobilePhoneExists.class)
-    public void shouldThowExceptionIfCustomerMobileExists() throws CustomerExists {
+    public void shouldThrowExceptionIfCustomerMobileExists() throws CustomerExists {
         when(customersRepository.findByMobilePhone(MOBILE_PHONE)).thenReturn(Optional.of(customer));
         customerFactory.createCustomer(ID, ID_CARD, NAME, LAST_NAME, MOBILE_PHONE);
     }
