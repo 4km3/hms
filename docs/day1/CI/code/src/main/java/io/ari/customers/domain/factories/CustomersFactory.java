@@ -29,7 +29,9 @@ public class CustomersFactory {
 		customer.setLastName(lastName);
 		customer.setMobilePhone(mobilePhone);
 
-		return customersRepository.save(customer);
+		customersRepository.save(customer);
+
+		return customer;
 	}
 
 	private Bucks createNewBucks(String customerId) {
