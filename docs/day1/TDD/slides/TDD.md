@@ -140,7 +140,7 @@ Prefer black box test over glass box tests
 
 ---
 
-# Practice 1
+### Practice 1
 
 Add new test to existing method.
 
@@ -274,7 +274,7 @@ Green!!!!!!!
 
 ---
 
-# Practice 2
+### Practice 2
 
 Implements the method in CustomersRepository.java to detect if the card is duplicated using TDD.
 Run acceptance test after and discover that code fulfills the ATDD lesson scenario.
