@@ -22,14 +22,6 @@ public class CustomersRepository extends EntitiesRepository<Customer> {
 		}
 	}
 
-	public Optional<Customer> findByIdCard(String idCard) {
-		try {
-			return Optional.of(super.findById(idCards.get(idCard)));
-		} catch (EntityNotFound entityNotFound) {
-			return Optional.empty();
-		}
-	}
-
 	public Customer save(Customer customer){
 		idCards.put(customer.getIdCard(),customer.getId());
 		mobilePhones.put(customer.getMobilePhone(),customer.getId());
