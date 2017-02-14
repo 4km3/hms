@@ -13,6 +13,7 @@ development where you write a test before you write just enough production code 
 * Creates a detailed specification. Documents the functionality using executable examples.
 
 ---
+
 * Improves quality and reduces bugs.
 * Simplification.
 * The test is the first client to the class or function.
