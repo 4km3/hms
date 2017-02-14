@@ -1,12 +1,49 @@
-### Microservices
+### Microservices (15')
 
---- (15')
+---
 
 ### Characteristics Recap
 
 ---
 
+### Benefits
+
+#### Strong Module Boundaries
+
+Microservices reinforce modular structure, which is particularly important for larger teams.
+
+#### Independent Deployment
+
+Simple services are easier to deploy, and since they are autonomous,
+are less likely to cause system failures when they go wrong.
+
+#### Technology Diversity
+
+With microservices you can mix multiple languages, development frameworks and data-storage technologies.
+
+---
+
+### Costs
+
+#### Distribution
+Distributed systems are harder to program, since remote calls are slow and are always at risk of failure.
+
+#### Eventual Consistency
+
+Maintaining strong consistency is extremely difficult for a distributed system,
+which means everyone has to manage eventual consistency.
+
+#### Operational Complexity
+
+You need a mature operations team to manage lots of services, which are being redeployed regularly.
+
+---
+
 ### When use microservices?
+
+Don't even consider microservices unless you have a system that's too complex to manage as a monolith
+
+![](./images/microservices.productivity.png?raw=true)
 
 ---
 
@@ -67,23 +104,29 @@ microservices.
 *
 
 ---
-# References
+### References
 
-## Books
+### Books
 
 * Building Microservices: Designing Fine-Grained Systems. Sam Newman
 * Release It!: Design and Deploy Production-Ready Software (Pragmatic Programmers). Michael T. Nygard
 * Domain driven design. Eric Evans
 
+---
 
-## Links
+### Links
 
 * https://martinfowler.com/microservices/
 * https://martinfowler.com/articles/microservices.html
 * https://martinfowler.com/bliki/SacrificialArchitecture.html
 * http://www.reactivemanifesto.org/
+* https://martinfowler.com/articles/microservice-trade-offs.html
+* https://martinfowler.com/articles/microservice-testing/
+* https://martinfowler.com/bliki/MicroservicePremium.html
 
-## Talks
+---
+
+### Talks
 
 * https://www.infoq.com/presentations/microservices-replaceability-consistency
 * https://www.infoq.com/presentations/evolutionary-architecture-microservices-cd

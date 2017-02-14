@@ -22,7 +22,7 @@ development where you write a test before you write just enough production code 
 
 ---
 
-### What is a unit testing?
+### What is unit testing?
 
 Unit testing refers to the practice of testing certain functions and areas – or units – of our code.
 This gives us the ability to verify that our functions work as expected.
@@ -280,7 +280,11 @@ Green!!!!!!!
 Implements the method in CustomersRepository.java to detect if the card is duplicated using TDD.
 Run acceptance test after and discover that code fulfills the ATDD lesson scenario.
 
+---
+
 ### References
+
+---
 
 ### Books
 
@@ -288,6 +292,8 @@ Run acceptance test after and discover that code fulfills the ATDD lesson scenar
 * Test Driven Development. Kent Beck.
 * Refactoring: Improving the Design of Existing Code . Martin Fowler.
 * Clean code. Robert C. Martin.
+
+---
 
 ### Links
 

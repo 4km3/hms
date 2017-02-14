@@ -1,8 +1,8 @@
-# Software is a cost (15')
+### Software is a cost (15')
 
 ---
 
-# Evolutionary architecture
+### Evolutionary architecture
 
 * YAGNI
 * Keep it simple
@@ -13,7 +13,7 @@
 
 ---
 
-## References
+### References
 ### Talks
 
 * https://www.infoq.com/presentations/evolutionary-architecture-microservices-cd
