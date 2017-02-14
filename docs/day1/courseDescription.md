@@ -50,6 +50,7 @@ microservices safely in production.
   * Antifragile (15')
   * Evolutionary Architecture (15')
   * Microservices (2h)
+
 * **Lunch 12:30 - 13:30**
 * Container platform (2:30h) 13:30 - 16:00
   * Intro and presentation (30')
