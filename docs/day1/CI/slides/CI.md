@@ -2,12 +2,28 @@
 
 ### Brief introduction
 
-- CI is the process of automating software build
-- Traditional code development involves multiple steps
-- Often manual, those steps might introduce new bugs
-- CI enables faster and safer pipelines by automating these steps 
-- CI also enables developer to catch bugs early on development cycle
-- CI ensures that the code can be rolled into production by verifying through testing
+- CI is the discipline of integrating software construction in a developer team
+- Traditional code development involves multiple manual steps which might introduce new bugs
+- CI enables safer pipelines by allowing developer to catch bugs early on development cycle
+- CI enables faster pipelines by automating the process
+- CI ensures that the code can be rolled into production anytime
+
+---
+
+### Safer Pipelines
+
+- CI allows to detect:
+	- Bugs in the commited code
+	- Issues when integrating with other developers' code
+
+- The integration process must be frequent, or you risk trouble when merging developers' code
+
+---
+
+### Faster Pipelines
+
+- Automation in the process makes it seamless
+- Also eliminates the human-induced bugs
 
 ---
 
@@ -17,7 +33,7 @@
 - A CI tool checks out the changes uploaded to the SCM
 - It then runs a batch of tests over the new code
 - If all tests are passed, the artifacts are stored
-- The information on the build process is made available to the developer
+- The feedback of the build process is made available to the developers
 
 ---
 
@@ -41,7 +57,7 @@
 
 ## Exercise 1
 
-- Automate the integration of the code generated in the previous exercise
+- Automate the integration of the code available in your repo inside docs/day1/CI/code/
 - For that purpose, we will use Jenkins as our CI tool deployed inside your Rancher
 - This Jenkins instance will check over your GitHub repo and then run the tests included in the code
 - After the tests have been run it will show the tests tendency graphs and provide the resulting artifacts
@@ -78,27 +94,3 @@
 
 - Now try make some changes to your repo locally and then uploading them to your repo.
 - Check what happens in your Jenkins web view
-
----
-
-## Exercise 2
-
-- Transform the previous exercise into a pipeline
-
----
-
-## Step 1
-
-- Setup a new pipeline project
-	- Fill in the Pipeline Script with the followint pipeline definition
-	'''
-	stage('atdd')
-		node() {
-			git url: 'https://github.com/<user>/atdd.git'
-			dev mvnHome =  tool 'mvn'
-			sh ${mvnHome}/bin/mvn -B verify"
-			step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])
-			step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])        
-		}
-	}
-	'''
