@@ -1,12 +1,22 @@
 ### Microservices (15')
 
+Microservices are small, autonomous services that work together.
+
 ---
 
-### Characteristics Recap
+#### Small, and Focused on Doing One Thing Well
+
+#### Autonomous
+
+---
+
+
 
 ---
 
 ### Benefits
+
+---
 
 #### Strong Module Boundaries
 
@@ -24,6 +34,8 @@ With microservices you can mix multiple languages, development frameworks and da
 ---
 
 ### Costs
+
+---
 
 #### Distribution
 Distributed systems are harder to program, since remote calls are slow and are always at risk of failure.
@@ -44,6 +56,15 @@ You need a mature operations team to manage lots of services, which are being re
 Don't even consider microservices unless you have a system that's too complex to manage as a monolith
 
 ![](./images/microservices.productivity.png?raw=true)
+
+---
+
+
+### Microservice charateristics
+
+#### High cohesion
+
+#### Low coupling
 
 ---
 
