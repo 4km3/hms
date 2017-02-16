@@ -6,11 +6,19 @@ Microservices are small, autonomous services that work together.
 
 #### Small, and Focused on Doing One Thing Well
 
-#### Autonomous
+* Cohesion—the drive to have related code grouped together—is an important concept when we think about microservices.
+* Single responsibility principle.
+* Fit in your head.
+* The smaller the service, the more you maximize the benefits and downsides of microservice architecture.
 
 ---
 
+#### Autonomous
 
+* Every microservice is a separate entity.
+* All communication between the services themselves are via network calls.
+* The service exposes an application programming interface (API), and collaborating services communicate with us via those APIs.
+* The golden rule: can you make a change to a service and deploy it by itself without changing anything else.
 
 ---
 
@@ -24,8 +32,7 @@ Microservices reinforce modular structure, which is particularly important for l
 
 #### Independent Deployment
 
-Simple services are easier to deploy, and since they are autonomous,
-are less likely to cause system failures when they go wrong.
+Simple services are easier to deploy, and since they are autonomous, are less likely to cause system failures when they go wrong.
 
 #### Technology Diversity
 
@@ -38,6 +45,7 @@ With microservices you can mix multiple languages, development frameworks and da
 ---
 
 #### Distribution
+
 Distributed systems are harder to program, since remote calls are slow and are always at risk of failure.
 
 #### Eventual Consistency
@@ -55,10 +63,9 @@ You need a mature operations team to manage lots of services, which are being re
 
 Don't even consider microservices unless you have a system that's too complex to manage as a monolith
 
-![](./images/microservices.productivity.png?raw=true)
+![](./images/microservices.productivity.png)
 
 ---
-
 
 ### Microservice charateristics
 
@@ -114,10 +121,12 @@ microservices.
 ### Lessons learned (15')
 
 * Start small
-  * Don't create as many microservices as you can
-  * Start with small team with the correct culture
-  * Don't use all the existing databases
-  * Don't use all the existing programming languages
+  * Don't create as many microservices as you can.
+  * Start with small team with the correct culture.
+  * Don't use all the existing databases.
+  * Don't use all the existing programming languages.
+---
+
 * Take care about the architecture
   *
   * If

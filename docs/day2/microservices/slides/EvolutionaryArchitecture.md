@@ -70,8 +70,8 @@ Examples include levels of uptime, throughput, availability and security needed.
 
 ---
 
-* The town planner metaphor
-  * The town planner does his best to anticipate these changes, but accepts
+* In contrast the town planner metaphor:
+  * The town planner does his best to anticipate the changes, but accepts
     that trying to exert direct control over all aspects of what happens is futile.
   * Town planners likened a city to a living creature.
   * The city changes over time. It shifts and evolves as its occupants use it in different ways,
