@@ -63,14 +63,19 @@ Examples include levels of uptime, throughput, availability and security needed.
 
 ### Change the metaphor
 
-* I think the architect metaphor is evil.
-The idea of someone who draws up detailed plans for others to interpret, and expects this to be carried out.
+* The architect's metaphor bring to our minds this ideas:
+  * The idea of someone who draws up detailed plans for others to interpret.
+  * Diagram after diagram created with a view to inform the construction of the perfect system.
+  * Someone utterly devoid of any understanding as to how hard it will be to implement.
 
-The town planner does his best to anticipate these changes, but accepts that trying to exert
-direct control over all aspects of what happens is futile.
-* More than one person has likened a city to a living creature.
-* The city changes over time. It shifts and evolves as its occupants use it in different ways,
-or as external forces shape it.
+---
+
+* The town planner metaphor
+  * The town planner does his best to anticipate these changes, but accepts
+    that trying to exert direct control over all aspects of what happens is futile.
+  * Town planners likened a city to a living creature.
+  * The city changes over time. It shifts and evolves as its occupants use it in different ways,
+    or as external forces shape it.
 
 ---
 
