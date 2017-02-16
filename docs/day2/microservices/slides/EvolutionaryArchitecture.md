@@ -7,20 +7,29 @@ The Only Thing That Is Constant Is Change
 
 ### Evolutionary architecture
 
-An evolutionary architecture supports incremental, guided change as a first
-principle along multiple dimensions.
+An evolutionary architecture designs for incremental change in an architecture as first principle.
 
 ---
 
 ### Characteristics
 
+---
+
 #### Modularity and Coupling
-Support for modularity, often at the technical architecture,enables separating components along well defined boundaries.
+
+The ability to separate components along well defined boundaries allows to developers to make non breaking changes.
+Inappropriate coupling inhibits evolution by propagate changes in a difficult to predict ways.
+
+---
 
 #### Organized Around Business Capabilities
+
 Modularity at the domain level is increasingly done using Domain-Driven Design.
 
+---
+
 #### Experimentation
+
 Changes to an application becomes trivial allowing for A/B testing and Canary releases, among others.
 This allows for experimentation and ultimately enables usage of Hypothesis-Driven Development.
 
@@ -28,30 +37,57 @@ This allows for experimentation and ultimately enables usage of Hypothesis-Drive
 
 ### Principles
 
+---
+
 #### Last Responsible Moment
 
-We wait for the last responsible moment before making decisions.
-Deciding when that moment occurs can be hard.
+In an evolutionary architecture, we wait for the last responsible moment to make decisions.
+The benefit of delaying a decision is the additional information available to make the decision.
+
+---
 
 #### Bring the Pain Forward
 
-Doing things in a project that may cause pain earlier and more often will more rapidly
-identify the issues causing this and will encourage automation to remove the pain.
+When something on a project has the potential to cause pain, force yourself to do it more often and earlier,
+which in turn encourages you to automate the pain away and identify issues early
+
+---
 
 #### Fitness Functions
 
-An architectural fitness function specifies important characteristics of a system.
+We distinguish between emergent and evolutionary architecture, and this distinction is an important one.
+In evolutionary architecture a fitness function specifies what our target architecture looks like.
 Examples include levels of uptime, throughput, availability and security needed.
 
 ---
 
-### The city metaphor
+### Change the metaphor
 
-* The town planner does his best to anticipate these changes, but accepts that trying to exert
+* I think the architect metaphor is evil.
+The idea of someone who draws up detailed plans for others to interpret, and expects this to be carried out.
+
+The town planner does his best to anticipate these changes, but accepts that trying to exert
 direct control over all aspects of what happens is futile.
 * More than one person has likened a city to a living creature.
 * The city changes over time. It shifts and evolves as its occupants use it in different ways,
 or as external forces shape it.
+
+---
+
+### Lesson learned
+
+* Evolutionary architecture is hard.
+* Start small, deploy in production fast.
+* Try the simplest thing that work.
+* You Ain't Gonna Need It.
+
+---
+
+* Use an hypothesis driven development. Small experiments tested against reality.
+* The architect MUST program.
+* The change is your friend, don't fight against it, embrace it.
+* Test frequently your fitness function, realize what are your system fragilities.
+* It's impossible predict the future, seriously.
 
 ---
 
