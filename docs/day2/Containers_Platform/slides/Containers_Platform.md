@@ -161,12 +161,12 @@ HAproxy or traefik as load balancer
 
 ### Overview
 
-Admin
-Infrastructure
-Environments
-Stack
-Catalog
-API
+* Admin
+* Infrastructure
+* Environments
+* Stack
+* Catalog
+* API
  
 ---
 
@@ -191,14 +191,14 @@ docker-compose.yml
 ```
 version: '2'
 services:
-  hms-lb:
+  lb:
     image: rancher/lb-service-haproxy:v0.4.9
     ports:
     - 8080:8080/tcp
     labels:
       io.rancher.container.agent.role: environmentAdmin
       io.rancher.container.create_agent: 'true'
-  hms:
+  web:
     image: rawmind/hms
     stdin_open: true
     tty: true
@@ -212,7 +212,7 @@ rancher-compose.yml
 ```
 version: '2'
 services:
-  hms-lb:
+  lb:
     scale: 1
     start_on_create: true
     lb_config:
@@ -229,7 +229,7 @@ services:
       port: 42
       unhealthy_threshold: 3
       interval: 2000
-  hms:
+  web:
     scale: 1
     start_on_create: true
 ```
