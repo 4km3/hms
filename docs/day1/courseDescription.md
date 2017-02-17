@@ -36,6 +36,9 @@ microservices safely in production.
 * **Break (15') 11:15 - 11:30**
 * TDD (60')   11:30 - 12:30
 * **Lunch (60') 12:30 - 13:30**
+
+---
+
 * Containers (60') 13:30 - 14:30
   * Containers vs VM's (20')
   * Docker (40')
@@ -56,12 +59,11 @@ microservices safely in production.
 
 ---
 
-* Container platform (2:30h) 13:30 - 16:00
-  * Intro and presentation (30')
-  * Scheduler (30')
-  * Networking (30')
-  * System discovery (30')
-  * Load balancer (30')
+* Containers platform (2:30h) 13:30 - 16:00
+  * Intro and presentation 
+  * Market fragmentation
+  * Rancher platform
+  * Practices
 
 ---
 
