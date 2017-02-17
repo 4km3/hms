@@ -34,7 +34,7 @@ Definition.
   * No share nothing with other shops.
 * Is decentralized, there is not a central authority deciding if new shop opens.
 * People can decided freely in with shop they buy.
-* Shops are created  
+* Shops are created
 
 ---
 

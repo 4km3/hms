@@ -58,7 +58,9 @@ often an HTTP resource API.
 
 ---
 
-#### Characteristics
+### Characteristics
+
+---
 
 Componentization via Services
 

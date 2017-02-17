@@ -12,6 +12,9 @@ in advance of implementing the corresponding functionality
 * Allows evolutionary architecture.
 * Defines what the system do, not how.
 * Creates living documentation.
+
+---
+
 * Generate a set of regression tests.
 * Acceptance tests ensure you build the right thing.
 * They are executable specifications.
@@ -20,8 +23,6 @@ in advance of implementing the corresponding functionality
 ---
 
 ### What is a user story?
-
-### Definition
 
 A user story describes functionality that will be valuable to either a user or purchaser of a system or software.
 
@@ -37,9 +38,9 @@ A user story describes functionality that will be valuable to either a user or p
 
 ### Characteristics of a good user story
 
-* Independent: Should be self-contained, in a way that there is no inherent dependency on another story.
-* Negotiable: Stories are not explicit contracts and should leave space for discussion.
-* Valuable: A story must deliver value to the stakeholders.
+* Independent: Should be self-contained, there is no inherent dependency on another story.
+* Negotiable: Stories are not explicit contracts.
+* Valuable: A story must deliver value.
 * Estimable: You must always be able to estimate the size of a story.
 * Small: Stories should not be so big as to become impossible to plan/task/prioritize.
 * Testable: The story or its related description must provide the necessary information to make test development possible.
@@ -48,7 +49,7 @@ A user story describes functionality that will be valuable to either a user or p
 
 ### Practice 1
     
-### Find the user stories in the code
+#### Find the user stories in the code
 
 * Open the code in your IDE.
   * Browse to yourProjectDirectory/docs/day1/ATDD/code/acceptance-test/src/test/resources/features/customers.

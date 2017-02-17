@@ -53,6 +53,8 @@ microservices safely in production.
   * **Break (15')**
   *  Microservices II (75')
 * **Lunch 12:30 - 13:30**
+---
+
 * Container platform (2:30h) 13:30 - 16:00
   * Intro and presentation (30')
   * Scheduler (30')
