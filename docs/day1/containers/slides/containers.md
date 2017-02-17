@@ -99,15 +99,11 @@ RUN apk add --update bash libressl curl && \ 	 # When we build a docker, we can 
 ENTRYPOINT [“/usr/bin/curl”]	# Default command to execute when we run the docker: $ENTRYPOINT + $CMD
 ```
 
-Build: Generate a unique, portable and reproducible version.
-```
-docker build -t curlApp:0.0.1 -f Dockerfile .
-```
-
 ---
 
-Publish: Publish your docker version into a docker registry.
+Build: Generate and publish a unique, portable and reproducible version.
 ```
+docker build -t curlApp:0.0.1 -f Dockerfile .
 docker push curlApp:0.0.1
 ```
 
@@ -135,7 +131,7 @@ We could build a docker that copy the static files and executes an nginx server 
 
   * Option 1: Build only one docker.
 
-We generate a Dockerfile
+Generate a Dockerfile
 ```
 FROM docker.io/alpine:3.5 		# Dockers hierarchy. Where it comes from.
 
@@ -152,7 +148,7 @@ EXPOSE 80		# We expose the service by a network port
 ENTRYPOINT ["nginx", "-g", "daemon off;”]	# Default command to execute when we run the docker: $ENTRYPOINT + $CMD
 ```
 
-Build: Generate a unique, portable and reproducible version, web server + files.
+Build: Generate and publish a unique, portable and reproducible version, web server + files.
 ```
 docker build -t MyServer:0.0.1 -f Dockerfile .
 ```
@@ -161,7 +157,7 @@ docker build -t MyServer:0.0.1 -f Dockerfile .
 
   * Option 2: Build two docker, one for the web server and other server + files
 
-We generate a Dockerfile only to nginx server
+Generate a Dockerfile only to nginx server
 ```
 FROM docker.io/alpine:3.5 		# Dockers hierarchy. Where it comes from.
 
@@ -189,7 +185,7 @@ Docker push will publish your docker version into a docker registry.
 docker push MyNginx:0.0.1
 ```
 
-We generate a Dockerfile from our nginx server and copy files
+Generate a Dockerfile from our nginx server and copy files
 ```
 FROM MyNginx:0.0.1 			# Dockers hierarchy. Where it comes from.
 
