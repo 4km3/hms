@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="reveal.js/css/theme/moon.css">
+    </head>
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+            	<section>
+	            	<section data-markdown="day1/courseDescription.md"></section>
+	            </section>
+	            <section>
+                	<section data-markdown="day1/ATDD/slides/microservicesIntro.md"></section>
+                </section>
+                <section>
+                	<section data-markdown="day1/ATDD/slides/ATDD.md"></section>
+                </section>
+                <section>
+                	<section data-markdown="day1/TDD/slides/TDD.md"></section>
+                </section>
+                <section>
+                	<section data-markdown="day1/containers/slides/containers.md"></section>
+                </section>
+                <section>
+                	<section data-markdown="day1/CI/slides/CI.md"></section>
+                </section>
+                <section>
+                	<section data-markdown="day2/microservices/slides/antifragile.md"></section>
+                	<section data-markdown="day2/microservices/slides/evolutionaryArchitecture.md"></section>
+                	<section data-markdown="day2/microservices/slides/microservices.md"></section>
+                </section>
+                <section>
+                	<section data-markdown="day2/Containers_Platform/slides/Containers_Platform.md"></section>
+                </section>
+                <section>
+                	<section data-markdown="day3/CD/slides/CD.md"></section>
+                </section>
+            </div>
+	</div>
+        
+	<script src="reveal.js/lib/js/head.min.js"></script>
+        <script src="reveal.js/js/reveal.js"></script>
+	<script>
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			dependencies: [
+				{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: 'reveal.js/lugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+</body>
+</html>

@@ -1,7 +1,3 @@
-# Containers
-
----
-
 ##  Containers
 
 A container is an isolated and limited context, that contain an app and all its dependencies to be executed.

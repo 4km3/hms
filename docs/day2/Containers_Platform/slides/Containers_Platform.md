@@ -1,8 +1,4 @@
-# Container Platform (2:30h)
-
----
-
-* Containers platform (2:30h) 13:30 - 16:00
+# Containers platform (2:30h) 13:30 - 16:00
   * Intro and presentation (30')
   * Market fragmentation
   * Rancher platform
@@ -39,7 +35,7 @@ Also, the scheduler is responsible to move or to rebalance the services if a ser
 
 Principal schedulers services in the market:
 
-<img src="images/scheduler.jpg", style="height:40vh; background-color:white; float:center;"/>
+<img src="day2/Containers_Platform/slides/images/scheduler.jpg", style="height:40vh; background-color:white; float:center;"/>
  
 
 ---
@@ -54,7 +50,7 @@ It helps to avoid networking collision and/or overlap between all the services e
 
 Principal network services in the market:
 
-<img src="images/network.jpg", style="height:40vh; background-color:white; float:center;"/>
+<img src="day2/Containers_Platform/slides/images/network.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 
@@ -68,7 +64,7 @@ Basically, you could choose between block storage, fs storage or object storage.
 
 Principal storage services in the market:
 
-<img src="images/storage.jpg", style="height:40vh; background-color:white; float:center;"/>
+<img src="day2/Containers_Platform/slides/images/storage.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 
@@ -84,7 +80,7 @@ System discovery is dependent of the scheduler you are using.
 
 Principal Service discovery in the market:
 
-<img src="images/service_discovery.jpg", style="height:40vh; background-color:white; float:center;"/>
+<img src="day2/Containers_Platform/slides/images/service_discovery.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 
@@ -101,7 +97,7 @@ Load balancer could be external or internal, depending the use of them.
 
 Principal service management in the market:
 
-<img src="images/service_management.jpg", style="height:40vh; background-color:white; float:center;"/>
+<img src="day2/Containers_Platform/slides/images/service_management.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 
@@ -116,50 +112,50 @@ it provides some useful services as user auth, registry management, ssl certs ma
 
 ### Schema
 
-<img src="images/platform.jpg", style="height:40vh; background-color:white; float:center;"/>
+<img src="day2/Containers_Platform/slides/images/platform.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 
 ### Environment
 
-<img src="images/environment.jpg", style="height:40vh; background-color:white; float:center;"/>
+<img src="day2/Containers_Platform/slides/images/environment.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 --- 
 
 ### Schedulers
 
-<img src="images/rancher-schedulers.jpg", style="height:40vh; background-color:white; float:center;"/>
+<img src="day2/Containers_Platform/slides/images/rancher-schedulers.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 
 ### Network
 
-<img src="images/rancher-network.jpg", style="height:40vh; background-color:white; float:center;"/>
+<img src="day2/Containers_Platform/slides/images/rancher-network.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 
 ### Storage
 
-<img src="images/rancher-storage.jpg", style="height:40vh; background-color:white; float:center;"/>
+<img src="day2/Containers_Platform/slides/images/rancher-storage.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 
 ### Service Discovery
 
-<img src="images/rancher-SDiscovery.jpg", style="height:40vh; background-color:white; float:center;"/>
+<img src="day2/Containers_Platform/slides/images/rancher-SDiscovery.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 
 ### Service Management
 
 HAproxy or traefik as load balancer
-<img src="images/rancher-SManagement.jpg", style="height:40vh; background-color:white; float:center;"/>
+<img src="day2/Containers_Platform/slides/images/rancher-SManagement.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 
 ### Catalog
 
-<img src="images/rancher-catalog.jpg", style="height:40vh; background-color:white; float:center;"/>
+<img src="day2/Containers_Platform/slides/images/rancher-catalog.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 
@@ -187,8 +183,56 @@ LoadBalancer: Service that provides and manage the acces to the services. The ac
 
 ## Example
 
-Create a web test service and access it to show the concept.
-docker-compose.yml and rancher-compose.yml
+Create a hms service and access slides to show the concept.
+
+---
+
+docker-compose.yml
+```
+version: '2'
+services:
+  hms-lb:
+    image: rancher/lb-service-haproxy:v0.4.9
+    ports:
+    - 8080:8080/tcp
+    labels:
+      io.rancher.container.agent.role: environmentAdmin
+      io.rancher.container.create_agent: 'true'
+  hms:
+    image: rawmind/hms
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+```
+
+---
+
+rancher-compose.yml
+```
+version: '2'
+services:
+  hms-lb:
+    scale: 1
+    start_on_create: true
+    lb_config:
+      certs: []
+      port_rules:
+      - priority: 1
+        protocol: http
+        service: hms
+        source_port: 8080
+        target_port: 8080
+    health_check:
+      healthy_threshold: 2
+      response_timeout: 2000
+      port: 42
+      unhealthy_threshold: 3
+      interval: 2000
+  hms:
+    scale: 1
+    start_on_create: true
+```
 
 ---
 
