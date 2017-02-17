@@ -1,5 +1,5 @@
-# Containers platform (2:30h) 13:30 - 16:00
-  * Intro and presentation (30')
+## Containers platform (2:30h) 13:30 - 16:00
+  * Intro and presentation 
   * Market fragmentation
   * Rancher platform
   * Practices
@@ -19,13 +19,14 @@ A containers platform is prepared to accomplish that and we gonna show some of t
 
 ---
 
-### CloudNativeLandscape
+## Market offering
+Functionality is the most important 
 <img src="https://raw.githubusercontent.com/cncf/landscape/master/landscape/CloudNativeLandscape_v0.9.3.jpg", style="height:45vh; background-color:white; float:center;"/>
-The functionality is the most important not the product. 
+
 
 ---
 
-###  Schedulers
+###  Schedulers/orchestrators
 
 A container scheduler is a piece of software that manages the server resources and deployment into them. It knows all the servers that provide resources (cpu and memory), how much they offer and how much resource are free. Based on the work load of every server, the scheduler will deploy the containers in the most free server, in order to manage the global load of the system.
 
@@ -33,7 +34,7 @@ Also, the scheduler is responsible to move or to rebalance the services if a ser
 
 ---
 
-Principal schedulers services in the market:
+Principal schedulers/orchestrators services in the market:
 
 <img src="day2/Containers_Platform/slides/images/scheduler.jpg", style="height:40vh; background-color:white; float:center;"/>
  
@@ -110,52 +111,57 @@ it provides some useful services as user auth, registry management, ssl certs ma
 
 ---
 
-### Schema
-
+### Platform Schema
+Manage multiple isolated environments
 <img src="day2/Containers_Platform/slides/images/platform.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 
 ### Environment
-
+Environments by functionality
 <img src="day2/Containers_Platform/slides/images/environment.jpg", style="height:40vh; background-color:white; float:center;"/>
 
---- 
+---
 
 ### Schedulers
-
+Choose orchetrator by environment
 <img src="day2/Containers_Platform/slides/images/rancher-schedulers.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 
 ### Network
-
+Choose the network management
 <img src="day2/Containers_Platform/slides/images/rancher-network.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 
 ### Storage
-
+Choose storage backend
 <img src="day2/Containers_Platform/slides/images/rancher-storage.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 
 ### Service Discovery
-
+Built in service discovery
 <img src="day2/Containers_Platform/slides/images/rancher-SDiscovery.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 
 ### Service Management
-
-HAproxy or traefik as load balancer
+HAproxy, traefik or external load balancers
 <img src="day2/Containers_Platform/slides/images/rancher-SManagement.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 
 ### Catalog
-
+One click deploy already integrated services
 <img src="day2/Containers_Platform/slides/images/rancher-catalog.jpg", style="height:40vh; background-color:white; float:center;"/>
+
+---
+
+### API
+Full featured API
+<img src="day2/Containers_Platform/slides/images/rancher-api.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 
@@ -167,7 +173,7 @@ HAproxy or traefik as load balancer
 * Stack
 * Catalog
 * API
- 
+
 ---
 
 ### Anatomy of a stack

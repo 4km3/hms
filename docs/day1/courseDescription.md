@@ -61,7 +61,7 @@ microservices safely in production.
 
 * Containers platform (2:30h) 13:30 - 16:00
   * Intro and presentation 
-  * Market fragmentation
+  * Market offering
   * Rancher platform
   * Practices
 
