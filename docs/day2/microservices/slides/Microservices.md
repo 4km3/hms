@@ -1,4 +1,4 @@
-### Microservices (15')
+### Microservices
 
 Microservices are small, autonomous services that work together.
 
@@ -63,7 +63,7 @@ You need a mature operations team to manage lots of services, which are being re
 
 Don't even consider microservices unless you have a system that's too complex to manage as a monolith
 
-![](https://github.com/4km3/hms/tree/master/docs/day2/microservices/slides/images/microservices.productivity.png)
+![](./images/microservices.productivity.png)
 
 ---
 
@@ -72,6 +72,10 @@ Don't even consider microservices unless you have a system that's too complex to
 #### High cohesion
 
 #### Low coupling
+
+* A change to one service should not require a change to another.
+* A loosely coupled service knows as little as it needs to about the services with which it collaborates.
+* Chatty communication can lead to tight coupling.
 
 ---
 

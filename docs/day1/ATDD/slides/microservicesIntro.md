@@ -1,6 +1,6 @@
-# Exercise 1
+### Exercise 1
 
-## Get the code
+#### Get the code
 
 In this exercise we obtain the code for the course and check your laptop configuration.
 
@@ -11,7 +11,7 @@ In this exercise we obtain the code for the course and check your laptop configu
 
 ---
 
-## Execute: mvn -version
+#### Execute: mvn -version
 
 ```
 Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
@@ -25,7 +25,7 @@ OS name: "mac os x", version: "10.12.2", arch: "x86_64", family: "mac"
 
 ---
 
-## Execute: mvn clean test
+#### Execute: mvn clean test
 
 ```
 [INFO] Surefire report directory: /Users/raimundoalegriallorente/Documents/workspace/hms/docs/day1/ATDD/code/target/surefire-reports
@@ -48,11 +48,9 @@ OS name: "mac os x", version: "10.12.2", arch: "x86_64", family: "mac"
 
 ---
 
-# Microservices
+### Microservices
 
 ---
-
-## Definition
 
 Is an approach to developing a single application as a suite of small services,
 each running in its own process and communicating with lightweight mechanisms,
@@ -60,17 +58,41 @@ often an HTTP resource API.
 
 ---
 
-## Characteristics
+#### Characteristics
 
-* Componentization via Services
-* Organized around Business Capabilities
-* Products not Projects
-* Smart endpoints and dumb pipes
-* Decentralized Governance
-* Decentralized Data Management
-* Infrastructure Automation
-* Design for failure
-* Evolutionary Design
+Componentization via Services
+
+---
+
+Organized around Business Capabilities
+
+---
+
+Products not Projects
+
+---
+
+Smart endpoints and dumb pipes
+
+---
+
+Decentralized Governance
+
+---
+
+Decentralized Data Management
+
+---
+
+Infrastructure Automation
+
+---
+
+Design for failure
+
+---
+
+Evolutionary Design
 
 ---
 

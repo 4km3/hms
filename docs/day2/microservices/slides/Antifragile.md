@@ -1,18 +1,26 @@
-### Antifragile (Estimated time: 15')
+### Antifragile
 
-### What is it?
-  
-* Systems that became better with chaos
+Systems that became better with chaos (a limited amount of chaos)
 
-### Chaos definition  
-    
+### Chaos definition
+
+
 ---  
 
 ### Types of systems
   
-* Fragile
-* Resilient
-* Antifragile  
+####Fragile
+
+Definition.
+
+---
+
+####Resilient
+
+---
+
+#### Antifragile
+
 
 ---
 
@@ -22,8 +30,11 @@
 
 #### Small shops
 
-* Every shop is independent.
-* If one shop
+* Every shop is autonomous.
+  * No share nothing with other shops.
+* Is decentralized, there is not a central authority deciding if new shop opens.
+* People can decided freely in with shop they buy.
+* Shops are created  
 
 ---
 
@@ -42,9 +53,17 @@
 
 ### Examples
 
-* Open source
-* Agile
-* 
+* Evolution.
+* Decentralized states.
+* Lean statup.
+
+---
+
+* In software:
+  * Open source community.
+  * (Real) Agile development.
+  * Microservices.
+  * Chaos engineering.
 
 ---
 

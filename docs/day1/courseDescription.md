@@ -1,4 +1,4 @@
-# Description (15')
+# Description
 
 The target of this beginner's course is to learn a few of the basic techniques
 that allow you to survive when you start to develop a microservices architecture.
@@ -49,8 +49,9 @@ microservices safely in production.
 * Microservices (2:30h) 10:00 - 12:30
   * Antifragile (15')
   * Evolutionary Architecture (15')
-  * Microservices (2h)
-
+  * Microservices I (30')
+  * **Break (15')**
+  *  Microservices II (75')
 * **Lunch 12:30 - 13:30**
 * Container platform (2:30h) 13:30 - 16:00
   * Intro and presentation (30')
