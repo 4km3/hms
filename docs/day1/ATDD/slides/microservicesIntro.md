@@ -52,6 +52,8 @@ OS name: "mac os x", version: "10.12.2", arch: "x86_64", family: "mac"
 
 ---
 
+<!-- -- id="slide2" data-transition="zoom" data-background="#A0C66B" -->
+
 Is an approach to developing a single application as a suite of small services,
 each running in its own process and communicating with lightweight mechanisms,
 often an HTTP resource API.
