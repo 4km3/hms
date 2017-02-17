@@ -1,64 +1,64 @@
-##  Containers
+###  Containers
 
 A container is an isolated and limited context, that contain an app and all its dependencies to be executed.
-* It generates a new namespace in the OS kernel.
-* It has a host OS shared kernel.
-* It has own resources of cpu, memory, network y storage.
-* It executes only one app, ideally.
-* It contains all needed (basic os and dependencies) to execute the app.
-* It would die once the principal app get stopped.
+- It generates a new namespace in the OS kernel.
+- It has a host OS shared kernel.
+- It has own resources of cpu, memory, network y storage.
+- It executes only one app, ideally.
+- It contains all needed (basic os and dependencies) to execute the app.
+- It would die once the principal app get stopped.
 
 ---
 
-###  Containers vs VMs
+####  Containers vs VMs
 
-* Container = context (shared kernel) vs VM = virtualitation (hypervisor)
-* Container has near native performance. Almost NO overhead.
-* Containers have all software requirement and dependencies needed to run the app.
-* Containers are portable, versionable and immutable.
+- Container = context (shared kernel) vs VM = virtualitation (hypervisor)
+- Container has near native performance. Almost NO overhead.
+- Containers have all software requirement and dependencies needed to run the app.
+- Containers are portable, versionable and immutable.
 
 ---
 
-## Docker
+### Docker
 Docker is a container platform used to develop, deploy and execute dockerized app's. Ecosystem:
 
-  * Docker Engine: Server and client to work with docker.
-  * Docker Trusted Registry: Docker repository where save, push and pull docker images.
-  * Docker Hub: Docker registry official service. Could code autobuilds from github y bitbucket.
-  * Docker Machine: Tool to deploy hosts in distinct providers.
-  * Docker Compose: Tool to deploy multi docker services.
+- Docker Engine: Server and client to work with docker.
+- Docker Trusted Registry: Docker repository where save, push and pull docker images.
+- Docker Hub: Docker registry official service. Could code autobuilds from github y bitbucket.
+- Docker Machine: Tool to deploy hosts in distinct providers.
+- Docker Compose: Tool to deploy multi docker services.
 
 ---
 
-### First steeps
+#### First steeps
 
 To access docker service, we need a minimal linux instalation (debian, ubuntu, coreos,...) with docker installed and running. Docker daemon listen by default in a unix socket /var/run/docker.sock. Also, it's possible to listen in a network port 2375 y 2376 (ssl).
 Connection could be:
-  * Local: Executing the command in a machine running the daemon, connect through unix socket. docker <command>
-  * Remote: Executing the command in a remote machine not running the daemon. We need the parameter -H or specify the environment variable DOCKER_HOST. 
+- Local: Executing the command in a machine running the daemon, connect through unix socket. docker <command>
+- Remote: Executing the command in a remote machine not running the daemon. We need the parameter -H or specify the environment variable DOCKER_HOST. 
 docker -H tcp://<host>:<port> <command>
 export DOCKER_HOST=tcp://<host>:<port>; docker <command>
 
 ---
 
-### Commands
+#### Commands
 
 For containers:
-  * Life cycle : create, rename, run, rm, update, images, import, build, commit, rmi, load, save......
-  * State : start, stop, restart, pause, unpause, wait, kill, attach...
-  * Information : ps, logs, inspect, events, port, top, stats, diff, tag....
-  * Import/Export : cp, export...
-  * Execution : exec...
+- Life cycle : create, rename, run, rm, update, images, import, build, commit, rmi, load, save......
+- State : start, stop, restart, pause, unpause, wait, kill, attach...
+- Information : ps, logs, inspect, events, port, top, stats, diff, tag....
+- Import/Export : cp, export...
+- Execution : exec...
 
 ---
 
-### Dockerfiles
+#### Dockerfiles
 
 Dockerfile is the script to build a docker image. Docker images are cumulative and incremental. Every Dockerfile has a FROM section, i mean, what’s the "base" image form it comes. Many distributions and applications, already have docker images published in dockerhub. We could use them as FROM to add or customize for our use. 
 
 ---
 
-### Images
+#### Images
 
 Image workflow:
 
@@ -68,7 +68,7 @@ When you generate a dockerfile and build a docker, you are generating a docker i
 
 ---
 
-### Dockers
+#### Dockers
 
 docker workflow:
 
@@ -78,9 +78,9 @@ A docker container is an deployed instance of a docker image. To instance a dock
 
 ---
 
-### Examples
+#### Examples
 
-  * Docker as client: 
+- Docker as client: 
 A user wants to use curl in his computer, but a package for his specific OS doesn’t exist, but he can execute dockers.
 
 We could build a docker that executes curl. 
@@ -117,7 +117,7 @@ curl -L www.google.com
 
 ---
 
-  * Docker as server: 
+- Docker as server: 
 
 A user wants a web server to publish static files. 
 
@@ -125,7 +125,7 @@ We could build a docker that copy the static files and executes an nginx server 
 
 ---
 
-  * Option 1: Build only one docker.
+- Option 1: Build only one docker.
 
 Generate a Dockerfile
 ```
@@ -151,7 +151,7 @@ docker build -t MyServer:0.0.1 -f Dockerfile .
 
 ---
 
-  * Option 2: Build two docker, one for the web server and other server + files
+- Option 2: Build two docker, one for the web server and other server + files
 
 Generate a Dockerfile only to nginx server
 ```
@@ -211,12 +211,12 @@ MyServer
 
 ---
 
-### Practices
+#### Practices
 
-  * JVM
+- JVM
 Create a docker with jvm to be a base of our microservices execution.
 
-  * JDK + maven
+- JDK + maven
 Create a docker with jdk and maven to be a base of our microservices compilation.
 
 
