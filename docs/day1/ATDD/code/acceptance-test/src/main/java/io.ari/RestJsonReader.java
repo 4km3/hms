@@ -11,17 +11,17 @@ import java.util.Map;
 @Component
 public class RestJsonReader {
 
-	public Map<String, Object> read(Response response) {
+    public Map<String, Object> read(Response response) {
 
-		if (!response.hasEntity()) {
-			return null;
-		}
+        if (!response.hasEntity()) {
+            return null;
+        }
 
-		try {
-			return response.readEntity(new GenericType<Map<String, Object>>() {
-			});
-		} catch (ProcessingException e) {
-			return ImmutableMap.of("notAJsonError", response.getStatus());
-		}
-	}
+        try {
+            return response.readEntity(new GenericType<Map<String, Object>>() {
+            });
+        } catch (ProcessingException e) {
+            return ImmutableMap.of("notAJsonError", response.getStatus());
+        }
+    }
 }
