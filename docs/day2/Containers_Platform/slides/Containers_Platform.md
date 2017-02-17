@@ -195,7 +195,7 @@ LoadBalancer: Service that provides and manage the acces to the services. The ac
 
 ### Example
 
-Create a hms service and access slides to show the concept.
+Create a hms service and access slides to view the concept.
 
 ---
 
@@ -203,19 +203,21 @@ docker-compose.yml
 ```
 version: '2'
 services:
-  lb:
-    image: rancher/lb-service-haproxy:v0.4.9
-    ports:
-    - 8080:8080/tcp
-    labels:
-      io.rancher.container.agent.role: environmentAdmin
-      io.rancher.container.create_agent: 'true'
   web:
     image: rawmind/hms
     stdin_open: true
     tty: true
     labels:
       io.rancher.container.pull_image: always
+  lb:
+    image: rancher/lb-service-haproxy:v0.4.9
+    links:
+    - web:web
+    ports:
+    - 8080:8080/tcp
+    labels:
+      io.rancher.container.agent.role: environmentAdmin
+      io.rancher.container.create_agent: 'true'
 ```
 
 ---
@@ -224,6 +226,19 @@ rancher-compose.yml
 ```
 version: '2'
 services:
+  web:
+    scale: 1
+    start_on_create: true
+    health_check:
+      response_timeout: 2000
+      healthy_threshold: 2
+      port: 8080
+      unhealthy_threshold: 3
+      initializing_timeout: 60000
+      interval: 2000
+      strategy: recreate
+      request_line: GET "/" "HTTP/1.0"
+      reinitializing_timeout: 60000
   lb:
     scale: 1
     start_on_create: true
@@ -232,7 +247,7 @@ services:
       port_rules:
       - priority: 1
         protocol: http
-        service: hms
+        service: web
         source_port: 8080
         target_port: 8080
     health_check:
@@ -241,9 +256,8 @@ services:
       port: 42
       unhealthy_threshold: 3
       interval: 2000
-  web:
-    scale: 1
-    start_on_create: true
+      strategy: recreate
+
 ```
 
 ---
