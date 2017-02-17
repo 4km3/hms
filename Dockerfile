@@ -17,6 +17,7 @@ ADD docs ${SERVICE_HOME}/www/hms
 # Download and install reveal.js into /opt/nginx/www/hms/reveal.js
 RUN apk add --no-cache git && \
     cd ${SERVICE_HOME}/www/hms && \
+    if [ -e reveal.js ]; then rm -rf reveal.js; fi && \
     git clone -b ${REVEAL_VERSION} ${REVEAL_URL} && \
     rm -rf reveal.js/test reveal.js/.git && \
     apk del --no-cache git && \
