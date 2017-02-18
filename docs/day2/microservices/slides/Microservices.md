@@ -63,7 +63,8 @@ You need a mature operations team to manage lots of services, which are being re
 
 Don't even consider microservices unless you have a system that's too complex to manage as a monolith
 
-<img data-src="./images/microservices.productivity.png">
+![](./images/microservices.productivity.png)
+
 ---
 
 ### Microservice charateristics
@@ -78,7 +79,7 @@ Don't even consider microservices unless you have a system that's too complex to
 
 ---
 
-### How big is a microservices? (15')
+### How big is a microservices?
 
 #### Domain Driven Design
 
@@ -91,18 +92,11 @@ Take care of the organization
 
 ---
 
-Break (15')
-
----
-
 Detect bounded contexts (15')
 
 Create a real problem with multiple bounded contests (Gemar)
 
 ---
-
-
---- (30')
 
 ### Why split the monolith?
 
@@ -121,7 +115,7 @@ microservices.
 
 ---
 
-### Lessons learned (15')
+### Lessons learned
 
 * Start small
   * Don't create as many microservices as you can.
@@ -137,6 +131,7 @@ microservices.
 *
 
 ---
+
 ### References
 
 ### Books
