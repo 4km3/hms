@@ -1,6 +1,6 @@
 ### Antifragile
 
-### Randomness synonyms
+### Randomness
 
 Uncertainty, variability, imperfect, incomplete knowledge, change, chaos,
 disorder, entropy, time, the unknown, randomness, stressor, error, volatility.
