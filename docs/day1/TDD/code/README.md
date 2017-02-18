@@ -5,8 +5,8 @@ Ari means ant in japanese, the reason of the name is the Aesop's Fable 'The Ant 
 
 ###Prerequisites
 
- * Java 8
- * Maven 3.0
+* Java 8
+* Maven 3.0
 
 ####Build
 
@@ -20,7 +20,9 @@ mvn clean test
 
 java -jar target/ari-0.1.0.jar
 
-####Acceptance Test
+###Acceptance Test
 
+* For run in local environment Add in /etc/host
+  * 127.0.0.1  ari
 * cd acceptance-test
 * mvn test

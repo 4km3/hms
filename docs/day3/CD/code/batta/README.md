@@ -8,8 +8,8 @@ contract.
 
 ###Prerequisites
 
- * Java 8
- * Maven 3.0
+* Java 8
+* Maven 3.0
 
 ####Build
 
@@ -21,4 +21,9 @@ mvn clean test
 
 #### Run
 
+* For run in local environment Add in /etc/host
+  * 127.0.0.1 batta
+
 java -jar target/batta-0.1.0.jar
+
+

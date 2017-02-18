@@ -9,6 +9,7 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
+import java.util.HashMap;
 import java.util.Map;
 
 import static javax.ws.rs.client.Entity.json;
@@ -36,6 +37,7 @@ public class BucksRepository {
         Map<String, Object> bucksId = response.readEntity(new GenericType<Map<String, Object>>() {
         });
 
+        customerBucks.put(customerId, bucksId.get("id").toString());
         return bucksId.get("id").toString();
     }
 
@@ -44,6 +46,17 @@ public class BucksRepository {
                 .path(URI)
                 .request(APPLICATION_JSON);
     }
+
+    public void deleteByCustomerId(String customerId) {
+        client
+                .target(contextRoot)
+                .path("/bucks/" + customerBucks.get(customerId))
+                .request(APPLICATION_JSON)
+                .delete();
+
+    }
+
+    private Map<String, String> customerBucks = new HashMap<>();
 
     protected void setContextRoot(String contextRoot) {
         this.contextRoot = contextRoot;
@@ -59,4 +72,6 @@ public class BucksRepository {
     private Client client;
 
     private String URI = "bucks";
+
+
 }

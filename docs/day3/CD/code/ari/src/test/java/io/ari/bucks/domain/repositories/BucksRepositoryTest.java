@@ -88,6 +88,37 @@ public class BucksRepositoryTest {
         assertEquals("The entity must be equals to the bucks", "123456", bucksId);
     }
 
+    @Test
+    public void shouldDeleteTheBucks() throws BucksNotFoundException {
+        new MockServerClient("localhost", 1080)
+                .when(
+                        request()
+                                .withMethod("POST")
+                                .withPath("/bucks")
+                                .withBody(json("{\"customerId\": \"12345678\"}"))
+                )
+                .respond(
+                        response()
+                                .withStatusCode(201)
+                                .withHeaders(
+                                        new Header("Content-Type", "application/json; charset=utf-8")
+                                )
+                                .withBody(json("{\"id\":\"123456\"}"))
+                );
+
+        String bucksId = bucksRepository.createBucks(CUSTOMER_ID);
+
+        bucksRepository.deleteByCustomerId(CUSTOMER_ID);
+
+        new MockServerClient("localhost", 1080)
+                .verify((
+                        request()
+                                .withMethod("DELETE")
+                                .withPath("/bucks/" + bucksId)
+
+                ));
+
+    }
 
     @Test(expected = BucksNotFoundException.class)
     public void shouldReturnAnExceptionIfNotFound() throws BucksNotFoundException {
@@ -131,5 +162,4 @@ public class BucksRepositoryTest {
     private BucksRepository bucksRepository;
 
     private static String CUSTOMER_ID = "12345678";
-
 }

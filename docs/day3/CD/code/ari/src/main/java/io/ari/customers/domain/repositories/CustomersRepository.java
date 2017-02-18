@@ -1,8 +1,10 @@
 package io.ari.customers.domain.repositories;
 
+import io.ari.bucks.domain.repositories.BucksRepository;
 import io.ari.customers.domain.Customer;
 import io.ari.repositories.entities.EntitiesRepository;
 import io.ari.repositories.exceptions.EntityNotFound;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -39,10 +41,10 @@ public class CustomersRepository extends EntitiesRepository<Customer> {
 		try {
 			Customer customer = findById(id);
 
-			//Delete customer bucks
-
+			bucksRepository.deleteByCustomerId(id);
 			idCards.remove(customer.getIdCard());
 			mobilePhones.remove(customer.getMobilePhone());
+
 			super.delete(id);
 		} catch (EntityNotFound entityNotFound) {
 			entityNotFound.printStackTrace();
@@ -52,4 +54,7 @@ public class CustomersRepository extends EntitiesRepository<Customer> {
 	private Map<String,String> idCards = new HashMap<>();
 
 	private Map<String,String> mobilePhones = new HashMap<>();
+
+	@Autowired
+	private BucksRepository bucksRepository;
 }

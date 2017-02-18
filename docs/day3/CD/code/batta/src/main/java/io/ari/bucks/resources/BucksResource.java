@@ -23,7 +23,9 @@ public class BucksResource {
 	@ValidateOnExecution
 	public ResponseEntity findBucks(@RequestHeader("x-customer-id") @NotEmpty String customerId) {
 		try {
-			return ResponseEntity.ok().body(bucksAssembler.convertEntitiesToDto(bucksRepository.findByCustomerId(customerId)));
+			return ResponseEntity.ok()
+					.body(bucksAssembler
+							.convertEntitiesToDto(bucksRepository.findByCustomerId(customerId)));
 		} catch (EntityNotFound entityNotFound) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
