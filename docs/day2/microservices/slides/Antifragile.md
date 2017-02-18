@@ -10,7 +10,9 @@ disorder, entropy, time, the unknown, stressor, error, volatility.
 ---  
 
 ### Types of systems
-  
+
+---
+
 #### Fragile
 
 A fragile system doesn't like volatility. It is fragile because it wants calm and predictability.
