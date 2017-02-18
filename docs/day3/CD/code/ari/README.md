@@ -24,7 +24,7 @@ java -jar target/ari-0.1.0.jar
 
 ####Acceptance Test
 
-* For run in local environment Add in /etc/host
+* For run in local environment Add in /etc/hosts
   * 127.0.0.1  ari
 * cd acceptance-test
 * mvn test

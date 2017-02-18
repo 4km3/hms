@@ -21,7 +21,7 @@ mvn clean test
 
 #### Run
 
-* For run in local environment Add in /etc/host
+* For run in local environment Add in /etc/hosts
   * 127.0.0.1 batta
 
 java -jar target/batta-0.1.0.jar
