@@ -1,6 +1,7 @@
 package io.ari.customers.domain.factories;
 
 
+import io.ari.bucks.domain.repositories.BucksRepository;
 import io.ari.customers.domain.Customer;
 import io.ari.customers.domain.exceptions.CustomerExists;
 import io.ari.customers.domain.exceptions.CustomerIdCardExists;
@@ -54,6 +55,13 @@ public class CustomersFactoryTest {
     }
 
     @Test
+    public void shouldCreateBucksWhenCreateCustomer() throws CustomerExists {
+        customerFactory.createCustomer(ID, ID_CARD, NAME, LAST_NAME, MOBILE_PHONE);
+
+        verify(bucksRepository).createBucks(ID);
+    }
+
+    @Test
     public void shouldCreateACustomerWithCorrectLastName() throws CustomerExists {
         Customer customer = customerFactory.createCustomer(ID, ID_CARD, NAME, LAST_NAME, MOBILE_PHONE);
 
@@ -92,6 +100,9 @@ public class CustomersFactoryTest {
 
     @Mock
     private CustomersRepository customersRepository;
+
+    @Mock
+    private BucksRepository bucksRepository;
 
     @Mock
     private Customer customer;

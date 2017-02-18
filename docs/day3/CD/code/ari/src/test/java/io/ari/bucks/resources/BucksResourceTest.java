@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableMap;
 import io.ari.bucks.domain.repositories.BucksRepository;
 import io.ari.bucks.domain.repositories.exceptions.BucksNotFoundException;
 import io.ari.repositories.exceptions.EntityNotFound;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -12,7 +11,6 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.ResponseEntity;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import static junit.framework.TestCase.assertEquals;
@@ -33,7 +31,7 @@ public class BucksResourceTest {
 
     @Test
     public void shouldReturnTheBucksInfo() throws BucksNotFoundException {
-        when(bucksRepository.findBucksByCustomerId(CUSTOMER_ID)).thenReturn(createBucks());
+        when(bucksRepository.findByCustomerId(CUSTOMER_ID)).thenReturn(createBucks());
 
         ResponseEntity response = bucksResource.findBucks(CUSTOMER_ID);
 
@@ -44,7 +42,7 @@ public class BucksResourceTest {
 
     @Test
     public void shouldReturnNotFoundWhenNotBucksDefined() throws BucksNotFoundException {
-        when(bucksRepository.findBucksByCustomerId(CUSTOMER_ID)).thenThrow(new BucksNotFoundException());
+        when(bucksRepository.findByCustomerId(CUSTOMER_ID)).thenThrow(new BucksNotFoundException());
         ResponseEntity response = bucksResource.findBucks(CUSTOMER_ID);
 
         assertNotNull("The response must be not null", response);

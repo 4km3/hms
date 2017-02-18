@@ -1,5 +1,6 @@
 package io.ari.customers.domain.factories;
 
+import io.ari.bucks.domain.repositories.BucksRepository;
 import io.ari.customers.domain.Customer;
 import io.ari.customers.domain.exceptions.CustomerExists;
 import io.ari.customers.domain.exceptions.CustomerIdCardExists;
@@ -38,7 +39,7 @@ public class CustomersFactory {
     }
 
     private void createNewBucks(String customerId) {
-        //Aqui se crean los bucks
+        bucksRepository.createBucks(customerId);
     }
 
     private void verifyNonExistingCustomer(String customerId, String idCard, String mobilePhone) throws CustomerExists {
@@ -67,4 +68,8 @@ public class CustomersFactory {
 
     @Autowired
     private CustomersRepository customersRepository;
+
+    @Autowired
+    private BucksRepository bucksRepository;
+
 }

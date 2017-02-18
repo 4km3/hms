@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.executable.ValidateOnExecution;
-import java.util.HashMap;
 
 @RestController
 @RequestMapping("bucks")
@@ -24,7 +23,7 @@ public class BucksResource {
 		try {
 			return ResponseEntity
                     .status(HttpStatus.OK)
-                    .body(bucksRepository.findBucksByCustomerId(customerId));
+                    .body(bucksRepository.findByCustomerId(customerId));
 		} catch (BucksNotFoundException e) {
 			return ResponseEntity.notFound().build();
 		}
