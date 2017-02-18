@@ -9,7 +9,6 @@ import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +23,7 @@ import java.util.Optional;
 import static com.github.fge.jackson.JsonLoader.fromResource;
 import static com.github.fge.jsonschema.main.JsonSchemaFactory.byDefault;
 import static com.google.common.collect.Maps.newHashMap;
+import javax.servlet.*;
 
 @Component
 public class JsonValidatorFilter implements Filter {

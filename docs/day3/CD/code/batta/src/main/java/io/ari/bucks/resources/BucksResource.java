@@ -21,7 +21,6 @@ public class BucksResource {
 	@RequestMapping(method = RequestMethod.GET)
 	@ValidateOnExecution
 	public ResponseEntity findBucks(@RequestHeader("x-customer-id") @NotEmpty String customerId) {
-
 		try {
 			return ResponseEntity.ok().body(bucksAssembler.convertEntitiesToDto(bucksRepository.findByCustomerId(customerId)));
 		} catch (EntityNotFound entityNotFound) {

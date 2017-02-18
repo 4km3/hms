@@ -1,32 +1,46 @@
 package io.ari.bucks.domain.repositories;
 
-import io.ari.bucks.domain.Bucks;
-import io.ari.repositories.entities.EntitiesRepository;
-import io.ari.repositories.exceptions.EntityNotFound;
-import org.springframework.stereotype.Repository;
+import io.ari.bucks.domain.repositories.exceptions.BucksNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.Response;
 import java.util.Map;
 
-@Repository
-public class BucksRepository extends EntitiesRepository<Bucks> {
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
-    public Bucks findByCustomerId(String customerId) throws EntityNotFound {
-        return super.findById(customerBucks.get(customerId));
+@Component
+public class BucksRepository {
+
+    public Map<String, Object> findBucksByCustomerId(String customerId) throws BucksNotFoundException {
+        Response response = client.target(contextRoot)
+                .path(URI)
+                .request(APPLICATION_JSON)
+                .header("x-customer-id",customerId)
+                .get();
+
+        if (response.getStatus() == 404){
+            throw new BucksNotFoundException();
+        }
+
+        return response.readEntity(new GenericType<Map<String, Object>>() {
+        });
     }
 
-    public Bucks findBucksByCustomerId(String customerId) throws EntityNotFound {
-        return super.findById(customerBucks.get(customerId));
+    protected void setContextRoot(String contextRoot) {
+        this.contextRoot = contextRoot;
     }
 
-    public Bucks save(Bucks bucks) {
-        customerBucks.put(bucks.getCustomerId(), bucks.getId());
-        return super.save(bucks);
+    protected void setClient(Client client) {
+        this.client = client;
     }
 
-    public void deleteCustomer(String customerId) {
-        super.delete(customerBucks.get(customerId));
-    }
+    private String contextRoot = "http://batta:8081";
 
-    private Map<String, String> customerBucks = new HashMap<>();
+    @Autowired
+    private Client client;
+
+    private String URI = "bucks";
 }

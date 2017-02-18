@@ -1,9 +1,8 @@
 package io.ari.customers.domain.factories;
 
-import io.ari.bucks.domain.Bucks;
-import io.ari.bucks.domain.factories.BucksFactory;
 import io.ari.customers.domain.Customer;
 import io.ari.customers.domain.exceptions.CustomerExists;
+import io.ari.customers.domain.exceptions.CustomerIdCardExists;
 import io.ari.customers.domain.exceptions.CustomerIdExists;
 import io.ari.customers.domain.exceptions.CustomerMobilePhoneExists;
 import io.ari.customers.domain.repositories.CustomersRepository;
@@ -38,13 +37,14 @@ public class CustomersFactory {
         return customer;
     }
 
-    private Bucks createNewBucks(String customerId) {
-        return bucksFactory.createBucks(customerId);
+    private void createNewBucks(String customerId) {
+        //Aqui se crean los bucks
     }
 
     private void verifyNonExistingCustomer(String customerId, String idCard, String mobilePhone) throws CustomerExists {
         verifyNonExistingCustomerId(customerId);
         verifyNonExistingMobilePhone(mobilePhone);
+        verifyNonExistingIdCard(idCard);
     }
 
     private void verifyNonExistingCustomerId(String customerId) throws CustomerIdExists {
@@ -53,16 +53,18 @@ public class CustomersFactory {
         }
     }
 
-
     private void verifyNonExistingMobilePhone(String mobilePhone) throws CustomerMobilePhoneExists {
         if (customersRepository.findByMobilePhone(mobilePhone).isPresent()) {
             throw new CustomerMobilePhoneExists(mobilePhone);
         }
     }
 
-    @Autowired
-    private CustomersRepository customersRepository;
+    private void verifyNonExistingIdCard(String idCard) throws CustomerIdCardExists {
+        if (customersRepository.findByIdCard(idCard).isPresent()) {
+            throw new CustomerIdCardExists(idCard);
+        }
+    }
 
     @Autowired
-    private BucksFactory bucksFactory;
+    private CustomersRepository customersRepository;
 }

@@ -1,10 +1,8 @@
 package io.ari.customers.domain.repositories;
 
-import io.ari.bucks.domain.repositories.BucksRepository;
 import io.ari.customers.domain.Customer;
 import io.ari.repositories.entities.EntitiesRepository;
 import io.ari.repositories.exceptions.EntityNotFound;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -22,6 +20,14 @@ public class CustomersRepository extends EntitiesRepository<Customer> {
 		}
 	}
 
+	public Optional<Customer> findByIdCard(String idCard) {
+		try {
+			return Optional.of(super.findById(idCards.get(idCard)));
+		} catch (EntityNotFound entityNotFound) {
+			return Optional.empty();
+		}
+	}
+
 	public Customer save(Customer customer){
 		idCards.put(customer.getIdCard(),customer.getId());
 		mobilePhones.put(customer.getMobilePhone(),customer.getId());
@@ -32,7 +38,9 @@ public class CustomersRepository extends EntitiesRepository<Customer> {
 	public void delete(String id) {
 		try {
 			Customer customer = findById(id);
-			bucksRepository.deleteCustomer(id);
+
+			//Delete customer bucks
+
 			idCards.remove(customer.getIdCard());
 			mobilePhones.remove(customer.getMobilePhone());
 			super.delete(id);
@@ -40,9 +48,6 @@ public class CustomersRepository extends EntitiesRepository<Customer> {
 			entityNotFound.printStackTrace();
 		}
 	}
-
-	@Autowired
-	private BucksRepository bucksRepository;
 
 	private Map<String,String> idCards = new HashMap<>();
 

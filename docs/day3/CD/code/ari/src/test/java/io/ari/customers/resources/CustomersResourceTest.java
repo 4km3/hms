@@ -1,6 +1,5 @@
 package io.ari.customers.resources;
 
-import com.google.common.collect.ImmutableMap;
 import io.ari.customers.domain.Customer;
 import io.ari.customers.domain.exceptions.CustomerExists;
 import io.ari.customers.domain.repositories.CustomersRepository;

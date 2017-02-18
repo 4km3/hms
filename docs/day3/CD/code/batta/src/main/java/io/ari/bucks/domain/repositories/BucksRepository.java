@@ -15,10 +15,6 @@ public class BucksRepository extends EntitiesRepository<Bucks> {
         return super.findById(customerBucks.get(customerId));
     }
 
-    public Bucks findBucksByCustomerId(String customerId) throws EntityNotFound {
-        return super.findById(customerBucks.get(customerId));
-    }
-
     public Bucks save(Bucks bucks) {
         customerBucks.put(bucks.getCustomerId(), bucks.getId());
         return super.save(bucks);

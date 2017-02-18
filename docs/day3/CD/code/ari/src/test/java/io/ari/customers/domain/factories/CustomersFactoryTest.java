@@ -1,9 +1,9 @@
 package io.ari.customers.domain.factories;
 
 
-import io.ari.bucks.domain.factories.BucksFactory;
 import io.ari.customers.domain.Customer;
 import io.ari.customers.domain.exceptions.CustomerExists;
+import io.ari.customers.domain.exceptions.CustomerIdCardExists;
 import io.ari.customers.domain.exceptions.CustomerIdExists;
 import io.ari.customers.domain.exceptions.CustomerMobilePhoneExists;
 import io.ari.customers.domain.repositories.CustomersRepository;
@@ -28,18 +28,13 @@ public class CustomersFactoryTest {
     public void prepareCustomerRepository(){
         when(customersRepository.exists(ID)).thenReturn(false);
         when(customersRepository.findByMobilePhone(MOBILE_PHONE)).thenReturn(Optional.empty());
+        when(customersRepository.findByIdCard(ID_CARD)).thenReturn(Optional.empty());
     }
 
     @Test
     public void shouldSaveTheCustomer() throws CustomerExists {
         Customer customer = customerFactory.createCustomer(ID, ID_CARD, NAME, LAST_NAME, MOBILE_PHONE);
         verify(customersRepository).save(customer);
-    }
-
-    @Test
-    public void shouldCreateBucksToTheCustomer() throws CustomerExists {
-        customerFactory.createCustomer(ID, ID_CARD, NAME, LAST_NAME, MOBILE_PHONE);
-        verify(bucksFactory).createBucks(ID);
     }
 
     @Test
@@ -86,14 +81,17 @@ public class CustomersFactoryTest {
         customerFactory.createCustomer(ID, ID_CARD, NAME, LAST_NAME, MOBILE_PHONE);
     }
 
+    @Test(expected = CustomerIdCardExists.class)
+    public void shouldThrowExceptionIfCardIdExists() throws CustomerExists {
+        when(customersRepository.findByIdCard(ID_CARD)).thenReturn(Optional.of(customer));
+        customerFactory.createCustomer(ID, ID_CARD, NAME, LAST_NAME, MOBILE_PHONE);
+    }
+
     @InjectMocks
     private CustomersFactory customerFactory;
 
     @Mock
     private CustomersRepository customersRepository;
-
-    @Mock
-    private BucksFactory bucksFactory;
 
     @Mock
     private Customer customer;

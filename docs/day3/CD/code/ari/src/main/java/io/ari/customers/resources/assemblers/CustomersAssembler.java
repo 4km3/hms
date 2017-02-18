@@ -13,9 +13,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.google.common.collect.ImmutableMap.of;
 import static com.google.common.collect.Maps.newHashMap;
-import static java.util.stream.Collectors.toMap;
 
 @Component
 public class CustomersAssembler {

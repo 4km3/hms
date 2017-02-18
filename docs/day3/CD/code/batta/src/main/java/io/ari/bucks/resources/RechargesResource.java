@@ -19,7 +19,7 @@ public class RechargesResource {
     public ResponseEntity createRecharge(@RequestHeader("x-customer-id")String customerId,
                                          @RequestBody Map<String, Object> rechargeData) {
         try {
-            Bucks bucks = bucksRepository.findBucksByCustomerId(customerId);
+            Bucks bucks = bucksRepository.findByCustomerId(customerId);
             bucks.receiveMoney(moneyAssembler.convertDtoToEntity(rechargeData));
             bucksRepository.save(bucks);
         } catch (EntityNotFound entityNotFound) {

@@ -25,7 +25,7 @@ public class RechargesResourceTest {
 
     @Test
     public void shouldReturnTheCreatedResponse() throws EntityNotFound {
-        when(bucksRepository.findBucksByCustomerId(CUSTOMER_ID)).thenReturn(bucks);
+        when(bucksRepository.findByCustomerId(CUSTOMER_ID)).thenReturn(bucks);
         ResponseEntity response = rechargesResource.createRecharge(CUSTOMER_ID,
                 createRechargeData());
 
@@ -36,7 +36,7 @@ public class RechargesResourceTest {
     public void shouldUpdateTheCustomerBucks() throws EntityNotFound {
         Map<String,Object> rechargeData = createRechargeData();
         when(moneyAssembler.convertDtoToEntity(rechargeData)).thenReturn(val("10.0").eur().entity());
-        when(bucksRepository.findBucksByCustomerId(CUSTOMER_ID)).thenReturn(bucks);
+        when(bucksRepository.findByCustomerId(CUSTOMER_ID)).thenReturn(bucks);
 
         rechargesResource.createRecharge(CUSTOMER_ID, rechargeData);
 

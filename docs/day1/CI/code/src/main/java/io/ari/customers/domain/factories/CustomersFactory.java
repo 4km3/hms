@@ -55,6 +55,7 @@ public class CustomersFactory {
 			throw new CustomerIdCardExists(idCard);
 		}
 	}
+
 	private void verifyNonExistingMobilePhone(String mobilePhone) throws CustomerMobilePhoneExists {
 		if (customersRepository.findByMobilePhone(mobilePhone).isPresent()) {
 			throw new CustomerMobilePhoneExists(mobilePhone);
