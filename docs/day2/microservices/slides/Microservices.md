@@ -71,36 +71,83 @@ Don't even consider microservices unless you have a system that's too complex to
 
 #### High cohesion
 
+* All the related behavior is grouped together inside of the same microservice.
+* When change occurs we want to be able to change it in one place.
+
 #### Low coupling
 
 * A change to one service should not require a change to another.
 * A loosely coupled service knows as little as it needs to about the services with which it collaborates.
 * Chatty communication can lead to tight coupling.
+* A microservice can deploy in production independently.
 
 ---
 
-### How big is a microservices?
-
-#### Domain Driven Design
-
-* Ubiquitous language
-* Bounded Contexts
-
-#### Conway law
-
-Take care of the organization
+### Domain Driven Design
 
 ---
 
-Detect bounded contexts (15')
+DDD is about trying to make your software a model of a real-world system or process.
+In using DDD, you are meant to work closely with a domain expert who can explain how the real-world system works.
 
-Create a real problem with multiple bounded contests (Gemar)
+---
+
+#### Ubiquitous language
+
+Is the the practice of building up a common, rigorous language between developers and bussiness experts.
+This language should be based on the Domain Model used in the software - hence the need for it to be rigorous,
+since software doesn't cope well with ambiguity.
+
+---
+
+#### Bounded Contexts
+
+Multiple models are in play on any large project.
+
+* When code based on distinct models is combined:
+  * Software becomes buggy.
+  * Unreliable.
+  * Difficult to understand.
+  * Communication among team members becomes confused.
+
+---
+
+To solve this:
+
+* Explicitly define the context within which a model applies.
+* Explicitly set boundaries in terms of:
+  * Team organization.
+  * Usage within specific parts of the application.
+  * Physical manifestations such as code bases and database schemas.
+
+Keep the model strictly consistent within these bounds.
+
+---
+
+Within each Bounded Context, you will have a coherent dialect of the Ubiquitous language.
+
+---
+
+#### Practice 1
+
+---
+
+#### Detect bounded contexts
+
+```
+
+
+```
 
 ---
 
 ### Why split the monolith?
 
 * Performance
+
+#### Conway law
+
+Take care of the organization
 
 ---
 
