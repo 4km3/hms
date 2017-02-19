@@ -3,7 +3,7 @@
 A container is an isolated and limited context, that contain an app and all its dependencies to be executed.
 - It generates a new namespace in the OS kernel.
 - It has a host OS shared kernel.
-- It has own resources of cpu, memory, network y storage.
+- It has own resources of cpu, memory, network and storage.
 - It executes only one app, ideally.
 - It contains all needed (basic os and dependencies) to execute the app.
 - It would die once the principal app get stopped.
@@ -19,7 +19,7 @@ Principal container runtime in the market
 
 ####  Containers vs VMs
 
-- Container = context (shared kernel) vs VM = virtualitation (hypervisor)
+- Container = context (shared kernel) vs VM = virtualization (hypervisor)
 - Container has near native performance. Almost NO overhead.
 - Containers have all software requirement and dependencies needed to run the app.
 - Containers are portable, versionable and immutable.
@@ -27,21 +27,21 @@ Principal container runtime in the market
 ---
 
 ### Docker
-Docker is a container framework used to develop, deploy and execute dockerized app's. 
+Docker is a container ecosystem used to develop, deploy and execute dockerized app's. 
 - Docker Engine: API and client docker components.
 - Docker Trusted Registry: Docker repository where save, push and pull docker images.
-- Docker Hub: Docker registry official service. Could code autobuilds from github y bitbucket.
+- Docker Hub: Docker registry official service. Could code autobuilds from github and bitbucket.
 - Docker Machine: Tool to deploy hosts in distinct providers.
 - Docker Compose: Tool to deploy multi docker services.
 
 ---
 
-#### First steeps
+#### First steps
 
 - Docker service can run in every linux distro (debian, ubuntu, coreos, centos, rancheros,...)
 - Docker daemon listen by default in a unix socket /var/run/docker.sock. Also can listen in a network ports 2375 and/or 2376 (ssl).
-- Local connection: Executing the command in a machine running the daemon.
-- Remote: Executing the command in a remote machine not running the daemon.  
+- Local: Executing in a machine running the daemon.
+- Remote: Executing from a remote machine not running the daemon.  
 
 ```
 export DOCKER_HOST=tcp://<host>:<port>; docker <command> || 
@@ -115,7 +115,7 @@ We could build a docker that executes curl as a client.
 ```
 FROM docker.io/alpine:3.5   # Dockers hierarchy
 
-# Install curl and some basic packages, and remove packages cache.
+#Install curl and some basic packages, and remove packages cache
 RUN apk add --update bash libressl curl && \ 	 
     rm -rf /var/cache/apk/* 
 
@@ -356,8 +356,4 @@ Maven
 - Docker:  Up & Running - Karl Matthias y Sean P.Kane (O’Reilly)
 - Docker in Action - Jeff Nickolofff (Manning)
 - Building microservices - Sam Newman (O’Reilly)
-
-
-
-
 
