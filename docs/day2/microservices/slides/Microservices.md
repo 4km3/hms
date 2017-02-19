@@ -244,9 +244,10 @@ Split the monolith. Create a microservice for any of the bounded context detect 
 
 ### Books
 
-* Building Microservices: Designing Fine-Grained Systems. Sam Newman
-* Release It!: Design and Deploy Production-Ready Software (Pragmatic Programmers). Michael T. Nygard
-* Domain driven design. Eric Evans
+* Building Microservices: Designing Fine-Grained Systems. Sam Newman.
+* Release It!: Design and Deploy Production-Ready Software (Pragmatic Programmers). Michael T. Nygard.
+* Domain driven design. Eric Evans.
+* Refactoring Databases: Evolutionary Database Design. Scott J Ambler, Pramod J. Sadalage
 
 ---
 
@@ -267,3 +268,5 @@ Split the monolith. Create a microservice for any of the bounded context detect 
 
 * https://www.infoq.com/presentations/microservices-replaceability-consistency
 * https://www.infoq.com/presentations/evolutionary-architecture-microservices-cd
+* https://www.thoughtworks.com/insights/blog/microservices-nutshell
+* https://www.thoughtworks.com/insights/blog/microservices-lessons-frontline
