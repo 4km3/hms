@@ -5,7 +5,7 @@
 In this practice we obtain the code for the course and check your laptop configuration.
 * Login in your GitHub account and fork the repository https://github.com/4km3/hms-code.git
 * Clone your forked repo in your laptop.
-  * git clone https://github.com/\<username\>/hms-code.git
+  * git clone https://github.com/(username)/hms-code.git
 * Open a terminal console.
 * cd yourProjectDirectory/docs/day1/ATDD/code
 
