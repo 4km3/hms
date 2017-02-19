@@ -1,4 +1,4 @@
-# Herding Microservices
+## Herding Microservices
 ### Description
 
 The target of this beginner's course is to learn a few of the basic techniques
@@ -40,7 +40,7 @@ microservices safely in production.
 
 ---
 
-## First day (Fundamentals 6h)
+### First day (Fundamentals 6h) (I)
 
 * Microservices 101 (15') 10:00 - 10:15
 * ATDD (60')  10:15 - 11:15
@@ -50,6 +50,8 @@ microservices safely in production.
 
 ---
 
+### First day (Fundamentals 6h) (II)
+
 * Containers (60') 13:30 - 14:30
   * Containers vs VM's (20')
   * Docker (40')
@@ -58,7 +60,7 @@ microservices safely in production.
 
 ---
 
-## Second day (Microservices 6h)
+### Second day (Microservices 6h) (I)
 
 * Microservices (2:30h) 10:00 - 12:30
   * Antifragile (15')
@@ -70,6 +72,8 @@ microservices safely in production.
 
 ---
 
+### Second day (Microservices 6h) (II)
+
 * Containers platform (2:30h) 13:30 - 16:00
   * Intro and presentation 
   * Market offering
@@ -78,7 +82,7 @@ microservices safely in production.
 
 ---
 
-## Third day (Operation) (6h)
+### Third day (Operation) (6h)
 
 * Continuous delivery (2:30h) 10:30 - 13:00
 * **Lunch 13:00 - 14:00**
