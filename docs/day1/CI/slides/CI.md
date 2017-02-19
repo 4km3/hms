@@ -3,7 +3,7 @@
 - CI is the discipline of integrating software construction within a developer team
 - Traditional code development involves multiple manual steps which might introduce new bugs
 - CI enables:
-	- Safer pipelines 
+	- Safer pipelines
 	- Faster pipelines
 - CI also ensures that the code can be rolled into production anytime
 
@@ -14,11 +14,10 @@
 - CI allows to detect:
 	- Bugs in the commited code early on the development cycle
 	- Issues when integrating with other developers' code
-
 - The integration process must be frequent, at least daily
 - Safety depends on the test suite in use
 - Enables visual feedback on the build status
-- Test environment must be as close as possible as the one in production
+- Test environment must be as close as possible to production
 
 ---
 
