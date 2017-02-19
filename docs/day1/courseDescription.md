@@ -20,12 +20,16 @@ microservices safely in production.
 
 ---
 
-# People
+### People
 
 * Raúl Sanchez (https://es.linkedin.com/in/raúl-sánchez-a496848)
 * Pancho Horrillo (https://es.linkedin.com/in/pancho-horrillo)
 * Rodrigo de la Fuente (https://es.linkedin.com/in/rfuentehorrillo)
 * Raimundo Alegría (https://es.linkedin.com/in/raialegria)
+
+<img src="./images/rancher_logo.png" height="100" style="background:white; border:none; box-shadow:none;">
+<img src="./images/bbva_logo.jpg"  height="100" style="background:none; border:none; box-shadow:none;">
+<img src="./images/beeva_logo.png" height="100" style="background:white; border:none; box-shadow:none;">
 
 ---
 
