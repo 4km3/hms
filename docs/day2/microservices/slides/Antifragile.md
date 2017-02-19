@@ -70,7 +70,7 @@ The opposite of fragile, system that became better with randomness and disorder.
 
 * Optimization destroy redundancies and generate fragility.
 * Redundancies generate antifragility but elevate the system cost.
-* Risk are infinite and you can imagine all of them, search you system fragile points.
+* Risks are infinite and you can imagine all of them, search you system fragile points.
 
 ---
 
