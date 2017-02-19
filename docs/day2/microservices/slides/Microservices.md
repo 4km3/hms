@@ -161,12 +161,12 @@ Split the monolith. Create a microservice for any of the bounded context detect 
 
 * Detect in which points one bounded context call to the other bounded context.
 * Create other empty module for the new microservice.
-
----
-
 * Move the code of the first point in the new module.
   * Copy all code as you need to the new module and make the code compiles. (Duplicate all code as you need).
 * The contract to the other bounded context don't change in this first step.
+
+---
+
 * Implement in the monolith the call to the new module.
   * Define the kind of communication Rest/Messages.
   * Implements a new unit test.
