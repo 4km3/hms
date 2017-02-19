@@ -7,9 +7,9 @@
 Uncertainty, variability, imperfect, incomplete knowledge, change, chaos,
 disorder, entropy, time, the unknown, stressor, error, volatility.
 
----  
+---
 
-### Types of systems
+### Type of complex systems
 
 ---
 
