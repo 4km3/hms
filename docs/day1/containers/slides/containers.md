@@ -22,7 +22,7 @@ A container is an isolated and limited context, that contain an app and all its 
 ####  Container runtime
 Principal container runtime in the market:
 
-<img src="day1/containers/slides/images/containers.jpg", style="height:40vh; background-color:white; float:center;"/>
+<img src="day1/containers/slides/images/containers.jpg", style="width:100%; height:auto; background-color:white; float:center;"/>
 
 ---
 
@@ -40,9 +40,9 @@ Docker is a container platform used to develop, deploy and execute dockerized ap
 #### First steeps
 
 - Docker service can run in every linux distro (debian, ubuntu, coreos, centos, rancheros,...)
-- Docker daemon listen by default in a unix socket /var/run/docker.sock. Also, it's possible to listen in a network port 2375 y 2376 (ssl).
-- Local connection: Executing the command in a machine running the daemon, connect through unix socket. docker <command>
-- Remote: Executing the command in a remote machine not running the daemon. We need to specify -H param or the env variable DOCKER_HOST. 
+- Docker daemon listen by default in a unix socket /var/run/docker.sock. Also can listen in a network ports 2375 and/or 2376 (ssl).
+- Local connection: Executing the command in a machine running the daemon.
+- Remote: Executing the command in a remote machine not running the daemon.  
 
 ```
 export DOCKER_HOST=tcp://<host>:<port>; docker <command> || docker -H tcp://<host>:<port> <command>
@@ -129,7 +129,7 @@ docker build  -f Dockerfile .   # It generates an image with a uuid
 docker tag <IMAGE_UUID> <MY_DOCKERHUB_USER>/curlApp:<VERSION>
 ```
 
-Or in one command
+- Or in one command
 
 ```
 docker build -t <MY_DOCKERHUB_USER>/curlApp:<VERSION> -f Dockerfile-curlApp .
@@ -282,7 +282,7 @@ MyServer
 
 #### HMS docker hierarchy proposition for the workshop
 
-<img src="day1/containers/slides/images/hms-hierarchy.jpg", style="height:40vh; background-color:white; float:center;"/>
+<img src="day1/containers/slides/images/hms-hierarchy.jpg", style="width:auto; height:100%; background-color:white; float:center;"/>
 
 ---
 
