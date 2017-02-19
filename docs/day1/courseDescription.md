@@ -56,7 +56,7 @@ microservices safely in production.
   * Containers vs VM's (20')
   * Docker (40')
 * **Break (15')  14:30 - 14:45**
-* Continuous integration (75') 14:45-16:00
+* Continuous Integration (75') 14:45-16:00
 
 ---
 
@@ -84,7 +84,9 @@ microservices safely in production.
 
 ### Third day (Operation) (6h)
 
-* Continuous delivery (2:30h) 10:30 - 13:00
+* Continuous Deployment (2:30h) 10:30 - 13:00
+  * Introduction
+  * Concepts
+  * Practice
 * **Lunch 13:00 - 14:00**
-* Exercises, doubts and questions (1:30h) 14:00 - 16:30
-
+* Office hours, doubts and questions (1:30h) 14:00 - 16:30

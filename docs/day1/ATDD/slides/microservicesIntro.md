@@ -1,8 +1,8 @@
-### Exercise 1
+### Practice 1
 
 #### Get the code
 
-In this exercise we obtain the code for the course and check your laptop configuration.
+In this practice we obtain the code for the course and check your laptop configuration.
 
 * Clone the course report in your laptop.
   * git clone https://github.com/4km3/hms.git
