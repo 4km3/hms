@@ -10,19 +10,19 @@ A container is an isolated and limited context, that contain an app and all its 
 
 ---
 
+####  Container runtime
+Principal container runtime in the market
+
+<img src="day1/containers/slides/images/containers.jpg", style="width:700; height:auto; background-color:white; float:center;"/>
+
+---
+
 ####  Containers vs VMs
 
 - Container = context (shared kernel) vs VM = virtualitation (hypervisor)
 - Container has near native performance. Almost NO overhead.
 - Containers have all software requirement and dependencies needed to run the app.
 - Containers are portable, versionable and immutable.
-
----
-
-####  Container runtime
-Principal container runtime in the market
-
-<img src="day1/containers/slides/images/containers.jpg", style="width:700; height:auto; background-color:white; float:center;"/>
 
 ---
 
@@ -129,7 +129,8 @@ ENTRYPOINT [“/usr/bin/curl”]
 - Build and tag the docker image. Generate a unique, portable and reproducible version.
 
 ```
-docker build  -f Dockerfile .   # Generates image with uuid
+# Generates image with a uuid
+docker build  -f Dockerfile-curlApp .   
 docker tag <IMAGE_UUID> <MY_DOCKERHUB_USER>/curlApp:<VERSION>
 ```
 
@@ -204,9 +205,6 @@ ADD <html_files> /var/www/html
 # Expose the service by a network port
 EXPOSE 80		                    
 
-# App is executed in foreground, to retain the docker started.  
-# The docker will be stoped once the primary command
-
 # Default command when docker run: $ENTRYPOINT + $CMD
 ENTRYPOINT ["nginx", "-g", "daemon off;”]	
 ```
@@ -227,9 +225,6 @@ RUN apk add --update bash libressl nginx && \
 
 # Expose the service by a network port
 EXPOSE 80		                  
-
-# App is executed in foreground, to retain the docker started.  
-# The docker will be stoped once the primary command
 
 # Default command when docker run: $ENTRYPOINT + $CMD
 ENTRYPOINT ["nginx", "-g", "daemon off;”]	
