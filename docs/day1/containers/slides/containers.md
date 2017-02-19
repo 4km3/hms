@@ -22,7 +22,7 @@ A container is an isolated and limited context, that contain an app and all its 
 ####  Container runtime
 Principal container runtime in the market:
 
-<img src="day1/containers/slides/images/containers.jpg", style="width:100%; height:auto; background-color:white; float:center;"/>
+<img src="day1/containers/slides/images/containers.jpg", style="width:700; height:auto; background-color:white; float:center;"/>
 
 ---
 
@@ -45,7 +45,8 @@ Docker is a container platform used to develop, deploy and execute dockerized ap
 - Remote: Executing the command in a remote machine not running the daemon.  
 
 ```
-export DOCKER_HOST=tcp://<host>:<port>; docker <command> || docker -H tcp://<host>:<port> <command>
+export DOCKER_HOST=tcp://<host>:<port>; docker <command> || 
+docker -H tcp://<host>:<port> <command>
 ```
 
 ---
@@ -109,23 +110,27 @@ We could build a docker that executes curl as a client.
 
 ---
 
+<!-- .slide: style="text-align: left;"> --> 
 - Generate a Dockerfile
 
 ```
-FROM docker.io/alpine:3.5 		# Dockers hierarchy. Where it comes from.
+FROM docker.io/alpine:3.5   # Dockers hierarchy
 
-RUN apk add --update bash libressl curl && \ 	 # Install curl and some basic packages, and remove packages cache.
-    rm -rf /var/cache/apk/* 	
+# Install curl and some basic packages, and remove packages cache.
+RUN apk add --update bash libressl curl && \ 	 
+    rm -rf /var/cache/apk/* 
 
-ENTRYPOINT [“/usr/bin/curl”]	# Default command to execute when we run the docker: $ENTRYPOINT + $CMD
+# Default command to execute when we run the docker: $ENTRYPOINT + $CMD
+ENTRYPOINT [“/usr/bin/curl”]	
 ```
 
 ---
 
+<!-- .slide: style="text-align: left;"> --> 
 - Build and tag the docker image. Generate a unique, portable and reproducible version.
 
 ```
-docker build  -f Dockerfile .   # It generates an image with a uuid
+docker build  -f Dockerfile .   # Generates image with uuid
 docker tag <IMAGE_UUID> <MY_DOCKERHUB_USER>/curlApp:<VERSION>
 ```
 
@@ -137,6 +142,7 @@ docker build -t <MY_DOCKERHUB_USER>/curlApp:<VERSION> -f Dockerfile-curlApp .
 
 ---
 
+<!-- .slide: style="text-align: left;"> --> 
 - Login to docker hub with your user/pass if needed.
 
 ```
@@ -151,6 +157,7 @@ docker push <MY_DOCKERHUB_USER>/curlApp:<VERSION>
 
 ---
 
+<!-- .slide: style="text-align: left;"> --> 
 - Launch an instace of our dockerized curl app. $CMD would be passed as curl args.
 
 ```
@@ -179,13 +186,15 @@ curl -L www.google.com
 
 ---
 
+<!-- .slide: style="text-align: left;"> --> 
 - Option 1: Build only one docker with nginx and the files to serve.
 
 ```
-FROM docker.io/alpine:3.5 		  # Dockers hierarchy. Where it comes from.
+FROM docker.io/alpine:3.5 		  # Dockers hierarchy
 
+# Install nginx and some basic packages, and remove packages cache.
 RUN apk add --update bash libressl nginx && \
-    rm -rf /var/cache/apk/*     # Install nginx and some basic packages, and remove packages cache.
+    rm -rf /var/cache/apk/*     
 
 ADD <html_files> /var/www/html 	# Copy files into the image
 
@@ -199,6 +208,7 @@ ENTRYPOINT ["nginx", "-g", "daemon off;”]	# Default command to execute when we
 
 ---
 
+<!-- .slide: style="text-align: left;"> --> 
 - Option 2: Build two docker, to take profit of docker hierarchy
 
   - Dockerfile for myNginx. Could be used for any other web service.
@@ -219,16 +229,18 @@ ENTRYPOINT ["nginx", "-g", "daemon off;”]	# Default command to execute when we
 
 ---
 
-  - Dockerfile for myServer
+<!-- .slide: style="text-align: left;"> --> 
+- Dockerfile for myServer
 
 ```
-FROM <MY_DOCKERHUB_USER>/myNginx:<VERSION>  # Dockers hierarchy. Comes from myNginx
+FROM <MY_DOCKERHUB_USER>/myNginx:<VERSION>  # Dockers hierarchy
 
 ADD <html_files> /var/www/html  # Copy files into the image
 ```
 
 ---
 
+<!-- .slide: style="text-align: left;"> --> 
 - Build and tag the docker images. Generate a unique, portable and reproducible version.
   - Option 1
 
@@ -246,6 +258,7 @@ docker build -t <MY_DOCKERHUB_USER>/myServer:<VERSION> -f Dockerfile-myServer2 .
 
 ---
 
+<!-- .slide: style="text-align: left;"> --> 
 - Login to docker hub with your user/pass if needed.
 
 ```
@@ -260,16 +273,17 @@ docker push <MY_DOCKERHUB_USER>/myServer:<VERSION>
 
 ---
 
+<!-- .slide: style="text-align: left;"> --> 
 - Launch an instace of our dockerized web server.
 
 ```
-docker run -td <MY_DOCKERHUB_USER>/myServer:<VERSION>
+docker run -td -p 8080:80 <MY_DOCKERHUB_USER>/myServer:<VERSION>
 ```
 
-- Making it nicer: Set an alias in user computer and he/she could launch his local server.
+- Making it nicer: Set an alias in user computer and he/she could launch his local server. http://localhost:8080
 
 ```
-alias MyServer='docker run -td <MY_DOCKERHUB_USER>/myServer:<VERSION>'
+alias MyServer='docker run -td -p 8080:80 <MY_DOCKERHUB_USER>/myServer:<VERSION>'
 
 MyServer 
 ```
@@ -282,10 +296,11 @@ MyServer
 
 #### HMS docker hierarchy proposition for the workshop
 
-<img src="day1/containers/slides/images/hms-hierarchy.jpg", style="width:auto; height:100%; background-color:white; float:center;"/>
+<img src="day1/containers/slides/images/hms-hierarchy.jpg", style="width:auto; height:500; background-color:white; float:center;"/>
 
 ---
 
+<!-- .slide: style="text-align: left;"> --> 
 - JRE8
 
 Based on hms-base, create a docker with oracle jre8 installed to be the ari service execution.
