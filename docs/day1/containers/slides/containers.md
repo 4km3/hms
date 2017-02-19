@@ -20,16 +20,15 @@ A container is an isolated and limited context, that contain an app and all its 
 ---
 
 ####  Container runtime
-Principal container runtime in the market:
+Principal container runtime in the market
 
 <img src="day1/containers/slides/images/containers.jpg", style="width:700; height:auto; background-color:white; float:center;"/>
 
 ---
 
 ### Docker
-Docker is a container platform used to develop, deploy and execute dockerized app's. Ecosystem:
-
-- Docker Engine: Server and client to work with docker.
+Docker is a container framework used to develop, deploy and execute dockerized app's. 
+- Docker Engine: API and client docker components.
 - Docker Trusted Registry: Docker repository where save, push and pull docker images.
 - Docker Hub: Docker registry official service. Could code autobuilds from github y bitbucket.
 - Docker Machine: Tool to deploy hosts in distinct providers.
@@ -120,7 +119,7 @@ FROM docker.io/alpine:3.5   # Dockers hierarchy
 RUN apk add --update bash libressl curl && \ 	 
     rm -rf /var/cache/apk/* 
 
-# Default command to execute when we run the docker: $ENTRYPOINT + $CMD
+# Default command when docker run: $ENTRYPOINT + $CMD
 ENTRYPOINT [“/usr/bin/curl”]	
 ```
 
@@ -137,7 +136,8 @@ docker tag <IMAGE_UUID> <MY_DOCKERHUB_USER>/curlApp:<VERSION>
 - Or in one command
 
 ```
-docker build -t <MY_DOCKERHUB_USER>/curlApp:<VERSION> -f Dockerfile-curlApp .
+docker build -t <MY_DOCKERHUB_USER>/curlApp:<VERSION> \
+  -f Dockerfile-curlApp .
 ```
 
 ---
@@ -161,13 +161,15 @@ docker push <MY_DOCKERHUB_USER>/curlApp:<VERSION>
 - Launch an instace of our dockerized curl app. $CMD would be passed as curl args.
 
 ```
-docker run -it --rm <MY_DOCKERHUB_USER>/curlApp:<VERSION> -L www.google.com
+docker run -it --rm <MY_DOCKERHUB_USER>/curlApp:<VERSION> \
+  -L www.google.com
 ```
 
 - Making it nicer: Set an alias in the user computer and he/she could launch regular curl.
 
 ```
-alias curl='docker run -it --rm <MY_DOCKERHUB_USER>/curlApp:<VERSION> '
+alias curl='docker run -it --rm \
+  <MY_DOCKERHUB_USER>/curlApp:<VERSION> '
 
 curl -L www.google.com
 ```
@@ -192,18 +194,21 @@ curl -L www.google.com
 ```
 FROM docker.io/alpine:3.5 		  # Dockers hierarchy
 
-# Install nginx and some basic packages, and remove packages cache.
+#Install nginx and some basic packages and remove packages cache
 RUN apk add --update bash libressl nginx && \
     rm -rf /var/cache/apk/*     
 
-ADD <html_files> /var/www/html 	# Copy files into the image
+# Copy files into the image
+ADD <html_files> /var/www/html 	
 
-EXPOSE 80		                    # Expose the service by a network port
+# Expose the service by a network port
+EXPOSE 80		                    
 
-# App is executed in foreground, to retain the docker started. The docker will be stoped once the primary command 
-# will close its stdin, may because it’s executed as daemon, may be because it finish the execution.
+# App is executed in foreground, to retain the docker started.  
+# The docker will be stoped once the primary command
 
-ENTRYPOINT ["nginx", "-g", "daemon off;”]	# Default command to execute when we run the docker: $ENTRYPOINT + $CMD
+# Default command when docker run: $ENTRYPOINT + $CMD
+ENTRYPOINT ["nginx", "-g", "daemon off;”]	
 ```
 
 ---
@@ -214,17 +219,20 @@ ENTRYPOINT ["nginx", "-g", "daemon off;”]	# Default command to execute when we
   - Dockerfile for myNginx. Could be used for any other web service.
 
 ```
-FROM docker.io/alpine:3.5 		# Dockers hierarchy. Where it comes from.
+FROM docker.io/alpine:3.5  # Dockers hierarchy
 
+#Install nginx and some basic packages and remove packages cache
 RUN apk add --update bash libressl nginx && \
-    rm -rf /var/cache/apk/* 	# Install nginx and some basic packages, and remove packages cache.
+    rm -rf /var/cache/apk/* 	
 
-EXPOSE 80		                  # Expose the service by a network port
+# Expose the service by a network port
+EXPOSE 80		                  
 
-# App is executed in foreground, to retain the docker started. The docker will be stoped once the primary command 
-# will close its stdin, may because it’s executed as daemon, may be because it finish the execution.
+# App is executed in foreground, to retain the docker started.  
+# The docker will be stoped once the primary command
 
-ENTRYPOINT ["nginx", "-g", "daemon off;”]	# Default command to execute when we run the docker: $ENTRYPOINT + $CMD
+# Default command when docker run: $ENTRYPOINT + $CMD
+ENTRYPOINT ["nginx", "-g", "daemon off;”]	
 ```
 
 ---
@@ -235,7 +243,8 @@ ENTRYPOINT ["nginx", "-g", "daemon off;”]	# Default command to execute when we
 ```
 FROM <MY_DOCKERHUB_USER>/myNginx:<VERSION>  # Dockers hierarchy
 
-ADD <html_files> /var/www/html  # Copy files into the image
+# Copy files into the image
+ADD <html_files> /var/www/html  
 ```
 
 ---
@@ -245,15 +254,19 @@ ADD <html_files> /var/www/html  # Copy files into the image
   - Option 1
 
 ```
-docker build -t <MY_DOCKERHUB_USER>/myServer:<VERSION> -f Dockerfile-myServer1 .
+docker build -t <MY_DOCKERHUB_USER>/myServer:<VERSION> \
+  -f Dockerfile-myServer1 .
 ```
 
   - Option 2: You should build and publish myNginx image before.
+
 ```
-docker build -t <MY_DOCKERHUB_USER>/myNginx:<VERSION> -f Dockerfile-myNginx .
+docker build -t <MY_DOCKERHUB_USER>/myNginx:<VERSION> \
+  -f Dockerfile-myNginx .
 docker login -u <MY_DOCKERHUB_USER> -p <MY_DOCKERHUB_PASS>
 docker push <MY_DOCKERHUB_USER>/myNginx:<VERSION>
-docker build -t <MY_DOCKERHUB_USER>/myServer:<VERSION> -f Dockerfile-myServer2 .
+docker build -t <MY_DOCKERHUB_USER>/myServer:<VERSION> \
+  -f Dockerfile-myServer2 .
 ```
 
 ---
@@ -280,12 +293,15 @@ docker push <MY_DOCKERHUB_USER>/myServer:<VERSION>
 docker run -td -p 8080:80 <MY_DOCKERHUB_USER>/myServer:<VERSION>
 ```
 
-- Making it nicer: Set an alias in user computer and he/she could launch his local server. http://localhost:8080
+- Making it nicer: Set an alias in user computer and he/she could launch his local server. 
 
 ```
-alias MyServer='docker run -td -p 8080:80 <MY_DOCKERHUB_USER>/myServer:<VERSION>'
+alias MyServer='docker run -td -p 8080:80 \
+  <MY_DOCKERHUB_USER>/myServer:<VERSION>'
 
 MyServer 
+
+curl http://localhost:8080
 ```
 
 ---
