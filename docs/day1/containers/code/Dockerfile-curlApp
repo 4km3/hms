@@ -1,0 +1,6 @@
+FROM docker.io/alpine:3.5 						# Dockers hierarchy. Where it comes from.
+
+RUN apk add --update bash libressl curl && \ 	# Install curl and some basic packages, and remove packages cache.
+    rm -rf /var/cache/apk/* 					
+
+ENTRYPOINT [“/usr/bin/curl”]					# Default command to execute when we run the docker: $ENTRYPOINT + $CMD

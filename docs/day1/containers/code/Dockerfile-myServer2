@@ -1,0 +1,3 @@
+FROM <MY_DOCKERHUB_USER>/myNginx:<VERSION>  # Dockers hierarchy. Comes from myNginx
+
+ADD <html_files> /var/www/html  			# Copy files into the image

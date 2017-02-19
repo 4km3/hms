@@ -1,0 +1,13 @@
+FROM docker.io/alpine:3.5 						# Dockers hierarchy. Where it comes from.
+
+RUN apk add --update bash libressl nginx && \
+    rm -rf /var/cache/apk/* 					# Install nginx and some basic packages, and remove packages cache.
+
+ADD <html_files> /var/www/html 					# Copy files into the image
+
+EXPOSE 80										# Expose the service by a network port
+
+# App is executed in foreground, to retain the docker started. The docker will be stoped once the primary command 
+# will close its stdin, may because it’s executed as daemon, may be because it finish the execution.
+
+ENTRYPOINT ["nginx", "-g", "daemon off;”]		# Default command to execute when we run the docker: $ENTRYPOINT + $CMD

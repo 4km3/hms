@@ -20,7 +20,7 @@ A containers platform is prepared to accomplish that and we gonna show some of t
 ---
 
 ### Market offering
-Functionality is the most important 
+Functionality is the most important https://github.com/cncf/landscape
 <img src="https://raw.githubusercontent.com/cncf/landscape/master/landscape/CloudNativeLandscape_v0.9.3.jpg", style="height:45vh; background-color:white; float:center;"/>
 
 

@@ -19,6 +19,15 @@ A container is an isolated and limited context, that contain an app and all its 
 
 ---
 
+---
+
+####  Container runtime
+Principal container runtime in the market:
+
+<img src="day1/containers/slides/images/containers.jpg", style="height:40vh; background-color:white; float:center;"/>
+ 
+---
+
 ### Docker
 Docker is a container platform used to develop, deploy and execute dockerized app's. Ecosystem:
 
@@ -32,18 +41,19 @@ Docker is a container platform used to develop, deploy and execute dockerized ap
 
 #### First steeps
 
-To access docker service, we need a minimal linux instalation (debian, ubuntu, coreos,...) with docker installed and running. Docker daemon listen by default in a unix socket /var/run/docker.sock. Also, it's possible to listen in a network port 2375 y 2376 (ssl).
-Connection could be:
-- Local: Executing the command in a machine running the daemon, connect through unix socket. docker <command>
-- Remote: Executing the command in a remote machine not running the daemon. We need the parameter -H or specify the environment variable DOCKER_HOST. 
-docker -H tcp://<host>:<port> <command>
-export DOCKER_HOST=tcp://<host>:<port>; docker <command>
+- Docker service can run in every linux distro (debian, ubuntu, coreos, centos, rancheros,...)
+- Docker daemon listen by default in a unix socket /var/run/docker.sock. Also, it's possible to listen in a network port 2375 y 2376 (ssl).
+- Local connection: Executing the command in a machine running the daemon, connect through unix socket. docker <command>
+- Remote: Executing the command in a remote machine not running the daemon. We need to specify -H param or the env variable DOCKER_HOST. 
+
+```
+export DOCKER_HOST=tcp://<host>:<port>; docker <command> || docker -H tcp://<host>:<port> <command>
+```
 
 ---
 
 #### Commands
 
-For containers:
 - Life cycle : create, rename, run, rm, update, images, import, build, commit, rmi, load, save......
 - State : start, stop, restart, pause, unpause, wait, kill, attach...
 - Information : ps, logs, inspect, events, port, top, stats, diff, tag....
@@ -54,7 +64,11 @@ For containers:
 
 #### Dockerfiles
 
-Dockerfile is the script to build a docker image. Docker images are cumulative and incremental. Every Dockerfile has a FROM section, i mean, what’s the "base" image form it comes. Many distributions and applications, already have docker images published in dockerhub. We could use them as FROM to add or customize for our use. 
+- A Dockerfile is the script to build a docker image. 
+- Docker images are cumulative and incremental. 
+- Every Dockerfile has a FROM section, to specify what’s the "base" image it comes from. 
+- Many distributions and applications, already have docker images published in dockerhub. 
+- We could use them as FROM to add or customize for our use. 
 
 ---
 
@@ -64,7 +78,9 @@ Image workflow:
 
 Dockefile -> docker build -> docker tag -> docker push -> docker rmi
 
-When you generate a dockerfile and build a docker, you are generating a docker image. Every build, generates a new and unique docker image that coulbe tagged and published in whichever docker registry (public or private). 
+- Building a Dockerfile, generates a docker image. 
+- Every build, generates a new and unique docker image. 
+- Every image should be tagged and published in a docker registry (public or private), to be used. 
 
 ---
 
@@ -74,69 +90,107 @@ docker workflow:
 
 docker pull -> docker run -> docker stop -> docker rm 
 
-A docker container is an deployed instance of a docker image. To instance a docker in a host, we only need docker engine installed in our hosts (single dependency) and access to the image we want to launch. Every single docker is unique and has state, started, stopped, created, error,...
+- A docker container is an deployed instance of a docker image. 
+- Pulling an image from a docker registry, download the docker image to your host.
+- Running an image, start an instance of your docker image.
+- Every single deployed docker is unique and has state (started, stopped, created, error,...)
 
 ---
 
-#### Examples
+### Examples
 
-- Docker as client: 
-A user wants to use curl in his computer, but a package for his specific OS doesn’t exist, but he can execute dockers.
+---
 
-We could build a docker that executes curl. 
+#### Docker as client app
 
-We generate a Dockerfile
+- A user wants to use curl in his computer.
+- Curl package for his specific OS doesn’t exist.
+- The user could execute dockers.
+
+We could build a docker that executes curl as a client. 
+
+---
+
+- Generate a Dockerfile
+
 ```
 FROM docker.io/alpine:3.5 		# Dockers hierarchy. Where it comes from.
 
-RUN apk add --update bash libressl curl && \ 	 # When we build a docker, we can execute command inside the image.
-    rm -rf /var/cache/apk/* 	# We install curl and some basic packages, and remove packages cache.
+RUN apk add --update bash libressl curl && \ 	 # Install curl and some basic packages, and remove packages cache.
+    rm -rf /var/cache/apk/* 	
 
 ENTRYPOINT [“/usr/bin/curl”]	# Default command to execute when we run the docker: $ENTRYPOINT + $CMD
 ```
 
 ---
 
-Build: Generate and publish a unique, portable and reproducible version.
+- Build and tag the docker image. Generate a unique, portable and reproducible version.
+
 ```
-docker build -t curlApp:0.0.1 -f Dockerfile .
-docker push curlApp:0.0.1
+docker build  -f Dockerfile .   # It generates an image with a uuid
+docker tag <IMAGE_UUID> <MY_DOCKERHUB_USER>/curlApp:<VERSION>
 ```
 
-Execute: Launch an instace of the docker. $CMD would be passed as curl args.
+Or in one command
+
 ```
-docker run -it --rm curlApp:0.0.1 -L www.google.com
+docker build -t <MY_DOCKERHUB_USER>/curlApp:<VERSION> -f Dockerfile-curlApp .
 ```
 
-Making it nice: Set an alias in user computer and he could launch curl.
+---
+
+- Login to docker hub with your user/pass if needed.
+
 ```
-alias curl='docker run -it --rm curlApp:0.0.1 '
+docker login -u <MY_DOCKERHUB_USER> -p <MY_DOCKERHUB_PASS>
+```
+
+- Push the image to a docker registry to make it available.
+
+```
+docker push <MY_DOCKERHUB_USER>/curlApp:<VERSION>
+```
+
+---
+
+- Launch an instace of our dockerized curl app. $CMD would be passed as curl args.
+
+```
+docker run -it --rm <MY_DOCKERHUB_USER>/curlApp:<VERSION> -L www.google.com
+```
+
+- Making it nicer: Set an alias in the user computer and he/she could launch regular curl.
+```
+alias curl='docker run -it --rm <MY_DOCKERHUB_USER>/curlApp:<VERSION> '
 
 curl -L www.google.com
 ```
 
 ---
 
-- Docker as server: 
+#### Docker as server 
 
-A user wants a web server to publish static files. 
+- A user wants a local web server to publish static files.
+- The user don't know about install and configure it.
+- The user could execute dockers.
 
-We could build a docker that copy the static files and executes an nginx server configured with them. 
+- We could build a docker that 
+  - executes an nginx server.
+  - copy the static files and serve them. 
 
 ---
 
-- Option 1: Build only one docker.
+- Option 1: Build only one docker with nginx and the files to serve.
 
-Generate a Dockerfile
 ```
-FROM docker.io/alpine:3.5 		# Dockers hierarchy. Where it comes from.
+FROM docker.io/alpine:3.5 		  # Dockers hierarchy. Where it comes from.
 
 RUN apk add --update bash libressl nginx && \
-    rm -rf /var/cache/apk/* 	# We install nginx and some basic packages, and remove packages cache.
+    rm -rf /var/cache/apk/*     # Install nginx and some basic packages, and remove packages cache.
 
-ADD <html_files> /var/www/html 	# We copy files into the image
+ADD <html_files> /var/www/html 	# Copy files into the image
 
-EXPOSE 80		# We expose the service by a network port
+EXPOSE 80		                    # Expose the service by a network port
 
 # App is executed in foreground, to retain the docker started. The docker will be stoped once the primary command 
 # will close its stdin, may because it’s executed as daemon, may be because it finish the execution.
@@ -144,23 +198,18 @@ EXPOSE 80		# We expose the service by a network port
 ENTRYPOINT ["nginx", "-g", "daemon off;”]	# Default command to execute when we run the docker: $ENTRYPOINT + $CMD
 ```
 
-Build: Generate and publish a unique, portable and reproducible version, web server + files.
-```
-docker build -t MyServer:0.0.1 -f Dockerfile .
-```
-
 ---
 
-- Option 2: Build two docker, one for the web server and other server + files
+- Option 2: Build two docker, to take profit of docker hierarchy
 
-Generate a Dockerfile only to nginx server
+  - Dockerfile for myNginx. Could be used for any other web service.
 ```
 FROM docker.io/alpine:3.5 		# Dockers hierarchy. Where it comes from.
 
 RUN apk add --update bash libressl nginx && \
-    rm -rf /var/cache/apk/* 	# We install nginx and some basic packages, and remove packages cache.
+    rm -rf /var/cache/apk/* 	# Install nginx and some basic packages, and remove packages cache.
 
-EXPOSE 80		# We expose the service by a network port
+EXPOSE 80		                  # Expose the service by a network port
 
 # App is executed in foreground, to retain the docker started. The docker will be stoped once the primary command 
 # will close its stdin, may because it’s executed as daemon, may be because it finish the execution.
@@ -168,57 +217,100 @@ EXPOSE 80		# We expose the service by a network port
 ENTRYPOINT ["nginx", "-g", "daemon off;”]	# Default command to execute when we run the docker: $ENTRYPOINT + $CMD
 ```
 
-Build: Generate a unique, portable and reproducible version, web server. (reusable by other services)
+---
+
+  - Dockerfile for myServer
+
 ```
-docker build -t MyNginx:0.0.1 -f Dockerfile .
+FROM <MY_DOCKERHUB_USER>/myNginx:<VERSION>  # Dockers hierarchy. Comes from myNginx
+
+ADD <html_files> /var/www/html  # Copy files into the image
 ```
 
 ---
 
-Publish:
-Docker push will publish your docker version into a docker registry.
+- Build and tag the docker images. Generate a unique, portable and reproducible version.
+  - Option 1
 ```
-docker push MyNginx:0.0.1
-```
-
-Generate a Dockerfile from our nginx server and copy files
-```
-FROM MyNginx:0.0.1 			# Dockers hierarchy. Where it comes from.
-
-ADD <html_files> /var/www/html 	# We copy files into the image
+docker build -t <MY_DOCKERHUB_USER>/myServer:<VERSION> -f Dockerfile-myServer1 .
 ```
 
-Build: Generate a unique, portable and reproducible version, web server + files.
+  - Option 2: You should build and publish myNginx image before.
 ```
-docker build -t MyServer:0.0.1 -f Dockerfile .
-```
-
-Publish: Publish your docker version into a docker registry.
-```
-docker push MyServer:0.0.1
+docker build -t <MY_DOCKERHUB_USER>/myNginx:<VERSION> -f Dockerfile-myNginx .
+docker login -u <MY_DOCKERHUB_USER> -p <MY_DOCKERHUB_PASS>
+docker push <MY_DOCKERHUB_USER>/myNginx:<VERSION>
+docker build -t <MY_DOCKERHUB_USER>/myServer:<VERSION> -f Dockerfile-myServer2 .
 ```
 
-Execute: Launch an instace of the docker and expose the service.
+---
+
+- Login to docker hub with your user/pass if needed.
+
 ```
-docker run -td MyServer:0.0.1 
+docker login -u <MY_DOCKERHUB_USER> -p <MY_DOCKERHUB_PASS>
 ```
-Making it nice: Set an alias in user computer and he could launch his server.
+
+- Push the image to a docker registry to make it available.
+
 ```
-alias MyServer='docker run -td MyServer:0.0.1'
+docker push <MY_DOCKERHUB_USER>/myServer:<VERSION>
+```
+
+---
+
+- Launch an instace of our dockerized web server.
+```
+docker run -td <MY_DOCKERHUB_USER>/myServer:<VERSION>
+```
+
+- Making it nicer: Set an alias in user computer and he/she could launch his local server.
+```
+alias MyServer='docker run -td <MY_DOCKERHUB_USER>/myServer:<VERSION>'
 
 MyServer 
 ```
 
 ---
 
-#### Practices
+### Practices
 
-- JVM
-Create a docker with jvm to be a base of our microservices execution.
+---
 
-- JDK + maven
-Create a docker with jdk and maven to be a base of our microservices compilation.
+#### HMS docker hierarchy proposition for the workshop
 
+<img src="day1/containers/slides/images/containers.jpg", style="height:40vh; background-color:white; float:center;"/>
+
+---
+
+- JRE8
+
+Based on hms-base, create a docker with oracle jre8 installed to be the ari service execution.
+
+- Maven
+
+Based on hms-jdk8, create a docker with maven to be to be the ari service builder.
+
+---
+
+### References
+
+---
+
+#### Web
+- Official Documentation - https://docs.docker.com/
+- Docker 101 Tutorial - https://blog.docker.com/tag/docker-101/
+- Official Docker Training - https://training.docker.com/
+- Microservices architecture : http://microservices.io/index.html
+- An introduction to microservices : https://opensource.com/resources/what-are-microservices
+- Neal Ford slices: http://nealford.com/abstracts.html
+
+---
+
+#### Books
+- Docker:  Up & Running - Karl Matthias y Sean P.Kane (O’Reilly)
+- Docker in Action - Jeff Nickolofff (Manning)
+- Building microservices - Sam Newman (O’Reilly)
 
 
 
