@@ -63,7 +63,7 @@ You need a mature operations team to manage lots of services, which are being re
 
 Don't even consider microservices unless you have a system that's too complex to manage as a monolith
 
-![](./images/microservices.productivity.png)
+<img src="day2/microservices/slides/images/microservices.productivity.png", style="width:700; height:auto; background-color:white; float:center;"/>
 
 ---
 
