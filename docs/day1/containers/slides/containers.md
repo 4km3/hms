@@ -19,13 +19,11 @@ A container is an isolated and limited context, that contain an app and all its 
 
 ---
 
----
-
 ####  Container runtime
 Principal container runtime in the market:
 
 <img src="day1/containers/slides/images/containers.jpg", style="height:40vh; background-color:white; float:center;"/>
- 
+
 ---
 
 ### Docker
@@ -160,6 +158,7 @@ docker run -it --rm <MY_DOCKERHUB_USER>/curlApp:<VERSION> -L www.google.com
 ```
 
 - Making it nicer: Set an alias in the user computer and he/she could launch regular curl.
+
 ```
 alias curl='docker run -it --rm <MY_DOCKERHUB_USER>/curlApp:<VERSION> '
 
@@ -203,6 +202,7 @@ ENTRYPOINT ["nginx", "-g", "daemon off;”]	# Default command to execute when we
 - Option 2: Build two docker, to take profit of docker hierarchy
 
   - Dockerfile for myNginx. Could be used for any other web service.
+
 ```
 FROM docker.io/alpine:3.5 		# Dockers hierarchy. Where it comes from.
 
@@ -231,6 +231,7 @@ ADD <html_files> /var/www/html  # Copy files into the image
 
 - Build and tag the docker images. Generate a unique, portable and reproducible version.
   - Option 1
+
 ```
 docker build -t <MY_DOCKERHUB_USER>/myServer:<VERSION> -f Dockerfile-myServer1 .
 ```
@@ -260,11 +261,13 @@ docker push <MY_DOCKERHUB_USER>/myServer:<VERSION>
 ---
 
 - Launch an instace of our dockerized web server.
+
 ```
 docker run -td <MY_DOCKERHUB_USER>/myServer:<VERSION>
 ```
 
 - Making it nicer: Set an alias in user computer and he/she could launch his local server.
+
 ```
 alias MyServer='docker run -td <MY_DOCKERHUB_USER>/myServer:<VERSION>'
 
@@ -279,7 +282,7 @@ MyServer
 
 #### HMS docker hierarchy proposition for the workshop
 
-<img src="day1/containers/slides/images/containers.jpg", style="height:40vh; background-color:white; float:center;"/>
+<img src="day1/containers/slides/images/hms-hierarchy.jpg", style="height:40vh; background-color:white; float:center;"/>
 
 ---
 

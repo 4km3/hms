@@ -111,6 +111,12 @@ Principal service management in the market:
 
 ---
 
+#### Overvie
+
+<img src="day2/Containers_Platform/slides/images/rancher-overview.jpg", style="height:40vh; background-color:white; float:center;"/>
+
+---
+
 #### Platform Schema
 Manage multiple isolated environments
 <img src="day2/Containers_Platform/slides/images/platform.jpg", style="height:40vh; background-color:white; float:center;"/>
@@ -197,6 +203,8 @@ LoadBalancer: Service that provides and manage the acces to the services. The ac
 
 Create a hms service and access slides to view the concept.
 
+UI and rancher CLI command line
+
 ---
 
 docker-compose.yml
@@ -261,6 +269,13 @@ services:
 ```
 
 ---
+
+#### Rancher CLI
+
+```
+rancher up -d -u -s HMS   # Upgrade HMS stack
+rancher up -d -c -s HMS   # Confirm HMS upgrade
+```
 
 ### Exercise 1
 

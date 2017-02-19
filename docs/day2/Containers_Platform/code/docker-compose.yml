@@ -1,0 +1,17 @@
+version: '2'
+services:
+  web:
+    image: rawmind/hms
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+  lb:
+    image: rancher/lb-service-haproxy:v0.4.9
+    links:
+    - web:web
+    ports:
+    - 8080:8080/tcp
+    labels:
+      io.rancher.container.agent.role: environmentAdmin
+      io.rancher.container.create_agent: 'true'
