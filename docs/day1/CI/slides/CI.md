@@ -1,11 +1,10 @@
-## Continuous Integration
+### Continuous Integration
 
-### Brief introduction
-
-- CI is the discipline of integrating software construction in a developer team
+- CI is the discipline of integrating software construction within a developer team
 - Traditional code development involves multiple manual steps which might introduce new bugs
-- CI enables safer pipelines by allowing developer to catch bugs early on development cycle
-- CI enables faster pipelines by automating the process
+- CI enables:
+	- Safer pipelines by allowing developer to catch bugs early on development cycle
+	- Faster pipelines by automating the process
 - CI ensures that the code can be rolled into production anytime
 
 ---
@@ -55,25 +54,22 @@
 
 ---
 
-## Exercise 1
+## Practice
 
-- Automate the integration of the code available in your repo inside docs/day1/CI/code/
-- For that purpose, we will use Jenkins as our CI tool deployed inside your Rancher
-- This Jenkins instance will check over your GitHub repo and then run the tests included in the code
+
+- Automate the integration of the code available in your forked repo from hms-code
+- For that purpose, we will use Jenkins as our CI tool
+- Jenkins will check over your GitHub repo and then run the tests included in the code
 - After the tests have been run it will show the tests tendency graphs and provide the resulting artifacts
 
 ---
 
 ## Step 1
 
-- Configure Jenkins
-	- Install plugins for this task (cobertura, violations, junit)
-	- Setup Jenkins to install maven as mvn in Global Tool Configuration
-
 - Configure GitHub Service
 	- Inside your repo settings, 'Integrations & Services' block, select 'Add Service'
 	- Search for Jenkins, and select 'Jenkins (Git Plugin)'
-	- Fill in your specific Jenkins URL (http://IP:port)
+	- Fill in your specific Jenkins URL (http://jenkins.hms.rawmind.net/)
 
 ---
 
