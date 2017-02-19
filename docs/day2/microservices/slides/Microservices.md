@@ -138,50 +138,85 @@ Within each Bounded Context, you will have a coherent dialect of the Ubiquitous 
 
 ```
 
+In the Ari code detect with are the bounded context.
 
 ```
 
 ---
 
-### Why split the monolith?
+### Conway law
 
-* Performance
+Any organization that designs a system (defined broadly) will produce a design
+whose structure is a copy of the organization's communication structure.
 
-#### Conway law
-
-Take care of the organization
-
----
-
-### Strategies to split a monolith?
+-- Melvyn Conway, 1967
 
 ---
 
-### Practice 2 (30')
+### Practice 2.
 
-Split the monolith. Using the code in the previous exercises split our monolith in
-microservices.
+Split the monolith. Create a microservice for any of the bounded context detect in the previous practice.
+
+* Detect in which points
+
+* Create move the new acceptance test to the other service.(Don't touch the code when touch the tests).
+* Create libraries with the technical duplicated code.
 
 ---
 
 ### Lessons learned
+
+---
 
 * Start small
   * Don't create as many microservices as you can.
   * Start with small team with the correct culture.
   * Don't use all the existing databases.
   * Don't use all the existing programming languages.
+
 ---
 
-* Take care about the architecture
-  *
-  * If
-* Remember Conway Law
-*
+* Without ATDD is evolutionary architecture is very difficult.
+* Automate everything.
+* Embrace continuous delivery.
+* Log and monitoring are key concepts in a microservices world.
+
+---
+
+* Reflect on which is the core domain/s of you problem.
+* Center your effort in the core domain, use existing tools for secondary domains.
+* Don't reinvent the wheel
+
+---
+
+* Take care about overall the architecture
+  * Which is the protocols between microservices?.
+  * Don't share databases.
+
+---
+
+* Distributed systems are hard.
+* Thing about CAP theorem.
+  * Network partitions are inevitable.
+  * Slow responses in systems is the same of a network partition.
+* Use:
+  * Circuit breakers.
+  * Bulkheads.
+  * Time outs.
+
+---
+
+* Remember Conway!
+
+---
+
+* Seriously remember Conway!
 
 ---
 
 ### References
+
+---
 
 ### Books
 
@@ -200,6 +235,7 @@ microservices.
 * https://martinfowler.com/articles/microservice-trade-offs.html
 * https://martinfowler.com/articles/microservice-testing/
 * https://martinfowler.com/bliki/MicroservicePremium.html
+* https://github.com/heynickc/awesome-ddd
 
 ---
 

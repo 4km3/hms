@@ -1,5 +1,7 @@
 ### Antifragile
 
+Or how complex systems behave when is exposed to the randomness.
+
 ---
 
 ### Randomness
