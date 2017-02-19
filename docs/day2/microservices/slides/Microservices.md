@@ -74,6 +74,8 @@ Don't even consider microservices unless you have a system that's too complex to
 * All the related behavior is grouped together inside of the same microservice.
 * When change occurs we want to be able to change it in one place.
 
+---
+
 #### Low coupling
 
 * A change to one service should not require a change to another.
