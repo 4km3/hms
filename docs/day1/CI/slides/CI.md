@@ -3,19 +3,22 @@
 - CI is the discipline of integrating software construction within a developer team
 - Traditional code development involves multiple manual steps which might introduce new bugs
 - CI enables:
-	- Safer pipelines by allowing developer to catch bugs early on development cycle
-	- Faster pipelines by automating the process
-- CI ensures that the code can be rolled into production anytime
+	- Safer pipelines 
+	- Faster pipelines
+- CI also ensures that the code can be rolled into production anytime
 
 ---
 
 ### Safer Pipelines
 
 - CI allows to detect:
-	- Bugs in the commited code
+	- Bugs in the commited code early on the development cycle
 	- Issues when integrating with other developers' code
 
-- The integration process must be frequent, or you risk trouble when merging developers' code
+- The integration process must be frequent, at least daily
+- Safety depends on the test suite in use
+- Enables visual feedback on the build status
+- Test environment must be as close as possible as the one in production
 
 ---
 
@@ -23,6 +26,9 @@
 
 - Automation in the process makes it seamless
 - Also eliminates the human-induced bugs
+- Faster Pipelines, not necessarily equal to faser builds
+- Every minute counts, so please try to speed up build time
+- The automated build should include every needed step, not shortcuts
 
 ---
 
@@ -90,3 +96,11 @@
 
 - Now try make some changes to your repo locally and then uploading them to your repo.
 - Check what happens in your Jenkins web view
+
+---
+
+### References
+
+### Links
+
+- https://www.martinfowler.com/articles/continuousIntegration.html
