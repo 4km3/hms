@@ -138,7 +138,7 @@ Within each Bounded Context, you will have a coherent dialect of the Ubiquitous 
 
 ```
 
-In the Ari code detect with are the bounded context.
+In the Ari code detect which are the bounded contexts.
 
 ```
 
@@ -157,10 +157,34 @@ whose structure is a copy of the organization's communication structure.
 
 Split the monolith. Create a microservice for any of the bounded context detect in the previous practice.
 
-* Detect in which points
+---
+
+* Detect in which points one bounded context call to the other bounded context.
+* Create other empty module for the new microservice.
+
+---
+
+* Move the code of the first point in the new module.
+  * Copy all code as you need to the new module and make the code compiles. (Duplicate all code as you need).
+* The contract to the other bounded context don't change in this first step.
+* Implement in the monolith the call to the new module.
+  * Define the kind of communication Rest/Messages.
+  * Implements a new unit test.
+  * Create the protocol.
+* Implements the API in the new module.
+  * Connect the functionality with the old code.
+* Pass the acceptance tests.
+
+---
+
+* Repeat the process for any shared point.
+
+---
 
 * Create move the new acceptance test to the other service.(Don't touch the code when touch the tests).
-* Create libraries with the technical duplicated code.
+* Extract libraries with the technical duplicated code.
+* Defined contract testing between tests.
+* Create a new independent pipeline
 
 ---
 

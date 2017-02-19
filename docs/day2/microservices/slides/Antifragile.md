@@ -6,7 +6,7 @@ Or how complex systems behave when is exposed to the randomness.
 
 ### Randomness
 
-Uncertainty, variability, imperfect, incomplete knowledge, change, chaos,
+Uncertainty, variability, imperfect or incomplete knowledge, change, chaos,
 disorder, entropy, time, the unknown, stressor, error, volatility.
 
 ---
