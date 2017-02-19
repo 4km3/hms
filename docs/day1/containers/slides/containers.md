@@ -305,20 +305,36 @@ curl http://localhost:8080
 
 ---
 
-#### HMS docker hierarchy proposition for the workshop
+#### HMS docker hierarchy proposed for the workshop
 
 <img src="day1/containers/slides/images/hms-hierarchy.jpg", style="width:auto; height:500; background-color:white; float:center;"/>
 
 ---
 
 <!-- .slide: style="text-align: left;"> --> 
-- JRE8
+JRE8
 
-Based on hms-base, create a docker with oracle jre8 installed to be the ari service execution.
+- Based on rawmind/hms-base https://hub.docker.com/r/rawmind/hms-base/, build and publish a docker with oracle jre8 installed.
+- It will be the execution base for ari service.
 
-- Maven
+Maven
 
-Based on hms-jdk8, create a docker with maven to be to be the ari service builder.
+- Based on rawmind/hms-jdk8 https://hub.docker.com/r/rawmind/hms-jdk8, build and publish a docker with maven.
+- It will be the builder base, to compile and unitary test for ari service.
+
+---
+
+#### Solutions
+
+- JRE8 
+  - Generate a Dockerfile that downloads and install oracle jre8
+  - Build and publish the docker.
+  - https://github.com/rawmind0/hms-jre8
+
+- MAVEN
+  - Generate a Dockerfile that downloads and install maven.
+  - Build and publish the docker.
+  - https://github.com/rawmind0/hms-maven
 
 ---
 
