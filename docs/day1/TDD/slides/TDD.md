@@ -149,7 +149,7 @@ Add new test to existing method.
 
 * Open other terminal console
 * Execute:
-  * cd yourProjectDirectory/docs/day1/TDD/code
+  * cd yourProjectDirectory/tdd (in the tdd branch)
   * mvn clean test
 
 ---
@@ -175,7 +175,7 @@ Tests run: 63, Failures: 0, Errors: 0, Skipped: 1
 
 * In your IDE
   * Open the java test class.
-  * yourProjectDirectory/docs/day1/TDD/code/src/test/java/io/ari/customers/domain/factories/CustomersFactoryTest.java
+  * yourProjectDirectory/tdd/src/test/java/io/ari/customers/domain/factories/CustomersFactoryTest.java (in the tdd branch)
 
 ---
 
