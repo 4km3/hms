@@ -1,6 +1,6 @@
 ### Continuous Integration
 
-- CI is the discipline of integrating software construction within a developer team
+- CI is the discipline of integrating software construction within a development team
 - Traditional code development involves multiple manual steps which might introduce new bugs
 - CI enables:
 	- Safer pipelines
@@ -14,7 +14,7 @@
 - CI allows to detect:
 	- Bugs in the commited code early on the development cycle
 	- Issues when integrating with other developers' code
-- The integration process must be frequent, at least daily
+- The integration process must be frequent, potentially tens of times a day
 - Safety depends on the test suite in use
 - Enables visual feedback on the build status
 - Test environment must be as close as possible to production
@@ -25,7 +25,7 @@
 
 - Automation in the process makes it seamless
 - Also eliminates the human-induced bugs
-- Faster Pipelines, not necessarily equal to faser builds
+- Faster Pipelines, not necessarily equal to faster builds
 - Every minute counts, so please try to speed up build time
 - The automated build should include every needed step, not shortcuts
 
