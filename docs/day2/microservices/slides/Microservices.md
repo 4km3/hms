@@ -174,6 +174,10 @@ Performance.
 
 ---
 
+Patterns of use. (CQRS)
+
+---
+
 ### Practice 2.
 
 Split the monolith. Create a microservice for any of the bounded context detect in the previous practice.
