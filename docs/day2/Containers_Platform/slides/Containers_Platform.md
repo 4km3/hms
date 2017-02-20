@@ -107,10 +107,10 @@ Functionality is the most important...
 ### Rancher platform
 
 - Rancher is an opensource containers platform, designed to be open and avoid vendor locks. 
-- It provides a unified platform to manage from hosts (multicloud) to microservices. 
+- It provides a unified platform from hosts to microservices. 
 - It's a multi environment platform.
 - It provides and manages principal market scheduler/orchestrator.
-- It provides a full API and CLI to facilitate the automation and the integration with other pieces. 
+- It provides a full API and CLI to automate and integrate with other pieces. 
 - It provides some useful services as user auth, registry management, ssl certs management...
 - It could be run in a local vm or in a few cloud machines.
 
@@ -131,6 +131,19 @@ Manage multiple isolated environments
 #### Environment
 Environments by functionality
 <img src="day2/Containers_Platform/slides/images/rancher-environment.jpg", style="height:auto; width:900; background-color:white; float:center;"/>
+
+---
+
+#### Lifecycle environments
+DEV (Local vm)
+
+<img src="day2/Containers_Platform/slides/images/rancher-diagram.png", style="height:auto; width:900; background-color:white; float:center;"/>
+
+---
+
+PRO HA + Multicloud machines
+
+<img src="day2/Containers_Platform/slides/images/rancher-HA-diagram.png", style="height:auto; width:900; background-color:white; float:center;"/>
 
 ---
 
@@ -181,6 +194,8 @@ Full featured API
 <img src="day2/Containers_Platform/slides/images/rancher-api.jpg", style="height:auto; width:900; background-color:white; float:center;"/>
 
 ---
+
+
 
 #### Overview
 
