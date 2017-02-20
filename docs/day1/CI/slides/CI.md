@@ -107,6 +107,7 @@
 ---
 
 ## Step 3
+
 - Add a build step 'Execute shell' class
 - Fill it with this script
 
