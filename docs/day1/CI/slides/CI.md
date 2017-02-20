@@ -18,8 +18,8 @@
 - CI allows to detect:
 	- Bugs in the commited code early on the development cycle
 	- Issues when integrating with other developers' code
-- The integration process must be frequent, potentially tens of times a day
-- Safety depends on the test suite in use
+- Frequency of the integration process
+- Safety will be as good as the test suite
 - Enables visual feedback on the build status
 - Test environment must be as close as possible to production
 
