@@ -1,15 +1,30 @@
-### Continuous Integration
+### Continuous Integration (CI) crash course
 
 ---
 
 - CI is a practice that aims to prevent integration problems, aka “integration hell”
+
+---
+
 - In order to build but the most trivial pieces of software, multiple steps are often required
+
+---
+
 - These steps, collectively, can be understood as “build pipelines”
+
+---
+
 - CI techniques allows these build pipelines to be fully automated
 	- Automation reduces the build time
 	- Also minimizes the chance of human error
-- TDD is essential, otherwise essential feedback won't be availablee (did it fail? did it not? I'll ask my dog, then)
-- A consecuence of CI is that the code can be rolled into production with little extra effort
+
+---
+
+- self-testing code is essential, otherwise feedback won't be available (did it fail? did it not? I'll ask my dog, then)
+
+---
+
+- A consecuence of CI is that the code can be rolled into production with little extra effort.  We'll talk tomorrow about this.
 
 ---
 
@@ -18,7 +33,7 @@
 - CI allows to detect:
 	- Bugs in the commited code early on the development cycle
 	- Issues when integrating with other developers' code
-- Frequency of the integration process
+- Frequent commits to Mainline
 - Safety will be as good as the test suite
 - Enables visual feedback on the build status
 - Test environment must be as close as possible to production
@@ -35,12 +50,12 @@
 
 ---
 
-### Process Overview
+### Process Overview (server side)
 
-- Developers commit source code to a SCM
+- Developers commit source code to an SCM
 - A CI tool checks out the changes uploaded to the SCM
 - It then runs a batch of tests over the new code
-- If all tests are passed, the artifacts are versioned and stored
+- If all tests are passed, the artifacts produced are then versioned and made available
 - The feedback of the build process is made available to the developers
 
 ---
@@ -64,7 +79,6 @@
 ---
 
 ## Practice
-
 
 - Automate the integration of the code available in your forked repo from hms-code
 - For that purpose, we will use Jenkins as our CI tool
@@ -108,3 +122,6 @@
 
 - https://en.wikipedia.org/wiki/Continuous_integration
 - https://www.martinfowler.com/articles/continuousIntegration.html
+- https://jenkins.io/
+- https://travis-ci.org/
+- http://concourse.ci/
