@@ -90,28 +90,40 @@
 ## Step 1
 
 - Configure GitHub Service
-	- Inside your repo settings, 'Integrations & Services' block, select 'Add Service'
-	- Search for Jenkins, and select 'Jenkins (Git Plugin)'
-	- Fill in your specific Jenkins URL (http://jenkins.hms.rawmind.net/)
+- Inside your repo settings, 'Integrations & Services' block, select 'Add Service'
+- Search for Jenkins, and select 'Jenkins (Git Plugin)'
+- Fill in your specific Jenkins URL (http://jenkins.hms.rawmind.net/)
 
 ---
 
 ## Step 2
 
 - Setup a new freestyle project
-	- Activate the github project option, pointing to your repo
-	- Activate Poll SCM with no further options
-	- Add a build step, class 'Invoke top-level Maven targets' with Maven version mvn and target verify
+- Activate the 'GitHub project' option in General section, pointing to your repo
+- In SCM, enable Git and fill in your repo URL, with Branches to build **/ci
+- Activate Poll SCM with no further options
+- Tick on 'Build Enviroment' > 'Delete workspace before build starts'
 
 ---
 
 ## Step 3
+- Add a build step 'Execute shell' class
+- Fill it with this script
+```
+cd ci
+/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/mvn/bin/mvn clean test package
+
+```
+
+---
+
+## Step 4
 
 - Add two postbuild actions:
-	- First 'Archive the artifacts' with value '**/target/*.jar'
-	- Second 'Publish JUnit test result report' with value '**/target/surefire-reports/TEST-*.xml'
+- First 'Archive the artifacts' with value '****/target/**.jar'
+- Second 'Publish JUnit test result report' with value '****/target/surefire-reports/TEST-**.xml'
 
-- Now try make some changes to your repo locally and then uploading them to your repo.
+- Now try make some changes to your repo locally and then pushing them to GitHub.
 - Check what happens in your Jenkins web view
 
 ---
