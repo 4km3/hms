@@ -107,6 +107,7 @@ description of examples to illustrate business rules in most real-world domains.
 
 * Open a terminal console.
 * Execute:
+  * echo '127.0.0.1 ari' | sudo tee -a /etc/hosts
   * cd yourProjectDirectory/atdd (in the atdd branch)
   * mvn clean package
   * java -jar target/ari-0.1.0.jar
