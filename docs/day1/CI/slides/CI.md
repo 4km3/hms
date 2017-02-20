@@ -44,9 +44,7 @@
 
 - Automation in the process makes it seamless
 - Also eliminates the human-induced bugs
-- Faster Pipelines, not necessarily equal to faster builds
-- Every minute counts, so please try to speed up build time
-- The automated build should include every needed step, not shortcuts
+- Fast pipelines require reasonably fast builds (10' is a good target)
 
 ---
 
@@ -64,8 +62,10 @@
 
 - Jenkins is an open source extensible automation server
 - Supports popular SCM tools 
-- Built around pipelines
+- Built around the concept of pipelines
 - Pipelines enable software lifecycle management
+- Its point & click interface is at odds with good CI principles
+- Developers recognized this and adopted a DSL based pipeline description system
 
 ---
 
