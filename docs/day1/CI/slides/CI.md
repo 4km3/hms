@@ -109,6 +109,7 @@
 ## Step 3
 - Add a build step 'Execute shell' class
 - Fill it with this script
+
 ```
 cd ci
 /var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/mvn/bin/mvn clean test package
