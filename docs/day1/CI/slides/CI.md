@@ -100,7 +100,7 @@
 
 - Setup a new freestyle project
 - Activate the 'GitHub project' option in General section, pointing to your repo
-- In SCM, enable Git and fill in your repo URL, with Branches to build **/ci
+- In SCM, enable Git and fill in your repo URL, with Branches to build \*/ci
 - Activate Poll SCM with no further options
 - Tick on 'Build Enviroment' > 'Delete workspace before build starts'
 
@@ -122,8 +122,8 @@ cd ci
 ## Step 4
 
 - Add two postbuild actions:
-- First 'Archive the artifacts' with value '****/target/**.jar'
-- Second 'Publish JUnit test result report' with value '****/target/surefire-reports/TEST-**.xml'
+- First 'Archive the artifacts' with value '\*\*/target/\*.jar'
+- Second 'Publish JUnit test result report' with value '\*\*/target/surefire-reports/TEST-\*.xml'
 
 - Now try make some changes to your repo locally and then pushing them to GitHub.
 - Check what happens in your Jenkins web view
