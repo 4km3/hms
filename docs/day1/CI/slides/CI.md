@@ -65,7 +65,7 @@
 - Built around the concept of pipelines
 - Pipelines enable software lifecycle management
 - Its point & click interface is at odds with good CI principles
-- Developers recognized this and adopted a DSL based pipeline description system
+- Jenkins developers recognized this and adopted a DSL based pipeline description system
 
 ---
 
