@@ -128,9 +128,9 @@ Designing the software from the outside inward implies that we think first about
 
 ---
 
-Prefer black box test over glass box tests
+* Prefer black box test over glass box tests
 
----    
+---
 
 ### Test doubles
 
