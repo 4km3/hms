@@ -325,6 +325,7 @@ Make some change in one of the services and upgrade the already deployed stack/s
 - Cloud Native Landscape - https://github.com/cncf/landscape
 - Rancher Site - http://rancher.com/
 - Rancher Documentation - https://docs.rancher.com/rancher/v1.4/en/
+- Try Rancher - https://try.rancher.com
 
 ---
 
