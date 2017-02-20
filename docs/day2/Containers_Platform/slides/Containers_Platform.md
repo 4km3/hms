@@ -1,6 +1,5 @@
-## Containers platform (2:30h)
+## Containers platform 
 - Intro and presentation 
-- Market offering
 - Rancher platform
 - Practices
 
@@ -21,12 +20,6 @@ Principal components
 - Storage: Storage service to be able to share and persist the services data.
 - Service discovery: Information about what and where services are running in the system.
 - Service management: Manage access to the services in a HA and load balance scenarios.
-
----
-
-Functionality is the most important...
-<img src="https://raw.githubusercontent.com/cncf/landscape/master/landscape/CloudNativeLandscape_v0.9.3.jpg", style="height:600; width:auto; background-color:white; float:center;"/>
-
 
 ---
 
@@ -106,6 +99,11 @@ Principal service management in the market
 
 ---
 
+Functionality is the most important...
+<img src="https://raw.githubusercontent.com/cncf/landscape/master/landscape/CloudNativeLandscape_v0.9.3.jpg", style="height:600; width:auto; background-color:white; float:center;"/>
+
+---
+
 ### Rancher platform
 
 - Rancher is an opensource containers platform, designed to be open and avoid vendor locks. 
@@ -114,6 +112,7 @@ Principal service management in the market
 - It provides and manages principal market scheduler/orchestrator.
 - It provides a full API and CLI to facilitate the automation and the integration with other pieces. 
 - It provides some useful services as user auth, registry management, ssl certs management...
+- It could be run in a local vm or in a few cloud machines.
 
 ---
 
@@ -200,8 +199,8 @@ Full featured API
 - Every service is independent in terms of deployment or scale.
 - Definition by standard docker-compose.yml and rancher-compose.yml. 
 - External services could be added. 
-- Built in LoadBalancers (haproxy).
-- LoadBalancer could work on layer 4 or on layer 7.
+- Built in LoadBalancers (haproxy) on layer 4 or on layer 7.
+- Every service add a dns entry like <service>.<stack>.rancher.internal
 
 ---
 
