@@ -74,7 +74,7 @@
 - Supports ant, maven, gradle for building automation
 - Unit and acceptance testing are supported 
 - Jenkins supports developer notifications via e-mail, info radiator, etc
-- Jenkins has plugin support to extend its capabilities
+- Jenkins supports plugins to extend its capabilities
 
 ---
 
