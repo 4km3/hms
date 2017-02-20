@@ -42,31 +42,31 @@ microservices safely in production.
 
 ### First day (Fundamentals 6h) (I)
 
-* Microservices 101 (15') 10:00 - 10:15
-* ATDD (60')  10:15 - 11:15
+* Microservices 101 (15') 10:15 - 11:15
 * **Break (15') 11:15 - 11:30**
-* TDD (60')   11:30 - 12:30
+* ATDD (60')  11:30 - 12:30
 * **Lunch (60') 12:30 - 13:30**
 
 ---
 
 ### First day (Fundamentals 6h) (II)
 
-* Containers (60') 13:30 - 14:30
+* TDD (60')   13:30 - 14:30
+* Containers (60') 14:30 - 15:30
   * Containers vs VM's (20')
+* **Break (15')  14:50 - 15:05**
   * Docker (40')
-* **Break (15')  14:30 - 14:45**
-* Continuous Integration (75') 14:45-16:00
 
 ---
 
 ### Second day (Microservices 6h) (I)
 
-* Microservices (2:30h) 10:00 - 12:30
+* Continuous Integration (75') 10:00-11:00
+* Microservices (2:30h) 11:00 - 12:30
   * Antifragile (15')
   * Evolutionary Architecture (15')
-  * Microservices I (30')
   * **Break (15')**
+  * Microservices I (30')
   *  Microservices II (75')
 * **Lunch 12:30 - 13:30**
 
