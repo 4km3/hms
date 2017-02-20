@@ -1,11 +1,15 @@
 ### Continuous Integration
 
-- CI is the discipline of integrating software construction within a development team
-- Traditional code development involves multiple manual steps which might introduce new bugs
-- CI enables:
-	- Safer pipelines
-	- Faster pipelines
-- CI also ensures that the code can be rolled into production anytime
+---
+
+- CI is a practice that aims to prevent integration problems, aka “integration hell”
+- In order to build but the most trivial pieces of software, multiple steps are often required
+- These steps, collectively, can be understood as “build pipelines”
+- CI techniques allows these build pipelines to be fully automated
+	- Automation reduces the build time
+	- Also minimizes the chance of human error
+- TDD is essential, otherwise essential feedback won't be availablee (did it fail? did it not? I'll ask my dog, then)
+- A consecuence of CI is that the code can be rolled into production with little extra effort
 
 ---
 
@@ -36,7 +40,7 @@
 - Developers commit source code to a SCM
 - A CI tool checks out the changes uploaded to the SCM
 - It then runs a batch of tests over the new code
-- If all tests are passed, the artifacts are stored
+- If all tests are passed, the artifacts are versioned and stored
 - The feedback of the build process is made available to the developers
 
 ---
@@ -102,4 +106,5 @@
 
 ### Links
 
+- https://en.wikipedia.org/wiki/Continuous_integration
 - https://www.martinfowler.com/articles/continuousIntegration.html
