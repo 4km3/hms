@@ -150,6 +150,29 @@ whose structure is a copy of the organization's communication structure.
 
 ---
 
+### The Reasons to Split the Monolith
+
+---
+
+Pace of Change.
+
+---
+
+Team Structure.
+
+---
+
+Security.
+---
+
+Technology requirements.
+
+---
+
+Performance.
+
+---
+
 ### Practice 2.
 
 Split the monolith. Create a microservice for any of the bounded context detect in the previous practice.
