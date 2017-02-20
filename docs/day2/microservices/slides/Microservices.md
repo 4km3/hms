@@ -6,10 +6,16 @@ Microservices are small, autonomous services that work together.
 
 #### Small, and Focused on Doing One Thing Well
 
-* Cohesion—the drive to have related code grouped together—is an important concept when we think about microservices.
 * Single responsibility principle.
 * Fit in your head.
 * The smaller the service, the more you maximize the benefits and downsides of microservice architecture.
+
+---
+
+#### High cohesion
+
+* All the related behavior is grouped together inside of the same microservice.
+* When change occurs we want to be able to change it in one place.
 
 ---
 
@@ -19,6 +25,15 @@ Microservices are small, autonomous services that work together.
 * All communication between the services themselves are via network calls.
 * The service exposes an application programming interface (API), and collaborating services communicate with us via those APIs.
 * The golden rule: can you make a change to a service and deploy it by itself without changing anything else.
+
+---
+
+#### Low coupling
+
+* A change to one service should not require a change to another.
+* A loosely coupled service knows as little as it needs to about the services with which it collaborates.
+* Chatty communication can lead to tight coupling.
+* A microservice can deploy in production independently.
 
 ---
 
@@ -64,24 +79,6 @@ You need a mature operations team to manage lots of services, which are being re
 Don't even consider microservices unless you have a system that's too complex to manage as a monolith
 
 <img src="day2/microservices/slides/images/microservices.productivity.png", style="width:700; height:auto; background-color:white; float:center;"/>
-
----
-
-### Microservice charateristics
-
-#### High cohesion
-
-* All the related behavior is grouped together inside of the same microservice.
-* When change occurs we want to be able to change it in one place.
-
----
-
-#### Low coupling
-
-* A change to one service should not require a change to another.
-* A loosely coupled service knows as little as it needs to about the services with which it collaborates.
-* Chatty communication can lead to tight coupling.
-* A microservice can deploy in production independently.
 
 ---
 
