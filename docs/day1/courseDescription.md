@@ -42,39 +42,39 @@ microservices safely in production.
 
 ### First day (Fundamentals 6h) (I)
 
-* Microservices 101 (15') 10:15 - 11:15
-* **Break (15') 11:15 - 11:30**
-* ATDD (60')  11:30 - 12:30
-* **Lunch (60') 12:30 - 13:30**
+* Microservices 101 10:00 - 11:15
+* **Break 11:15 - 11:30**
+* ATDD 11:30 - 12:30
+* **Lunch 12:30 - 13:30**
 
 ---
 
 ### First day (Fundamentals 6h) (II)
 
-* TDD (60')   13:30 - 14:30
-* Containers (60') 14:30 - 15:30
-  * Containers vs VM's (20')
-* **Break (15')  14:50 - 15:05**
-  * Docker (40')
+* TDD    13:30 - 14:45
+* **Break 14:45 - 15:00**
+* Containers 15:00 - 16:00
+  * Containers vs VM's
+  * Docker
 
 ---
 
 ### Second day (Microservices 6h) (I)
 
-* Continuous Integration (75') 10:00-11:00
-* Microservices (2:30h) 11:00 - 12:30
-  * Antifragile (15')
-  * Evolutionary Architecture (15')
-  * **Break (15')**
-  * Microservices I (30')
-  *  Microservices II (75')
-* **Lunch 12:30 - 13:30**
+* Continuous Integration 10:00-11:00
+* Microservices 11:00 - 13:00
+  * Antifragile
+  * Evolutionary Architecture
+  * Microservices I
+  * **Break 11:50 - 12:05**
+  *  Microservices II
+* **Lunch 13:00 - 14:00**
 
 ---
 
 ### Second day (Microservices 6h) (II)
 
-* Containers platform (2:30h) 13:30 - 16:00
+* Containers platform 14:00 - 16:00
   * Intro and presentation 
   * Market offering
   * Rancher platform
@@ -84,9 +84,9 @@ microservices safely in production.
 
 ### Third day (Operation) (6h)
 
-* Continuous Deployment (2:30h) 10:30 - 13:00
+* Continuous Deployment 10:30 - 13:00
   * Introduction
   * Concepts
   * Practice
 * **Lunch 13:00 - 14:00**
-* Office hours, doubts and questions (1:30h) 14:00 - 16:30
+* Office hours, doubts and questions 14:00 - 16:30
