@@ -52,7 +52,7 @@ A user story describes functionality that will be valuable to either a user or p
 #### Find the user stories in the code
 
 * Open the code in your IDE.
-  * Browse to yourProjectDirectory/docs/day1/ATDD/code/acceptance-test/src/test/resources/features/customers.
+  * Browse to yourProjectDirectory/atdd/acceptance-test/src/test/resources/features/customers (in the atdd branch)
   * Open createCustomer.feature.
 
 ---
@@ -107,7 +107,7 @@ description of examples to illustrate business rules in most real-world domains.
 
 * Open a terminal console.
 * Execute:
-  * cd yourProjectDirectory/docs/day1/ATDD/code
+  * cd yourProjectDirectory/atdd (in the atdd branch)
   * mvn clean package
   * java -jar target/ari-0.1.0.jar
 
@@ -127,7 +127,7 @@ description of examples to illustrate business rules in most real-world domains.
 
 * Open other terminal console
 * Execute:
-  * cd yourProjectDirectory/docs/day1/ATDD/code/acceptance-test
+  * cd yourProjectDirectory/atdd/acceptance-test (in the atdd branch)
   * mvn clean test
 
 ---
@@ -192,7 +192,7 @@ A scenario is a concrete example that illustrates a business rule. It consists o
 ### Add new scenario to existing feature
 
 * Open the code in your IDE.
-  * Browse to yourProjectDirectory/docs/day1/acceptance-test/src/test/resources/features/customers.
+  * Browse to yourProjectDirectory/atdd/acceptance-test/src/test/resources/features/customers (in the atdd branch)
   * Open createCustomer.feature.
   * Copy the scenario into createCustomer.feature
 
@@ -215,7 +215,7 @@ Scenario: Conflict when a customer exists with the given idCard
 
 * Open other terminal console
 * Execute:
-  * cd yourProjectDirectory/docs/day1/ATDD/code/acceptance-test
+  * cd yourProjectDirectory/atdd/acceptance-test (in the atdd branch)
   * mvn clean test
 
 ---
