@@ -111,7 +111,6 @@
 - Fill it with this script
 
 ```
-git checkout ci
 cd ci
 /var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/mvn/bin/mvn clean test package
 
