@@ -112,7 +112,8 @@
 
 ```
 cd ci
-/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/mvn/bin/mvn clean test package
+/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/mvn/bin/mvn \
+clean test package
 
 ```
 
