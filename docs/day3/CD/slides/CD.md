@@ -203,7 +203,52 @@ stage('hello-world') {
 
 ---
 
-Practice text
+### Practice: create a deployment pipeline
+
+---
+
+### Overview
+
+- We aim to put the microservices on hms-code/cd/\* in production (our Rancher platform)
+- Let's split this task in three stages:
+	- Stage #1: pass unit tests, build artifacts, upload it to GitHub
+	- Stage #2: pass acceptance tests, build containers, upload it to hub.docker.com
+	- Stage #3: get just published containers and deploy them in Rancher
+
+---
+
+# DON'T PANIC!
+
+- Our gerbils have been working hard and all the Dockerfiles are available in case you get lost
+
+---
+
+### Stage #1
+
+- Create a Dockerfile with these steps:
+	- Check out your code (parameterized)
+	- Check that the unit tests are passed
+	- Build the artifact
+	- Upload the artifact to GitHub
+
+---
+
+### Stage #2
+
+- Create a Dockerfile with these steps:
+	- Check out your code (parameterized)
+	- Get the artifact stored on GitHub
+	- Check that the acceptance tests are passed
+	- Build the container
+	- Upload the container to hub.docker.com
+
+---
+
+### Stage #3
+
+- Create a Dockerfile with these steps:
+	- Check out your code (parameterized)
+	- Leverage rancher-cli to deploy container in Rancher
 
 ---
 
