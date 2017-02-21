@@ -1,12 +1,19 @@
-## Continuous Deployment
+### Continuous Deployment
+
+---
 
 ### A brief history
 
 - SCM-only systems were already in use 30 years ago
-- CI comes from an age where DevOps did not exist
-- It is born from the Agile Manifesto
+- CI predates DevOps by many years
+- CI was born with the Agile Manifesto
 - CD = CI + collaboration between Dev and Ops
-- CD is the way to go in order to be able to scale
+
+---
+
+### Continuous Deployment
+
+- CD is the way to go in order to scale 
 - Continuous Delivery is CD without the last step, which requires manual approval
 
 ---
@@ -15,23 +22,54 @@
 
 - Continuous Integration: integrating, building, and testing code within the development environment
 - Continuous Delivery: being able to deploy at any time upon managers request
-- Continuous Deployment: automate deployment process so many deployments are made every day
+- Continuous Deployment: automate deployment process so that many deployments can be made every day
 
 ---
 
-### CD/CD
+### Continuous Deployment vs. Continuous Delivery
 
 - Continous Delivery means that you are able to do frequent deployments but may choose not to do it, usually due to businesses preferring a slower rate of development
-- Continuous Deployment means that every change goes through the pipeline and automatically gets put into production, resulting in many production deployments every day
-- The most desirable target is Continuous Deployment in part because a human cannot make thousands of deployments per day
+- Continuous Deployment means that every change goes through the pipeline and automatically gets into production, resulting in many production deployments every day
+	- You can leverage feature switches to control when a certain feature is *active*
+
+---
+
+### Blue-green deployment
+
+- Deploy a new cluster with the latest tested version of your software (blue)
+- Maintain the old cluster around (green)
+- Move the balancer to point to the new cluster (blue)
+- Pray
+
+---
+
+### Blue-green deployment
+
+- Problems?  Roll back is trivial, just move the balancer back to the other cluster (green)
+- After a safety time with no issues, free the old cluster (green)
+- Rinse, and repeat, this time deploy newest version onto the green cluster
+
+---
+
+### Blue-green deployment
+
+- Database schema changes should be separated from app upgrades
+
+---
+
+### Phoenix servers
+
+- Snowflakes are cute, but only when it's Christmas
+- Can you ssh into your server?  BANG!  This will come to bite ya in the arse
+- Unless the only agent that touches your servers is your CD system, the snowflake effect will grow over time
 
 ---
 
 ### CI/CD Tools
 
 - Service that monitors your code repository for changes
-- When one change is detected, it will compile and test your code
-- If something goes awry, it must notify you so measures can be adopted
+- When a change is detected, it will compile and test your code
+- If something goes awry, it will notify you so measures to fix it can be adopted
 - Aditionally it can monitor code quality and automate deployment process (CD)
 
 ---
@@ -41,6 +79,8 @@
 - Hudson/Jenkins
 - BuildBot
 - GitLab CI
+- Travis CI
+- GoCD
 - Concourse
 - Team Foundation Server
 
@@ -163,4 +203,24 @@ stage('hello-world') {
 
 ---
 
+Practice text
 
+---
+
+### Recap
+
+- The role of the CI/CD tool is to just trigger entrypoints (shell scripts)
+- These entrypoints encapsulate all the logic that the deployment pipeline needs
+- This minimal coupling will allow us to switch the CI/CD tool completely with ease
+- The description of the deployment pipeline is just code that is versioned along with the rest of the project
+- Since everything is under version control, every build is reproducible
+
+---
+
+### References
+
+- https://en.wikipedia.org/wiki/Continuous_delivery
+- https://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912
+- https://martinfowler.com/bliki/BlueGreenDeployment.html
+- https://martinfowler.com/bliki/PhoenixServer.html
+- https://www.thoughtworks.com/insights/blog/moving-to-phoenix-server-pattern-introduction
