@@ -63,11 +63,9 @@ microservices safely in production.
 
 * Continuous Integration 10:00-11:00
 * Microservices 11:00 - 13:00
-  * Antifragile
-  * Evolutionary Architecture
   * Microservices I
   * **Break 11:50 - 12:05**
-  *  Microservices II
+  * Microservices lesson learned
 * **Lunch 13:00 - 14:00**
 
 ---
