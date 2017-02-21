@@ -99,8 +99,7 @@
 ## Step 2
 
 - Setup a new freestyle project
-- Activate the 'GitHub project' option in General section, pointing to your repo
-- In SCM, enable Git and fill in your repo URL, with Branches to build \*/ci
+- In SCM, enable Git and fill in your repo URL
 - Activate Poll SCM with no further options
 - Tick on 'Build Enviroment' > 'Delete workspace before build starts'
 
@@ -112,6 +111,7 @@
 - Fill it with this script
 
 ```
+git checkout ci
 cd ci
 /var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/mvn/bin/mvn clean test package
 
