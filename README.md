@@ -26,3 +26,6 @@ docker run -td -p 8080:8080 rawmind/hms:<version>
 Just set the REVEAL_VERSION variable into the Dockerfile to the desired version and build the docker.
 
 [alpine-nginx]: https://github.com/rawmind0/alpine-nginx/
+
+## YouTube playlist with the course
+https://www.youtube.com/watch?v=H4BML1AKUsM&list=PLfAoTEAPazb4eJflljcW8_Ld2Eclx7hOh
